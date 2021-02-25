@@ -28,6 +28,14 @@
       color: #42b983;
     }
   }
+
+  .text-bold {
+    font-weight: bold;
+  }
+
+  .text-italic {
+    font-style: italic;
+  }
 }
 </style>
 <script>

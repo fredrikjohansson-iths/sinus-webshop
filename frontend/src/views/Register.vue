@@ -1,12 +1,12 @@
 <template>
-  <div><SignUpForm @submitted="newUser" /></div>
+  <div><RegisterForm @submitted="newUser" /></div>
 </template>
 
 <script>
 import axios from "axios";
-import SignUpForm from "/home/stig/git/sinus-webshop/frontend/src/components/SignUpForm.vue";
+import RegisterForm from "@/components/RegisterForm.vue";
 export default {
-  components: { SignUpForm },
+  components: { RegisterForm },
   methods: {
     newUser(userData) {
       axios

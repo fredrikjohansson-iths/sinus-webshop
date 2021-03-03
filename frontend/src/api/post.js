@@ -1,35 +1,29 @@
-import axios from 'axios'
+import axios from "axios";
 
 const BASE_URL = "http://localhost:5000/api/";
 
 const POST_URL_AUTH = `${BASE_URL}auth/`;
 
-
+const POST_ORDER = `${BASE_URL}orders`;
 
 const logIn = async (url, user) => {
+  try {
+    const response = await axios.post(url, user);
 
-    try {
+    const AUTH_TOKEN = response.data.token;
 
-        const response = await axios.post(url, user);
+    axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
 
-        const AUTH_TOKEN = response.data.token
+    return response.status;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-        axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+const makeOrder = async (url, order) => {
+  const response = await axios.post(url, order);
 
-        return response.status;
-            
-    }
-    
-    catch (error) {
-        console.log(error)
-    }
-}
+  return response;
+};
 
-
-    
-    
-
-
-export {
-    POST_URL_AUTH, logIn,
-}
+export { POST_URL_AUTH, POST_ORDER, logIn, makeOrder };

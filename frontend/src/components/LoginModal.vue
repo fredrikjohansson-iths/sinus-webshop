@@ -42,7 +42,7 @@ export default {
   },
 
   methods: {
-    authentication: async function () {
+    authentication: async function() {
       const userLogin = {
         email: this.userMail,
         password: this.userPassWord,

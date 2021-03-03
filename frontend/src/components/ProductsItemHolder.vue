@@ -2,12 +2,8 @@
   <div id="product">
     <section @click="change">
       <h3>{{ product.title }}</h3>
-      <p>price: {{ product.price }}</p>
-      <img
-        :src="getImgUrl(product.imgFile)"
-        alt="product image"
-        height="240px"
-      />
+      <p>Price: {{ product.price }}</p>
+      <img src="" alt="product image" height="240px" />
     </section>
     <section>
       <button @click="addToCart">Add to cart</button>
@@ -27,14 +23,16 @@ export default {
   },
   methods: {
     getImgUrl(pic) {
-      return require("../assets/" + pic);
+      return require(pic);
     },
+
     change() {
       this.$store.dispatch("changeProductModal", this.product._id);
 
       // this.$store.commit("changeProductModalStatus");
       // this.$store.commit("changeProductModalId", this.product._id);
     },
+
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
     },
@@ -48,5 +46,8 @@ export default {
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
+  width: 260px;
+  height: 400px;
 }
+// :src="getImgUrl(product.imgFile)"
 </style>

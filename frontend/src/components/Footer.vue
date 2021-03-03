@@ -10,7 +10,7 @@
 </div>
 <div class="router2">
 <router-link to="About-us">About Us</router-link></div>
-</div>
+
 <div class="router3"> 
 <router-link to="adminCRUD">Admin</router-link></div>
 </div>

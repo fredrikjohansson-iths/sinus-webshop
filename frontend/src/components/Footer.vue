@@ -10,9 +10,8 @@
 </div>
 <div class="router2">
 <router-link to="About-us">About Us</router-link></div>
-
 <div class="router3"> 
-<router-link to="adminCRUD">Admin</router-link></div>
+<router-link to="Admin">Admin</router-link></div>
 </div>
 
 </template>
@@ -51,12 +50,9 @@ export default {
    justify-self: flex-start;
   
 }
-.router {
-   justify-self: flex-end;
-  align-self: flex-end;
-}
 
-.router2 {
+
+.router2, .router, .router3 {
   justify-self: flex-end;
   align-self: flex-end;
 }

@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Our Products</router-link> |
+    <router-link to="/products">Our Products</router-link> |
     <router-link to="/MyAccount" v-if="userStatus">
       <span>ANVÄNDAREN INLOGGAD |</span>
     </router-link>

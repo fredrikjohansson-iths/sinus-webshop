@@ -1,64 +1,59 @@
 <template>
-<div class="footer">
-<!-- Logga -->
+  <div class="footer">
+    <!-- Logga -->
 
-
- <img alt="Sinus logo" src="../assets/sinus-logo.svg" class="logo"/>
-
- <!-- router -->
-  <div class="router"><router-link to="Customer-service">Customer Service</router-link>
-</div>
-<div class="router2">
-<router-link to="About-us">About Us</router-link></div>
-
-<div class="router3"> 
-<router-link to="Admin">Admin</router-link></div>
-</div>
-
+    <img alt="Sinus logo" src="../assets/sinus-logo.svg" class="logo" />
+    <div class="sm-logo"></div>
+    <img alt="Insta logo" src="../assets/insta.svg" class="logo" />
+    <img alt="Facebook logo" src="../assets/facebook.svg" class="logo" />
+    <img alt="Twitter logo" src="../assets/twitter.svg" class="logo" />
+    <!-- router -->
+    <div class="router">
+      <router-link to="Customer-service">Customer Service</router-link>
+    </div>
+    <div class="router2">
+      <router-link to="About-us">About Us</router-link>
+    </div>
+    <div class="router3">
+      <router-link to="Admin">Admin</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      
-    }
+    return {};
   },
-  methods: {
-    
-  },
-
-}
+  methods: {},
+};
 </script>
 
-<style>
+<style scoped>
 .footer {
-  position: fixed;
+  position: bottom;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: rgb(185, 180, 180);
-  color: red;
-  text-align:center; 
   height: 7rem;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   padding: 1rem;
 }
 
 .logo {
-   width: 25%; 
-   justify-self: flex-start;
-  
-}
-.router {
-   justify-self: flex-end;
-  align-self: flex-end;
+  justify-self: flex-start;
 }
 
-.router2 {
+.sm-logo {
+  width: 15%;
+  justify-content: space-between;
+}
+.router2,
+.router,
+.router3 {
   justify-self: flex-end;
   align-self: flex-end;
 }
-
 </style>

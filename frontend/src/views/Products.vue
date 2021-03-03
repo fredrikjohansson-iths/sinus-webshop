@@ -13,12 +13,12 @@ export default {
   computed: {
     modalStatus() {
       return this.$store.state.productModalStatus;
-    }
+    },
   },
   components: {
     ProductsContainer,
-    ProductDescription
-  }
+    ProductDescription,
+  },
 };
 </script>
 

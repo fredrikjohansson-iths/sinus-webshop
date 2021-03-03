@@ -18,7 +18,7 @@
       </section>
       <input type="submit" value="Login" />
     </form>
-    <section class="footer">
+    <section class="login-footer">
       <router-link to="/register">
         <p @click="exitLogin">Not registered?</p>
       </router-link>
@@ -42,8 +42,13 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
     authenticate() {
       var credentials = {
+=======
+    authentication: async function() {
+      const userLogin = {
+>>>>>>> 8e1aba3e359e607cbc263832b2331aaf8674a443
         email: this.userMail,
         password: this.userPassword
       };

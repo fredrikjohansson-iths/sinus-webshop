@@ -1,50 +1,20 @@
 <template>
   <div>
-    <ProductDescription v-if="modalStatus" />
     <section class="crud-header">
       <button>Add New Product</button>
     </section>
-    <section class="crud">
-      <section class="product-list">
-        <section class="list-headings">
-          <h5 class="title">Title</h5>
-          <h5 class="id">Product id</h5>
-          <h5 class="category">Category</h5>
-        </section>
-        <CRUDProductListItem
-          class="list-item"
-          v-for="item in products"
-          :key="item._id"
-          :product="item"
-        />
-      </section>
-    </section>
+    <EditProduct />
+    <ProductsContainer />
   </div>
 </template>
 
 <script>
-import { get, PRODUCTS_URL } from "@/api/get.js";
-import CRUDProductListItem from "@/components/CRUDProductListItem.vue";
-import ProductDescription from "@/components/ProductDescription.vue";
+import EditProduct from "@/components/EditProduct.vue";
+import ProductsContainer from "@/components/ProductsContainer.vue";
 export default {
   components: {
-    CRUDProductListItem,
-    ProductDescription,
-  },
-  data() {
-    return {
-      products: [],
-    };
-  },
-  created: async function () {
-    const response = await get(PRODUCTS_URL);
-
-    this.products = response.data;
-  },
-  computed: {
-    modalStatus() {
-      return this.$store.state.productModalStatus;
-    },
+    EditProduct,
+    ProductsContainer,
   },
 };
 </script>

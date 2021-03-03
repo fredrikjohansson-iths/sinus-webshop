@@ -1,5 +1,5 @@
 <template>
-  <div id="checkout">
+  <div id="checkout" v-if="!orderStatus">
     <section class="header">
       <h2>Your Cart</h2>
     </section>
@@ -13,25 +13,55 @@
       <section class="payment"></section>
     </section>
     <section class="cta">
-      <button>Take my Money</button>
+      <button @click="createOrder">Take my Money</button>
     </section>
   </div>
+  <OrderComplete v-else class="order-finished" />
 </template>
 
 <script>
+import { POST_ORDER, makeOrder } from "@/api/post.js/";
 import ShoppingCartItem from "@/components/ShoppingCartItem.vue";
+import OrderComplete from "@/components/OrderComplete.vue";
+
 export default {
-  components: {
-    ShoppingCartItem
+  data() {
+    return {
+      orderStatus: false,
+    };
   },
+
+  methods: {
+    createOrder: async function() {
+      const response = await makeOrder(POST_ORDER, this.getCartItemsId);
+      console.log(response);
+      if (response.status === 200) {
+        //order validation
+        this.$store.commit("clearShoppingCart");
+        this.orderStatus = !this.orderStatus;
+      }
+    },
+  },
+
+  components: {
+    ShoppingCartItem,
+    OrderComplete,
+  },
+
   computed: {
     cartProducts() {
       return this.$store.state.shoppingCart;
     },
     uniqueCartProducts() {
-      return [...new Set(this.cartProducts.map(item => item))];
-    }
-  }
+      return [...new Set(this.cartProducts.map((item) => item))];
+    },
+    getCartItemsId() {
+      const order = {
+        items: this.$store.getters.getCartItemsId,
+      };
+      return order;
+    },
+  },
 };
 </script>
 
@@ -43,6 +73,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+
 .items,
 .delivery,
 .payment {

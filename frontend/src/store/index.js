@@ -73,21 +73,27 @@ export default createStore({
     //holds the information of the logged in user
     userData: {},
 
-    shoppingCart: []
+    editProducts: false,
+
+    shoppingCart: [],
   },
 
   getters: {
-    getShoppingCartLength: state => {
+    getShoppingCartLength: (state) => {
       return state.shoppingCart.length;
     },
-    getAmountOfProduct: state => id => {
-      return state.shoppingCart.filter(item => id === item._id).length;
+    getAmountOfProduct: (state) => (id) => {
+      return state.shoppingCart.filter((item) => id === item._id).length;
     },
-    getTotalSum: state => {
+    getTotalSum: (state) => {
       let sum = 0;
-      state.shoppingCart.forEach(item => (sum += item.price));
+      state.shoppingCart.forEach((item) => (sum += item.price));
       return sum;
-    }
+    },
+    getCartItemsId: (state) => {
+      let array = state.shoppingCart.map((item) => item._id);
+      return array;
+    },
   },
   mutations: {
     changeProductModalStatus(state) {
@@ -110,7 +116,10 @@ export default createStore({
     },
     setShoppingCart(state, newArray) {
       state.shoppingCart = newArray;
-    }
+    },
+    clearShoppingCart(state) {
+      state.shoppingCart = [];
+    },
   },
 
   actions: {
@@ -126,7 +135,7 @@ export default createStore({
     },
 
     removeProductFromCart({ commit, state }, id) {
-      const array = state.shoppingCart.filter(item => item._id !== id);
+      const array = state.shoppingCart.filter((item) => item._id !== id);
       commit("setShoppingCart", array);
     },
 

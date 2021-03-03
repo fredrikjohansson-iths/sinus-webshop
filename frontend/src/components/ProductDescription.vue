@@ -2,7 +2,7 @@
   <div class="product-description">
     <div class="product-innerbox">
       <div class="product-imagebox">
-        <img :src="getImgUrl" alt="product image" height="400px" />
+        <img src="" alt="product image" height="400px" />
       </div>
       <div class="product-decriptionbox">
         <table>
@@ -38,7 +38,7 @@
 import { getProductById, PRODUCTID_URL } from "@/api/get.js";
 
 export default {
-  created: async function () {
+  created: async function() {
     const response = await getProductById(PRODUCTID_URL, this.modalId);
     this.product = response.data;
   },
@@ -65,7 +65,7 @@ export default {
   },
 
   methods: {
-    handleClick: function () {
+    handleClick: function() {
       this.$store.commit("changeProductModalStatus");
     },
   },

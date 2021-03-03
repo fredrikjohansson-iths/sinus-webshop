@@ -6,7 +6,12 @@
         <ShoppingCartItem :item="item" />
       </ul>
       <p class="total">Total: {{ totalSum }}</p>
-      <router-link to="/Checkout">Checkout</router-link>
+
+      <router-link to="/Checkout">
+        <span @click="closeCart">
+          Checkout
+        </span>
+      </router-link>
     </div>
     <div v-else>
       <p>Your shopping cart is empty!</p>
@@ -23,9 +28,11 @@ export default {
       setTimeout(this.closeCart, 1500);
     }
   },
+
   components: {
     ShoppingCartItem
   },
+
   computed: {
     cartProducts() {
       return this.$store.state.shoppingCart;

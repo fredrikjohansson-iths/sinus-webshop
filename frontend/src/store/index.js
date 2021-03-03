@@ -1,4 +1,57 @@
 import { createStore } from "vuex";
+import axios from "axios";
+
+const moduleSession = {
+  namespaced: true,
+  state: {
+    user: Object,
+    order: Object
+  },
+  mutations: {
+    setUser(state, payload) {
+      state.user = payload;
+    }
+  },
+  actions: {},
+  getters: {}
+};
+
+const moduleAPI = {
+  state: { headers: { Authorization: String } },
+  mutations: {
+    updateToken(state, token) {
+      state.headers.Authorization = { Authorization: token };
+    }
+  },
+  actions: {
+    auth({ commit, state }, cred) {
+      axios
+        .post("http://localhost:5000/api/auth", cred)
+        .then(response => {
+          var token = response.data.token;
+          commit("updateToken", token);
+          console.log("action triggered", state.headers);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+
+    getUser({ state, commit, rootStore }) {
+      axios
+        .get("http://localhost:5000/api/me", state.headers)
+        .then(response => {
+          var payload = response.data;
+          commit("setUser", payload, { root: true });
+          console.log("success", rootStore.state.a.user);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
+  getters: {}
+};
 
 export default createStore({
   state: {
@@ -81,6 +134,7 @@ export default createStore({
     changeProductModal({ commit }, id) {
       commit("changeProductModalStatus");
       commit("changeProductModalId", id);
-    },
+    }
   },
+  modules: { a: moduleSession, b: moduleAPI }
 });

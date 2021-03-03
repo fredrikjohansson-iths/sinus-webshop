@@ -30,7 +30,7 @@ export default {
   },
 
   components: {
-    ShoppingCartItem,
+    ShoppingCartItem
   },
 
   computed: {
@@ -39,18 +39,18 @@ export default {
     },
 
     uniqueCartProducts() {
-      return [...new Set(this.cartProducts.map((item) => item))];
+      return [...new Set(this.cartProducts.map(item => item))];
     },
 
     totalSum() {
       return this.$store.getters.getTotalSum;
-    },
+    }
   },
   methods: {
     closeCart() {
       this.$emit("closeCart");
-    },
-  },
+    }
+  }
 };
 </script>
 

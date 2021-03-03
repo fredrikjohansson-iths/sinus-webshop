@@ -1,7 +1,9 @@
 <template>
   <div>
     <form>
-      <label for="name">Name <input id="name" type="text" placeholder="e.g. Tonya Hawk" /> </label>
+      <label for="name"
+        >Name <input id="name" type="text" placeholder="e.g. Tonya Hawk" />
+      </label>
       <label for="email"
         >Email
         <input id="email" type="text" placeholder="e.g. example@email.com" />
@@ -47,5 +49,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -4,6 +4,7 @@
 
 
  <img alt="Sinus logo" src="../assets/sinus-logo.svg" class="logo"/>
+ <div class="sm-logo"></div>
 <img alt="Insta logo" src="../assets/insta.svg" class="logo"/>
 <img alt="Facebook logo" src="../assets/facebook.svg" class="logo"/>
 <img alt="Twitter logo" src="../assets/twitter.svg" class="logo"/>
@@ -39,8 +40,6 @@ export default {
   bottom: 0;
   width: 100%;
   background-color: rgb(185, 180, 180);
-  color: red;
-  text-align:center; 
   height: 7rem;
   display: flex;
   flex-direction: row; 
@@ -48,16 +47,17 @@ export default {
 }
 
 .logo {
-   width: 25%; 
    justify-self: flex-start;
-  
 }
 
-
+.sm-logo {
+  width: 15%; 
+  justify-content: space-between;
+}
 .router2, .router, .router3 {
   justify-self: flex-end;
   align-self: flex-end;
-  justify-content: space-between;
+
 }
 
 </style>

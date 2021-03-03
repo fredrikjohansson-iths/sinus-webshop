@@ -3,6 +3,7 @@
     <ProductDescription v-if="modalStatus" />
     <section class="crud-header">
       <button>Add New Product</button>
+      <button @click="getProducts">Refresh Product List</button>
     </section>
     <section class="crud">
       <section class="product-list">
@@ -36,14 +37,20 @@ export default {
       products: [],
     };
   },
-  created: async function () {
-    const response = await get(PRODUCTS_URL);
-
-    this.products = response.data;
+  created() {
+    this.getProducts();
   },
   computed: {
     modalStatus() {
       return this.$store.state.productModalStatus;
+    },
+  },
+  methods: {
+    
+    getProducts: async function() {
+      const response = await get(PRODUCTS_URL);
+
+      this.products = response.data;
     },
   },
 };

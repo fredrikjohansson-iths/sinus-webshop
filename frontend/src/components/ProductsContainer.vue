@@ -19,7 +19,7 @@ export default {
     // ProductDescription,
   },
 
-  created: async function () {
+  created: async function() {
     const response = await get(PRODUCTS_URL);
     this.products = response.data;
   },
@@ -36,7 +36,7 @@ export default {
 #product-holder {
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
+  width: 80%;
 }
 
 .product {

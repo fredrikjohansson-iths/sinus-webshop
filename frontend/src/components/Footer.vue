@@ -12,7 +12,7 @@
 <router-link to="About-us">About Us</router-link></div>
 
 <div class="router3"> 
-<router-link to="adminCRUD">Admin</router-link></div>
+<router-link to="Admin">Admin</router-link></div>
 </div>
 
 </template>

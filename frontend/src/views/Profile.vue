@@ -1,15 +1,16 @@
 <template>
-  <div> <UserProfileForm @mePatch="test" :user="user" /></div>
+  <div> <ProfileForm @mePatch="test" :user="user" /><ProfileOrders @submitted="test" :orders="orders" /></div>
 </template>
 
 <script>
 import axios from "axios";
-import UserProfileForm from "@/components/UserProfileForm.vue";
+import ProfileForm from "@/components/ProfileForm.vue";
+import ProfileOrders from "@/components/ProfileOrders.vue";
 
 export default {
 data() {
   return {
-    user: {}
+    user: {}, orders: {}
   }
 },methods: {
   test(event){console.log(event)}
@@ -25,10 +26,9 @@ data() {
           var header = { Authorization: token };
 
           axios
-            .get("http://localhost:5000/api/me", { headers: header })
+            .get("http://localhost:5000/api/orders", { headers: header })
             .then(response => {
-              this.user = response.data
-              console.log(Object(this.user))
+              this.orders = response.data
             });
         })
         .catch(error => {
@@ -36,7 +36,7 @@ data() {
         });
     
   },
-  components: { UserProfileForm }
+  components: { ProfileForm, ProfileOrders }
 };
 </script>
 

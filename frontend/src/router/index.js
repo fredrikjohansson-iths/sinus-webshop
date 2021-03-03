@@ -14,19 +14,19 @@ const routes = [
   },
   {
     path: '/register',
-    name: 'Signup',
+    name: 'Register',
     meta: {
       title: 'Create your Sinus Webshop Account'
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   },
   {
-    path: '/user',
-    name: 'UserProfile',
+    path: '/account',
+    name: 'UserAccount',
     meta: {
-      title: 'My account'
+      title: 'My Account'
     },
-    component: () => import(/* webpackChunkName: "about" */ '../views/UserProfile.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Profile.vue')
   }
 ];
 

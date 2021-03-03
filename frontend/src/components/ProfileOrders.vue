@@ -1,10 +1,10 @@
 <template>
-  <div> <form></form> </div>
+  <div><ul></ul> </div>
 </template>
 
 <script>
 export default {
-
+props: {orders: Object}, name: "ProfileOrders"
 }
 </script>
 

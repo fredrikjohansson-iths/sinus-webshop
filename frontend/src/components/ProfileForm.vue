@@ -68,7 +68,7 @@
 </template>
 <script>
 export default {
-  name: "UserProfileForm",
+  name: "ProfileForm",
   data() {
     return {
       enableEdit: false,

@@ -67,6 +67,8 @@ export default createStore({
     //holds the information of the logged in user
     userData: {},
 
+    editProducts: false,
+
     shoppingCart: [],
   },
 

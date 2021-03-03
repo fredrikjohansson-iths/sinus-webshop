@@ -18,7 +18,7 @@
       </section>
       <input type="submit" value="Log in" />
     </form>
-    <section class="footer">
+    <section class="login-footer">
       <router-link to="/register">
         <p @click="exitLogin">Not registered?</p>
       </router-link>

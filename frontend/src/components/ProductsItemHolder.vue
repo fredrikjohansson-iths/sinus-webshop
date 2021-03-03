@@ -28,9 +28,6 @@ export default {
 
     change() {
       this.$store.dispatch("changeProductModal", this.product._id);
-
-      // this.$store.commit("changeProductModalStatus");
-      // this.$store.commit("changeProductModalId", this.product._id);
     },
 
     addToCart() {

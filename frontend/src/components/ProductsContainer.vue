@@ -16,7 +16,6 @@ import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
 export default {
   components: {
     ProductsItemHolder,
-    // ProductDescription,
   },
 
   created: async function() {
@@ -37,6 +36,8 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product {

@@ -11,7 +11,6 @@ const POST_URL_USER = `${BASE_URL}me/`;
 const get = async (url) => {
   try {
     const response = await axios.get(url);
-
     return response;
   } catch (error) {
     console.log(error);

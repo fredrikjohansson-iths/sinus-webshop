@@ -1,9 +1,8 @@
 <template>
   <div :id="itemVisibility" class="list-item">
     <section class="buttons">
-      <button class="more-details">(+)</button>
-      <button class="edit">Edit</button>
-      <input type="checkbox" @change="check($event)" />
+      <button @click="expand" class="more-details">expand</button>
+      <!-- <input type="checkbox" @change="check($event)" /> -->
       <button @click="removeProduct">Delete</button>
     </section>
     <span class="title">{{ product.title }}</span>
@@ -12,6 +11,9 @@
     <button @click="openModal" class="display-product-btn">
       Display Modal
     </button>
+    <section v-if="itemVisibility === 'expanded'">
+      <p>{{}}</p>
+    </section>
   </div>
 </template>
 
@@ -25,6 +27,13 @@ export default {
     };
   },
   methods: {
+    expand() {
+      if (this.itemVisibility === "") {
+        this.itemVisibility = "expanded";
+      } else if (this.itemVisibility === "expanded") {
+        this.itemVisibility = "";
+      }
+    },
     openModal() {
       this.$store.dispatch("changeProductModal", this.product._id);
     },
@@ -36,9 +45,9 @@ export default {
       console.log(response.data.message);
       this.itemVisibility = "deleted-item";
     },
-    check() {
-      alert("hej");
-    },
+    // check() {
+    //   alert("hej");
+    // },
   },
   components: {},
   props: {
@@ -60,6 +69,10 @@ export default {
 }
 #deleted-item {
   border: red 2px solid;
+}
+#expanded {
+  height: 400px;
+  grid-template-rows: repeat(auto-fill, 80px);
 }
 .buttons {
   grid-column: 1;

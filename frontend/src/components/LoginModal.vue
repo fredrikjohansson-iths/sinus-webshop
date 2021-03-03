@@ -19,7 +19,7 @@
       <input type="submit" value="Log in" />
     </form>
     <section class="footer">
-      <router-link to="/SignUp">
+      <router-link to="/register">
         <p @click="exitLogin">Not registered?</p>
       </router-link>
       <button @click="exitLogin">Cancel</button>

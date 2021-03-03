@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div id="nav-bar">
     <section class="logo-holder">
       <img src="@/assets/hole-smiley.png" alt="Sinus Logo" height="80px" />
@@ -13,12 +12,12 @@
 import HeaderNavBar from "@/components/HeaderNavBar.vue";
 export default {
   components: {
-    HeaderNavBar,
-  },
+    HeaderNavBar
+  }
 };
 </script>
 
- <style lang="scss" scoped>
+<style lang="scss" scoped>
 #nav-bar {
   display: flex;
   height: 80px;
@@ -29,14 +28,4 @@ export default {
   display: flex;
   align-items: center;
 }
-=======
-  <div>sign up page</div>
-</template>
-
-<script>
-export default {};
-</script>
-
-<style>
->>>>>>> main
 </style>

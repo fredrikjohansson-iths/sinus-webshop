@@ -4,7 +4,9 @@
 
 
  <img alt="Sinus logo" src="../assets/sinus-logo.svg" class="logo"/>
-
+<img alt="Insta logo" src="../assets/insta.svg" class="logo"/>
+<img alt="Facebook logo" src="../assets/facebook.svg" class="logo"/>
+<img alt="Twitter logo" src="../assets/twitter.svg" class="logo"/>
  <!-- router -->
   <div class="router"><router-link to="Customer-service">Customer Service</router-link>
 </div>
@@ -55,6 +57,7 @@ export default {
 .router2, .router, .router3 {
   justify-self: flex-end;
   align-self: flex-end;
+  justify-content: space-between;
 }
 
 </style>

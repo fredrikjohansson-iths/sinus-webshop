@@ -1,9 +1,24 @@
 <template>
-  <div><h1>HELLO</h1></div>
+  <div>
+    <h1>HELLO</h1>
+    <button type="button" @click="test">auth</button
+    ><button type="button" @click="test2">getUser</button>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    test() {
+      const cred = { email: "customer@example.com", password: "password" };
+      this.$store.dispatch("auth", cred);
+    },
+    test2() {
+      this.$store.dispatch("getUser");
+      console.log(this.$store.state.b.headers)
+    }
+  }
+};
 </script>
 
 <style></style>

@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div id="product-view">
     <ProductsContainer />
     <ProductDescription v-if="modalStatus" />
@@ -14,12 +13,12 @@ export default {
   computed: {
     modalStatus() {
       return this.$store.state.productModalStatus;
-    },
+    }
   },
   components: {
     ProductsContainer,
-    ProductDescription,
-  },
+    ProductDescription
+  }
 };
 </script>
 
@@ -29,17 +28,4 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-=======
-  <div></div>
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
->>>>>>> main
 </style>

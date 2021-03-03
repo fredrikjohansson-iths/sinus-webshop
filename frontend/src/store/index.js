@@ -2,14 +2,17 @@ import { createStore } from "vuex";
 import axios from "axios";
 
 const moduleSession = {
-  namespaced: true,
   state: {
+    session: { active: false },
     user: Object,
     order: Object
   },
   mutations: {
     setUser(state, payload) {
       state.user = payload;
+    },
+    sessionState(state) {
+      state.session.active = true;
     }
   },
   actions: {},
@@ -17,38 +20,41 @@ const moduleSession = {
 };
 
 const moduleAPI = {
-  state: { headers: { Authorization: String } },
+  state: { token: String },
   mutations: {
     updateToken(state, token) {
-      state.headers.Authorization = { Authorization: token };
+      state.token = token;
     }
   },
   actions: {
-    auth({ commit, state }, cred) {
+    auth({ commit }, cred) {
       axios
         .post("http://localhost:5000/api/auth", cred)
         .then(response => {
           var token = response.data.token;
           commit("updateToken", token);
-          console.log("action triggered", state.headers);
+          commit("sessionState", { root: true });
         })
         .catch(error => {
           console.log(error);
         });
     },
 
-    getUser({ state, commit, rootStore }) {
+    getUser({ state, commit, rootState }) {
       axios
-        .get("http://localhost:5000/api/me", state.headers)
+        .get("http://localhost:5000/api/me", {
+          headers: { Authorization: state.token }
+        })
         .then(response => {
           var payload = response.data;
           commit("setUser", payload, { root: true });
-          console.log("success", rootStore.state.a.user);
+          console.log("sessionState", rootState.a.user);
         })
         .catch(error => {
           console.log(error);
         });
-    }
+    },
+    getOrders() {}
   },
   getters: {}
 };

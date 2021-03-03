@@ -1,6 +1,6 @@
 <template>
-  <div id="login-modal">
-    <form @submit.prevent="authentication">
+  <div id="login-modal"  @mouseleave="exitLogin">
+    <form @submit.prevent="authenticate">
       <section class="mail">
         <label for="email">Email</label>
         <input
@@ -13,10 +13,10 @@
       </section>
       <section class="password">
         <label for="password">Password</label>
-        <input :type="password" id="password" v-model="userPassWord" required />
+        <input :type="password" id="password" v-model="userPassword" required />
         <input type="checkbox" @click="showPassword" /> Visa lösenord
       </section>
-      <input type="submit" value="Log in" />
+      <input type="submit" value="Login" />
     </form>
     <section class="footer">
       <router-link to="/register">
@@ -28,37 +28,26 @@
 </template>
 
 <script>
-import { logIn, POST_URL_AUTH } from "@/api/post.js";
-import { getUser, POST_URL_USER } from "@/api/get.js";
-
 export default {
   data() {
     return {
       password: "password",
       userMail: "",
-      userPassWord: "",
-      token: "",
+      userPassword: ""
     };
   },
-
+  computed: {
+    userSession() {
+      return this.$store.state.a.session.active;
+    }
+  },
   methods: {
-    authentication: async function () {
-      const userLogin = {
+    authenticate() {
+      var credentials = {
         email: this.userMail,
-        password: this.userPassWord,
+        password: this.userPassword
       };
-
-      const response = await logIn(POST_URL_AUTH, userLogin);
-
-      if (response === 200) {
-        this.$store.commit("changeLoginStatus");
-        this.exitLogin();
-        const userData = await getUser(POST_URL_USER);
-
-        this.$store.commit("setUserData", userData);
-      } else {
-        alert("Finns ingen sådan användare / Fel ifyllt email eller lösen");
-      }
+      this.$store.dispatch("auth", credentials);
     },
 
     showPassword() {
@@ -71,8 +60,8 @@ export default {
 
     exitLogin() {
       this.$emit("closeLogin");
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -1,19 +1,23 @@
 <template>
   <div id="nav">
     <router-link to="/products">Our Products</router-link> |
-    <router-link to="/MyAccount" v-if="userStatus">
-      <span>ANVÄNDAREN INLOGGAD |</span>
-    </router-link>
-    <router-link to="/Admin">Admin</router-link> |
+    <!-- <router-link to="/MyAccount" v-if="userStatus">    </router-link> -->
+    <span>ANVÄNDAREN INLOGGAD |</span>
 
-    <a v-if="userStatus === false" @click="changeLoginModalStatus">Log in |</a>
+    <router-link to="/admin">Admin</router-link> |
+
+    <a v-if="!userSession" @click="changeLoginModalStatus" >Login |</a>
 
     <a class="shopping-cart-link" @click="changeCartStatus"
       >Shopping Cart ({{ shoppingCartLength }})</a
     >
 
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
-    <LoginModal v-if="loginModalStatus" @closeLogin="changeLoginModalStatus" />
+    <LoginModal
+    v-if="!userSession"
+      v-show="loginModalStatus"
+      @closeLogin="changeLoginModalStatus"
+    />
   </div>
 </template>
 
@@ -25,13 +29,13 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false,
+      cartModalStatus: false
     };
   },
 
   components: {
     LoginModal,
-    ShoppingCart,
+    ShoppingCart
   },
 
   methods: {
@@ -40,16 +44,17 @@ export default {
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    },
+    }
   },
+
   computed: {
-    userStatus() {
-      return this.$store.state.loginStatus;
+    userSession() {
+      return this.$store.state.a.session.active;
     },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    },
-  },
+    }
+  }
 };
 </script>
 

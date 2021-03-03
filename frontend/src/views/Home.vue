@@ -14,8 +14,8 @@ export default {
       this.$store.dispatch("auth", cred);
     },
     test2() {
-      this.$store.dispatch("getUser");
-      console.log(this.$store.state.b.headers)
+      //this.$store.dispatch("getUser");
+      console.log(this.$store.state.a.session.active);
     }
   }
 };

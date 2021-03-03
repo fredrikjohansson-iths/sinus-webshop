@@ -19,13 +19,13 @@
 export default {
   props: {
     item: {
-      type: Object,
-    },
+      type: Object
+    }
   },
   computed: {
     getProductAmount() {
       return this.$store.getters.getAmountOfProduct(this.item._id);
-    },
+    }
   },
   methods: {
     eraseProduct() {
@@ -39,8 +39,8 @@ export default {
     },
     getImgUrl(pic) {
       return require("../assets/" + pic);
-    },
-  },
+    }
+  }
 };
 </script>
 

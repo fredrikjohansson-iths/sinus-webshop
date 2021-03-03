@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div id="checkout">
     <section class="header">
       <h2>Your Cart</h2>
@@ -23,16 +22,16 @@
 import ShoppingCartItem from "@/components/ShoppingCartItem.vue";
 export default {
   components: {
-    ShoppingCartItem,
+    ShoppingCartItem
   },
   computed: {
     cartProducts() {
       return this.$store.state.shoppingCart;
     },
     uniqueCartProducts() {
-      return [...new Set(this.cartProducts.map((item) => item))];
-    },
-  },
+      return [...new Set(this.cartProducts.map(item => item))];
+    }
+  }
 };
 </script>
 
@@ -50,17 +49,4 @@ export default {
   width: 33%;
   border-left: black 1px solid;
 }
-=======
-  <div></div>
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
->>>>>>> main
 </style>

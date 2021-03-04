@@ -7,7 +7,7 @@
       <img src="" alt="product image" height="240px" />
     </section>
     <section>
-      <button @click="addToCart" v-if="!editMode">Add to cart</button>
+      <button class="product-add" @click="addToCart" v-if="!editMode">Add to cart</button>
       <button v-if="editMode">Edit</button>
     </section>
   </div>

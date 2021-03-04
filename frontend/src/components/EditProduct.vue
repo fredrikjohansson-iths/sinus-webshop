@@ -1,16 +1,18 @@
 <template>
   <div id="crud-component">
     <section class="crud-image">
-      <img src="" alt="" />
+      <img :src="editableProduct.imgFile" alt="" />
     </section>
     <section class="crud-details">
       <form @submit="updateProduct">
         <label for="title">Product Name</label>
         <input type="text" id="title" v-model="editableProduct.title" />
-        <label for="short">Short description</label>
-        <input type="text" id="short" :value="editableProduct.shortDesc" />
         <label for="price">Price</label>
         <input type="text" id="price" :value="editableProduct.price" />
+        <label for="category">Category</label>
+        <input type="text" id="category" :value="editableProduct.category" />
+        <label for="short">Short description</label>
+        <input type="text" id="short" :value="editableProduct.shortDesc" />
         <label for="id">Serial Number</label>
         <input type="text" id="id" v-model="editableProduct.id" disabled />
         <input type="submit" value="Update product" v-if="editableProduct.id" />
@@ -22,7 +24,7 @@
     </section>
     <section class="crud-description">
       <label for="long-desc">Full description</label>
-      <textarea type="text" name="" id="long-desc" rows="12"></textarea>
+      <textarea type="text" name="" id="long-desc" rows="12" />
     </section>
     <section></section>
   </div>
@@ -36,7 +38,7 @@ export default {
   computed: {
     editableProduct() {
       return this.$store.state.editableProduct;
-    }
+    },
   },
   methods: {
     updateProduct() {
@@ -45,7 +47,8 @@ export default {
         price: this.editableProduct.price,
         shortDesc: this.editableProduct.shortDesc,
         longDesc: this.editableProduct.longDesc,
-        imgFile: this.editableProduct.imgFile
+        imgFile: this.editableProduct.imgFile,
+        category: "wheels",
       };
       const prodId = this.editableProduct.id;
       this.$store.dispatch("patchProduct", prodId, prodData);
@@ -61,8 +64,8 @@ export default {
       );
       console.log(response);
       // this.itemVisibility = "deleted-item";
-    }
-  }
+    },
+  },
 };
 </script>
 

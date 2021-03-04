@@ -3,11 +3,11 @@
     <div id="nav">
       <router-link to="/products">Our Products</router-link>
       <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
-
+|
       <router-link v-if="adminSession" to="/admin">Admin</router-link>
 
       <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
-
+|
       <a class="shopping-cart-link" @click="changeCartStatus"
         >Shopping Cart ({{ shoppingCartLength }})</a
       >

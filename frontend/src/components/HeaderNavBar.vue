@@ -1,16 +1,17 @@
 <template>
-  <div id="nav">
-    <router-link to="/products">Our Products</router-link>
-    <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
+  <div id="site-header">
+    <div id="nav">
+      <router-link to="/products">Our Products</router-link>
+      <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
 
-    <router-link v-if="adminSession" to="/admin">Admin</router-link>
+      <router-link v-if="adminSession" to="/admin">Admin</router-link>
 
-    <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
+      <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
 
-    <a class="shopping-cart-link" @click="changeCartStatus"
-      >Shopping Cart ({{ shoppingCartLength }})</a
-    >
-
+      <a class="shopping-cart-link" @click="changeCartStatus"
+        >Shopping Cart ({{ shoppingCartLength }})</a
+      >
+    </div>
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
     <LoginModal
       v-if="!userSession"
@@ -63,8 +64,9 @@ export default {
 <style lang="scss" scoped>
 #nav {
   padding: 30px;
-
-
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
   a {
     font-weight: bold;
     color: #2c3e50;

@@ -25,7 +25,7 @@ const routes = [
       title: 'Create your Sinus Webshop Account'
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Products.vue")
+      import(/* webpackChunkName: "about" */ "../views/Register.vue")
   },
   {
     path: "/customer-service",
@@ -57,7 +57,6 @@ const routes = [
     name: "Admin",
     meta: {
       title: 'Sinus Admin',
-      requiresAuth: true
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

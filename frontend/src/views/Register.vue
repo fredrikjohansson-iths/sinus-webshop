@@ -5,7 +5,7 @@
 <script>
 import RegisterForm from "@/components/RegisterForm.vue";
 export default {
-  name: { Register },
+  name: "Register",
   components: { RegisterForm },
   methods: {
     postUser(payload) {

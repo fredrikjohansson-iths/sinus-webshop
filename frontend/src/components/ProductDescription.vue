@@ -70,6 +70,7 @@ export default {
     },
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
+      this.handleClick();
     },
   },
 };

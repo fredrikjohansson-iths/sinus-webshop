@@ -1,12 +1,12 @@
 <template>
   <div id="product">
-    <section @click="change">
+    <section class="centered" @click="change">
       <p v-if="editMode">Halloj</p>
       <h3>{{ product.title }}</h3>
       <p>Price: {{ product.price }}</p>
-      <img src="" alt="product image" height="240px" />
+      <img class="img-product" src="../assets/hoodie-fire.png" alt="product image"/>
     </section>
-    <section>
+    <section class="centered">
       <button class="product-add" @click="addToCart" v-if="!editMode">Add to cart</button>
       <button v-if="editMode">Edit</button>
     </section>
@@ -57,15 +57,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-#product {
-  border: 1px black solid;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  width: 260px;
-  height: 400px;
-}
-// :src="getImgUrl(product.imgFile)"
-</style>

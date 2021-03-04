@@ -1,6 +1,6 @@
 <template>
   <div id="checkout" v-if="!orderStatus">
-    <section class="header">
+    <section class="header centered">
       <h2>Your Cart</h2>
     </section>
     <section class="information">
@@ -12,7 +12,7 @@
       <section class="delivery"></section>
       <section class="payment"></section>
     </section>
-    <section class="cta">
+    <section class="cta centered">
       <button @click="createOrder" class="product-add">Take my Money</button>
     </section>
   </div>

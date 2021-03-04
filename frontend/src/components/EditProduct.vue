@@ -35,7 +35,7 @@ export default {
   computed: {
     editableProduct() {
       return this.$store.state.editableProduct;
-    },
+    }
   },
   methods: {
     updateProduct() {
@@ -44,24 +44,10 @@ export default {
         price: this.editableProduct.price,
         shortDesc: this.editableProduct.shortDesc,
         longDesc: this.editableProduct.longDesc,
-        imgFile: this.editableProduct.imgFile,
+        imgFile: this.editableProduct.imgFile
       };
-<<<<<<< HEAD
-
-      const editedId = this.editableProduct.id;
-
-      const admin = this.$store.state.b.token;
-
-      const response = await patchProduct(
-        PATCH_PRODUCT,
-        editedId,
-        editedProd,
-        admin
-      );
-
-      if (response.status) {
-        alert("hej");
-      }
+      const prodId = this.editableProduct.id;
+      this.$store.dispatch("patchProduct", prodId, prodData);
     },
     removeProduct: async function() {
       confirm("Are you sure you want to delete this item?");
@@ -74,12 +60,8 @@ export default {
       );
       console.log(response);
       // this.itemVisibility = "deleted-item";
-=======
-      const prodId = this.editableProduct.id;
-       this.$store.dispatch("patchProduct", prodId, prodData);
->>>>>>> e4262bbfe9089fa9ba1066b4dca061193adef13c
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -28,10 +28,12 @@ export default {
       products: [],
     };
   },
+
   created: async function() {
     const response = await get(PRODUCTS_URL);
     this.products = response.data;
   },
+
   components: {
     EditProduct,
     CRUDProductListItem,

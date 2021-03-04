@@ -1,6 +1,8 @@
 <template>
   <div id="shopping-cart">
-    <button @click="closeCart" v-if="totalSum">X</button>
+    <i id="closeCart" class="fas fa-times" @click="closeCart" v-if="totalSum"></i>
+  
+      <!-- <button @click="closeCart" v-if="totalSum">X</button> -->
     <div v-if="totalSum">
       <ul v-for="item in uniqueCartProducts" :key="item._id">
         <ShoppingCartItem :item="item" />
@@ -8,9 +10,10 @@
       <p class="total">Total: {{ totalSum }}</p>
 
       <router-link to="/Checkout">
-        <span @click="closeCart">
+        <button @click="closeCart">
+          <!-- <span @click="closeCart"> -->
           Checkout
-        </span>
+        </button>
       </router-link>
     </div>
     <div v-else>
@@ -62,7 +65,17 @@ export default {
   animation-name: animatetop;
   animation-duration: 0.4s;
   padding: 16px;
-
+ #closeCart {
+   float: right;
+ }
+ 
+ button {
+   width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #2c3e50;
+  color: white
+ }
   .total {
     border-top: 1px solid black;
   }

@@ -2,9 +2,9 @@
   <div class="product-description">
     <div class="product-innerbox">
       <div class="product-imagebox">
-        <img src="../assets/skate-hero-1.jpg" alt="product image" height="400px" />
+        <img class="img-product" src="../assets/hoodie-fire.png" alt="product image"/>
       </div>
-      <div class="product-decriptionbox">
+      <div class="product-descriptionbox">
         <table>
           <tr class="product-title">
             {{
@@ -103,7 +103,7 @@ tr {
     height: 508px;
   }
 
-  &-decriptionbox {
+  &-descriptionbox {
     margin-top: 2rem;
     padding: 5px;
   }
@@ -123,7 +123,7 @@ tr {
     width: 202px;
     height: 48px;
     border-radius: 50px;
-    background-color: black;
+    background-color: #2c3e50;
     color: white;
   }
   &-closeimage {
@@ -147,6 +147,9 @@ tr {
     font-size: 26px;
     line-height: 35px;
     color: #000000;
+  }
+  &-imagebox {
+    margin: 20px;
   }
   .productPhoto {
     width: 356px;

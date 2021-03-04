@@ -85,7 +85,7 @@ button {
   width: 80px;
   height: 30px;
   border-radius: 20px;
-  background-color: black;
+  background-color: #2c3e50;
   color: white;
 }
 

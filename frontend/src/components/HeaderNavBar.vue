@@ -6,7 +6,7 @@
 
       <router-link title="Admin configuration view" v-if="adminSession" to="/admin">Admin</router-link>
 
-      <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
+      <a title="Sign in to Sinus" v-if="!userSession" @click="changeLoginModalStatus">Login</a>
 
       <a class="shopping-cart-link" title="View your shopping cart" @click="changeCartStatus"
         >Shopping Cart ({{ shoppingCartLength }})</a

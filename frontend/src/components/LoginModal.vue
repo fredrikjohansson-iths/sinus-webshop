@@ -42,13 +42,8 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
     authenticate() {
       var credentials = {
-=======
-    authentication: async function() {
-      const userLogin = {
->>>>>>> 8e1aba3e359e607cbc263832b2331aaf8674a443
         email: this.userMail,
         password: this.userPassword
       };

@@ -17,7 +17,8 @@
         <input :type="password" id="password" v-model="userPassword" required />
         <input type="checkbox" @click="showPassword" /> Visa lösenord
       </section>
-      <input type="submit" value="Login" />
+      <button @submit.prevent="submit" value="Login" > Login</button>
+      <!-- <input type="submit" value="Login" /> -->
     </form>
     <section class="login-footer">
       <router-link to="/register">
@@ -80,6 +81,17 @@ export default {
   padding: 16px;
 }
 
+button {
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
+
+.login-footer {
+  text-align: right;
+}
 /* Add Animation */
 @keyframes animatetop {
   from {

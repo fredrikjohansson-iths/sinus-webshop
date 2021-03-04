@@ -81,13 +81,7 @@ tr {
   // border: 1px solid #ddd;
   text-align: left;
 }
-.centered {
-  float: none;
-  margin: 0 auto;
-  text-align: center;
-  vertical-align: middle;
-  align-items: center;
-}
+
 
 .product {
   &-description {
@@ -111,6 +105,7 @@ tr {
 
   &-decriptionbox {
     margin-top: 2rem;
+    padding: 5px;
   }
 
   &-described {

@@ -1,8 +1,12 @@
 <template>
   <div id="nav-bar">
     <section class="logo-holder">
-      <img src="@/assets/hole-smiley.png" alt="Sinus Logo" height="80px" />
-      <h1>SINUS WEBSHOP HELLO</h1>
+
+      <!-- Logo -->
+      <img class="sinus-logo" alt="Sinus logo" src="../assets/sinus-logo.svg" />
+      <!-- <img src="@/assets/sinus-logo.svg" alt="Sinus Logo" /> -->
+      <!-- <h1>SINUS WEBSHOP HELLO</h1> -->
+
     </section>
     <HeaderNavBar />
   </div>
@@ -21,7 +25,7 @@ export default {
 #nav-bar {
   display: flex;
   height: 80px;
-  background-color: rgb(241, 237, 229);
+  background-color: rgb(185, 180, 180);
   justify-content: space-between;
   margin-bottom: 80px;
 }

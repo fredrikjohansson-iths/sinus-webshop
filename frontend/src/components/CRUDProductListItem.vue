@@ -8,38 +8,13 @@
 </template>
 
 <script>
-// import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
-
 export default {
-  data() {
-    return {
-      itemVisibility: "",
-    };
-  },
   methods: {
-    // expand() {
-    //   if (this.itemVisibility === "") {
-    //     this.itemVisibility = "expanded";
-    //   } else if (this.itemVisibility === "expanded") {
-    //     this.itemVisibility = "";
-    //   }
-    // },
-    // openModal() {
-    //   this.$store.dispatch("changeProductModal", this.product._id);
-    // },
-    // removeProduct: async function() {
-    //   confirm("Are you sure you want to delete this item?");
-    //   const response = await deleteProduct(DELETE_PRODUCT, this.product._id);
-    //   console.log(response.data.message);
-    //   this.itemVisibility = "deleted-item";
-    // },
-    // check() {
-    //   alert("hej");
-    // },
     openEditor() {
       const editProd = {
         title: this.product.title,
         price: this.product.price,
+        category: this.product.category,
         shortDesc: this.product.shortDesc,
         longDesc: this.product.longDesc,
         imgFile: this.product.imgFile,

@@ -16,6 +16,15 @@ body {
     border-radius: $rounded-radius;
     background-color: black;
     color: white;
+    cursor: pointer;
+}
+
+.centered {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center
 }
 
 
@@ -35,14 +44,12 @@ body {
     margin-top: 70px;
 }
 
-.footer div {
-    width: 100%;
-}
-
 .sinus-logo {
     width: 50%;
     display: table;
     margin: 0 auto;
+    float: left;
+    padding-left: 0.5rem;
 }
 
 .social-media-logo {
@@ -125,7 +132,22 @@ a {
     grid-column: 5;
 }
 
-button,
-span {
-    margin: 10px 20px 10px 0px;
+#product {
+    padding: 10px;
+    background: #FFFFFF;
+    /* small drop */
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.06);
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 400px;
+}
+
+.img-product {
+    width: 50%;
+}
+
+section {
+    padding-bottom: 1.5rem;
 }

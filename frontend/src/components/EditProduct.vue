@@ -64,6 +64,8 @@ export default {
       );
       console.log(response);
       // this.itemVisibility = "deleted-item";
+      // const prodId = this.editableProduct.id;
+      //  this.$store.dispatch("patchProduct", prodId, prodData);
     },
   },
 };

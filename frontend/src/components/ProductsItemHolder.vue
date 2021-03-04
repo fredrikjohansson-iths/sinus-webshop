@@ -1,12 +1,14 @@
 <template>
   <div id="product">
     <section @click="change">
+      <p v-if="editMode">Halloj</p>
       <h3>{{ product.title }}</h3>
       <p>Price: {{ product.price }}</p>
       <img src="" alt="product image" height="240px" />
     </section>
     <section>
-      <button @click="addToCart">Add to cart</button>
+      <button @click="addToCart" v-if="!editMode">Add to cart</button>
+      <button v-if="editMode">Edit</button>
     </section>
   </div>
 </template>
@@ -16,6 +18,10 @@ export default {
   props: {
     product: {
       type: Object,
+    },
+    editMode: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -27,7 +33,11 @@ export default {
     },
 
     change() {
-      this.$store.dispatch("changeProductModal", this.product._id);
+      if (!this.editMode) {
+        this.$store.dispatch("changeProductModal", this.product._id);
+      } else if (this.editMode) {
+        this.$store.commit("setEditableProduct", this.product);
+      }
     },
 
     addToCart() {

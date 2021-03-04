@@ -25,7 +25,7 @@
           <tr class="product-size"></tr>
           <tr class="product-review"></tr>
 
-          <button class="product-add">Take my money</button>
+          <button class="product-add" @click="addToCart">Take my money</button>
         </table>
       </div>
       <span class="product-closeimage" @click="handleClick">X</span>
@@ -42,7 +42,11 @@ export default {
     const response = await getProductById(PRODUCTID_URL, this.modalId);
     this.product = response.data;
   },
-
+  methods: {
+    addToCart() {
+      this.$store.dispatch("addProductToCart", this.product);
+    },
+  },
   data() {
     return {
       show: false,

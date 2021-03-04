@@ -5,18 +5,20 @@ const moduleSession = {
   state: {
     session: { active: false },
     user: Object,
-    order: Object
+    order: Object,
   },
+
+  getters: {},
+
   mutations: {
     setUser(state, payload) {
       state.user = payload;
     },
     sessionState(state) {
       state.session.active = true;
-    }
+    },
   },
   actions: {},
-  getters: {}
 };
 
 const moduleAPI = {
@@ -24,18 +26,18 @@ const moduleAPI = {
   mutations: {
     updateToken(state, token) {
       state.token = token;
-    }
+    },
   },
   actions: {
     auth({ commit }, cred) {
       axios
         .post("http://localhost:5000/api/auth", cred)
-        .then(response => {
+        .then((response) => {
           var token = response.data.token;
           commit("updateToken", token);
           commit("sessionState", { root: true });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
@@ -43,20 +45,20 @@ const moduleAPI = {
     getUser({ state, commit, rootState }) {
       axios
         .get("http://localhost:5000/api/me", {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           var payload = response.data;
           commit("setUser", payload, { root: true });
           console.log("sessionState", rootState.a.user);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
-    getOrders() {}
+    getOrders() {},
   },
-  getters: {}
+  getters: {},
 };
 
 export default createStore({
@@ -76,6 +78,8 @@ export default createStore({
     editProducts: false,
 
     shoppingCart: [],
+
+    editableProduct: {},
   },
 
   getters: {
@@ -120,6 +124,9 @@ export default createStore({
     clearShoppingCart(state) {
       state.shoppingCart = [];
     },
+    setEditableProduct(state, prod) {
+      state.editableProduct = prod;
+    },
   },
 
   actions: {
@@ -142,7 +149,7 @@ export default createStore({
     changeProductModal({ commit }, id) {
       commit("changeProductModalStatus");
       commit("changeProductModalId", id);
-    }
+    },
   },
-  modules: { a: moduleSession, b: moduleAPI }
+  modules: { a: moduleSession, b: moduleAPI },
 });

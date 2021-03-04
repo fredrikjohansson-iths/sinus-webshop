@@ -5,6 +5,7 @@
       :key="item.id"
       :product="item"
       class="product"
+      :editMode="editMode"
     />
   </div>
 </template>
@@ -14,6 +15,12 @@ import { get, PRODUCTS_URL } from "@/api/get.js";
 import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
 
 export default {
+  props: {
+    editMode: {
+      type: Boolean,
+      default: false,
+    },
+  },
   components: {
     ProductsItemHolder,
   },

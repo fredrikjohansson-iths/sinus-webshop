@@ -1,6 +1,6 @@
 <template>
   <div id="login-modal">
-    <i id="closeLogin" class="pointer fas fa-times" @click="exitLogin"></i>
+    <i title="Close" id="closeLogin" class="pointer fas fa-times" @click="exitLogin"></i>
     <form @submit.prevent="authenticate">
       <section class="mail">
         <label for="email">Email</label>
@@ -17,7 +17,7 @@
         <input :type="password" id="password" v-model="userPassword" required />
       </section>
       <transition name="fade">
-        <i
+        <i title="Click to show password"
           id="eye1"
           @click="showPassword"
           class="pointer fas fa-eye-slash"
@@ -25,7 +25,7 @@
         ></i
       ></transition>
       <transition name="fade">
-        <i
+        <i title="Click to hide password"
           id="eye2"
           @click="showPassword"
           class="pointer fas fa-eye"
@@ -35,7 +35,7 @@
       <input id="loginB" type="submit" value="Login" />
     </form>
     <section class="login-footer">
-      <router-link to="/register">
+      <router-link to="/register" title="Click to register!">
         <p @click="exitLogin">Not registered?</p>
       </router-link>
       <!-- <button @click="exitLogin">Cancel</button> -->
@@ -143,7 +143,7 @@ button {
 }
 
 .login-footer {
-  text-align: right;
+  text-align: center;
 }
 /* Add Animation */
 @keyframes animatetop {

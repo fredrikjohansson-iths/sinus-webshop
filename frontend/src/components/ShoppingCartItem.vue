@@ -6,11 +6,12 @@
     <section class="information">
       <h5>{{ item.title }}</h5>
       <section class="buttons">
-        <button @click="decrement">(-)</button>
+        <button @click="decrement" class="cartButton"> - </button>
         <span>{{ getProductAmount }}</span>
-        <button @click="increment">(+)</button>
+        <button @click="increment" class="cartButton"> + </button>
         <button @click="eraseProduct">Radera</button>
       </section>
+  
     </section>
   </section>
 </template>
@@ -45,18 +46,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 #shopping-cart-item {
   margin-bottom: 24px;
   display: flex;
 }
 button {
-  border: none;
-  background-color: white;
-  box-shadow: none;
-  cursor: pointer;
+ 
+  width: 80px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #2c3e50;
+  color: white;
+
 }
+ 
+ .cartButton{
+    width: 20px;
+    height: 20px;
+  }
+
 .information {
   display: flex;
   flex-direction: column;
 }
+
+
 </style>

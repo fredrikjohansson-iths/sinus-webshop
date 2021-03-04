@@ -1,12 +1,13 @@
 <template>
   <div id="site-header">
     <div id="nav">
+      
       <router-link title="Browse our products" to="/products">Our Products</router-link>
       <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
 
       <router-link title="Admin configuration view" v-if="adminSession" to="/admin">Admin</router-link>
 
-      <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
+      <a title="Sign in to Sinus" v-if="!userSession" @click="changeLoginModalStatus">Login</a>
 
       <a class="shopping-cart-link" title="View your shopping cart" @click="changeCartStatus"
         >Shopping Cart ({{ shoppingCartLength }})</a
@@ -16,7 +17,7 @@
           <i class="grow fas fa-user"></i></router-link><i id="signout" v-if="userSession" title="Sign out" class="pointer grow fas fa-sign-out-alt"></i>
     </div>
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
-    <LoginModal title="Login to Sinus Webshop"
+    <LoginModal
       v-if="!userSession"
       v-show="loginModalStatus"
       @closeLogin="changeLoginModalStatus"

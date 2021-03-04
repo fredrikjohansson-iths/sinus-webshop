@@ -150,6 +150,7 @@ tr {
   }
   &-imagebox {
     margin: 20px;
+    
   }
   .productPhoto {
     width: 356px;

@@ -8,7 +8,9 @@
         >Email
         <input id="email" type="text" placeholder="e.g. example@email.com" />
       </label>
-      <label for="password">Password <inputval /></label>
+      <label for="password"
+        >Password <input id="password" type="password" placeholder="*******"
+      /></label>
       <label for="street"
         >Street
         <input id="street" type="text" placeholder="e.g. Thrasher Avenue 10"
@@ -19,7 +21,7 @@
       <label for="city"
         >City <input id="city" type="text" placeholder="e.g. Dogtown"
       /></label>
-      <button type="button" @click="submit">Sign me up!</button>
+      <button type="button" @click="postUser">Sign me up!</button>
     </form>
   </div>
 </template>
@@ -30,20 +32,31 @@ export default {
   data() {
     return {
       user: {
-        email: "",
-        name: "",
+        email: "test@test.se",
+        password: "test123",
+        name: "test",
         address: {
-          street: "",
-          zip: "",
-          city: ""
+          street: "testaddress 1",
+          zip: "123456",
+          city: "Test"
         }
       }
     };
   },
   methods: {
-    submit() {
-      const data = this.$data.user;
-      this.$emit("submitted", data);
+    postUser() {
+      var payload = {
+        email: this.user.email,
+        password: this.user.password,
+        name: this.user.name,
+        address: {
+          street: this.user.address.street,
+          zip: this.user.address.zip,
+          city: this.user.address.city
+        }
+      };
+      // const payload = this.user.data
+      this.$store.dispatch("postUser", payload)
     }
   }
 };

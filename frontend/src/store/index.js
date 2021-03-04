@@ -24,11 +24,13 @@ const moduleSession = {
 
 const moduleApi = {
   state: { token: String },
+
   mutations: {
     updateToken(state, token) {
       state.token = token;
     }
   },
+
   actions: {
     auth({ commit, dispatch }, cred) {
       axios
@@ -43,8 +45,7 @@ const moduleApi = {
           console.log(error);
         });
     },
-
-    getUser({ state, commit, rootState }) {
+    getUser({ state, commit }) {
       axios
         .get("http://localhost:5000/api/me", {
           headers: { Authorization: state.token }
@@ -52,14 +53,15 @@ const moduleApi = {
         .then(response => {
           var payload = response.data;
           commit("setUser", payload, { root: true });
-          console.log("sessionState", rootState.a.user);
+          if (payload.role === "admin") {
+            commit("setAdminSession", { root: true });
+          }
         })
         .catch(error => {
           console.log(error);
         });
     },
-    getOrders() {},
-    patchProduct({ state }, id, payload) {
+    patchProducts({ state }, id, payload) {
       axios
         .patch("http://localhost:5000/api/products/" + id, payload, {
           headers: { Authorization: state.token }
@@ -71,9 +73,39 @@ const moduleApi = {
           console.log(error);
         });
     },
-    postUser(payload) {
+    postUser({ state }, newUser) {
+      console.log(state.token);
       axios
-        .post("http://localhost:5000/api/products/register/", payload, {
+        .post("http://localhost:5000/api/register/", newUser)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error, newUser);
+        });
+    },
+    deleteProduct({ commit, state }, id) {
+      axios
+        .delete("http://localhost:5000/api/products/" + id, {
+          headers: { Authorization: state.token }
+        })
+        .then(response => {
+          alert(response.data.message);
+          commit("setEditableProduct", {});
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    createProduct({ state }, payload) {
+      axios
+        .post("http://localhost:5000/api/products/" + payload, {
+          headers: { Authorization: state.token }
+        })
+        .then(response => {
+          alert(response.data.message);
+          console.log(response);
         })
         .catch(error => {
           console.log(error);
@@ -85,6 +117,7 @@ const moduleApi = {
 
 export default createStore({
   state: {
+    adminSession: false,
     //controls if the product description modal is open or closed
     productModalStatus: false,
 
@@ -101,7 +134,9 @@ export default createStore({
 
     shoppingCart: [],
 
-    editableProduct: {}
+    editableProduct: {},
+
+    productList: []
   },
 
   getters: {
@@ -122,6 +157,10 @@ export default createStore({
     }
   },
   mutations: {
+    setAdminSession(state) {
+      state.adminSession = true;
+    },
+
     changeProductModalStatus(state) {
       state.productModalStatus = !state.productModalStatus;
     },
@@ -148,6 +187,9 @@ export default createStore({
     },
     setEditableProduct(state, prod) {
       state.editableProduct = prod;
+    },
+    setProducts(state, products) {
+      state.productList = products;
     }
   },
 

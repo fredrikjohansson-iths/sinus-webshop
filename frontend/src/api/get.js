@@ -11,11 +11,13 @@ const POST_URL_USER = `${BASE_URL}me/`;
 const get = async (url) => {
   try {
     const response = await axios.get(url);
-    return response;
+    console.log(response);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
 };
+
 const getProductById = async (url, id) => {
   try {
     const urlOfProduct = url + "/" + id;

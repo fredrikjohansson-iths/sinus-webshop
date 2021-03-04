@@ -1,6 +1,6 @@
 <template>
   <div id="login-modal">
-    <i id="closeLogin" class="fas fa-times" @click="exitLogin"></i>
+    <i id="closeLogin" class="pointer fas fa-times" @click="exitLogin"></i>
     <form @submit.prevent="authenticate">
       <section class="mail">
         <label for="email">Email</label>
@@ -15,16 +15,30 @@
       <section class="password">
         <label for="password">Password</label>
         <input :type="password" id="password" v-model="userPassword" required />
-        <input type="checkbox" @click="showPassword" /> Visa lösenord
       </section>
-      <button @submit.prevent="submit" value="Login" > Login</button>
-      <!-- <input type="submit" value="Login" /> -->
+      <transition name="fade">
+        <i
+          id="eye1"
+          @click="showPassword"
+          class="pointer fas fa-eye-slash"
+          v-show="!show"
+        ></i
+      ></transition>
+      <transition name="fade">
+        <i
+          id="eye2"
+          @click="showPassword"
+          class="pointer fas fa-eye"
+          v-show="show"
+        ></i>
+      </transition>
+      <input id="loginB" type="submit" value="Login" />
     </form>
     <section class="login-footer">
       <router-link to="/register">
         <p @click="exitLogin">Not registered?</p>
       </router-link>
-      <button @click="exitLogin">Cancel</button>
+      <!-- <button @click="exitLogin">Cancel</button> -->
     </section>
   </div>
 </template>
@@ -35,7 +49,8 @@ export default {
     return {
       password: "password",
       userMail: "",
-      userPassword: ""
+      userPassword: "",
+      show: false
     };
   },
   computed: {
@@ -51,12 +66,17 @@ export default {
       };
       this.$store.dispatch("auth", credentials);
     },
+    redirect() {
+      this.$router.push("Register");
+    },
 
     showPassword() {
       if (this.password === "password") {
         this.password = "text";
+        this.show = true;
       } else if (this.password === "text") {
         this.password = "password";
+        this.show = false;
       }
     },
 
@@ -68,10 +88,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#eye1,
+#eye2 {
+  position: absolute;
+  top: 41%;
+}
+
+.fa-eye {
+  left: 80%;
+}
+.fa-eye-slash {
+  left: 79.9%;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+  opacity: 0;
+}
+.pointer {
+  cursor: pointer;
+}
 
 #closeLogin {
   float: right;
+  transition: color 0.3s ease-in-out;
 }
+#closeLogin:hover {
+  color: rgb(231, 66, 66);
+}
+
 #login-modal {
   position: relative;
   height: auto;
@@ -80,6 +129,9 @@ export default {
   animation-name: animatetop;
   animation-duration: 0.4s;
   padding: 16px;
+  text-align: center;
+  min-width: 260px;
+  border-radius: 2%;
 }
 
 button {

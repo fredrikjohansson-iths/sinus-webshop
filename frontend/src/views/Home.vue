@@ -6,4 +6,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+
+body {height: 100%;}
+
+</style>

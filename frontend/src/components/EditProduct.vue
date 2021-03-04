@@ -47,20 +47,8 @@ export default {
         longDesc: this.editableProduct.longDesc,
         imgFile: this.editableProduct.imgFile
       };
-<<<<<<< HEAD
-
       const prodId = this.editableProduct.id;
       this.$store.dispatch("patchProduct", prodId, prodData);
-      // const response = await patchProduct(
-      //   PATCH_PRODUCT,
-      //   editedId,
-      //   prodData,
-      //   admin
-      // );
-=======
-      const prodId = this.editableProduct.id;
-      this.$store.dispatch("patchProduct", prodId, prodData);
->>>>>>> 394eda8c659eec6b14cb6cccfe941c305376105e
     },
     removeProduct: async function() {
       confirm("Are you sure you want to delete this item?");
@@ -73,15 +61,10 @@ export default {
       );
       console.log(response);
       // this.itemVisibility = "deleted-item";
-<<<<<<< HEAD
       // const prodId = this.editableProduct.id;
       //  this.$store.dispatch("patchProduct", prodId, prodData);
     },
   },
-=======
-    }
-  }
->>>>>>> 394eda8c659eec6b14cb6cccfe941c305376105e
 };
 </script>
 

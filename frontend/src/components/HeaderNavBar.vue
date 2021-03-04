@@ -63,9 +63,7 @@ export default {
 <style lang="scss" scoped>
 #nav {
   padding: 30px;
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
+
 
   a {
     font-weight: bold;

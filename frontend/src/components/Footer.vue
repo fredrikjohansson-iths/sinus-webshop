@@ -3,10 +3,10 @@
     <!-- Logga -->
 
     <img alt="Sinus logo" src="../assets/sinus-logo.svg" class="logo" />
-    <div class="sm-logo"></div>
-    <img alt="Insta logo" src="../assets/insta.svg" class="logo" />
-    <img alt="Facebook logo" src="../assets/facebook.svg" class="logo" />
-    <img alt="Twitter logo" src="../assets/twitter.svg" class="logo" />
+   <div class="sm-logo">
+    <img alt="Insta logo" src="../assets/insta.svg"  />
+    <img alt="Facebook logo" src="../assets/facebook.svg" />
+    <img alt="Twitter logo" src="../assets/twitter.svg"  /> </div>
     <!-- router -->
     <div class="router">
       <router-link to="Customer-service">Customer Service</router-link>
@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
   position: bottom;
   left: 0;
@@ -40,16 +40,17 @@ export default {
   display: flex;
   flex-direction: row;
   padding: 1rem;
+    .sm-logo {
+    align-items: center;
+    justify-content:center;
+    }
 }
 
 .logo {
   justify-self: flex-start;
 }
 
-.sm-logo {
-  width: 15%;
-  justify-content: space-between;
-}
+
 .router2,
 .router,
 .router3 {

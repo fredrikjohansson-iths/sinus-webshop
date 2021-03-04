@@ -1,14 +1,14 @@
 <template>
   <div id="nav">
-    <router-link to="/products">Our Products</router-link> |
-    <!-- <router-link to="/MyAccount" v-if="userStatus">    </router-link> -->
+    <router-link to="/products">Our Products</router-link>
+    <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
 
-    <router-link to="/admin" >Admin |</router-link>
+    <router-link v-if="adminSession" to="/admin">Admin</router-link>
 
-    <a v-if="!userSession" @click="changeLoginModalStatus">Login |</a>
+    <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
 
-    <a class="shopping-cart-link" @click="changeCartStatus">
-      Shopping Cart ({{ shoppingCartLength }})</a
+    <a class="shopping-cart-link" @click="changeCartStatus"
+      >Shopping Cart ({{ shoppingCartLength }})</a
     >
 
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
@@ -28,13 +28,13 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false,
+      cartModalStatus: false
     };
   },
 
   components: {
     LoginModal,
-    ShoppingCart,
+    ShoppingCart
   },
 
   methods: {
@@ -43,17 +43,20 @@ export default {
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    },
+    }
   },
 
   computed: {
     userSession() {
       return this.$store.state.a.session.active;
     },
+    adminSession() {
+      return this.$store.state.a.user.role;
+    },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    },
-  },
+    }
+  }
 };
 </script>
 

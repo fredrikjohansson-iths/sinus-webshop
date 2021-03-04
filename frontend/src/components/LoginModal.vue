@@ -50,19 +50,19 @@ export default {
       password: "password",
       userMail: "",
       userPassword: "",
-      show: false
+      show: false,
     };
   },
   computed: {
     userSession() {
       return this.$store.state.a.session.active;
-    }
+    },
   },
   methods: {
     authenticate() {
       var credentials = {
         email: this.userMail,
-        password: this.userPassword
+        password: this.userPassword,
       };
       this.$store.dispatch("auth", credentials);
     },
@@ -82,8 +82,8 @@ export default {
 
     exitLogin() {
       this.$emit("closeLogin");
-    }
-  }
+    },
+  },
 };
 </script>
 

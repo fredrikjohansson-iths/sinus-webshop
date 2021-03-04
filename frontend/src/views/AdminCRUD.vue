@@ -17,6 +17,7 @@
         />
       </div>
     </section>
+    <OrderList />
   </div>
 </template>
 
@@ -24,6 +25,7 @@
 import { get, PRODUCTS_URL } from "@/api/get.js";
 import EditProduct from "@/components/EditProduct.vue";
 import CRUDProductListItem from "@/components/CRUDProductListItem.vue";
+import OrderList from "@/components/OrderList.vue";
 
 export default {
   created() {
@@ -39,11 +41,12 @@ export default {
   computed: {
     userRole() {
       return this.$store.state.a.user.role;
-    }
+    },
   },
   components: {
     EditProduct,
-    CRUDProductListItem
+    CRUDProductListItem,
+    OrderList,
   },
 
   methods: {

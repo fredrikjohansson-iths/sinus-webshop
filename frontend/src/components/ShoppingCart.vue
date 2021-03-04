@@ -1,8 +1,12 @@
 <template>
   <div id="shopping-cart">
-    <i id="closeCart" class="fas fa-times" @click="closeCart" v-if="totalSum"></i>
-  
-      <!-- <button @click="closeCart" v-if="totalSum">X</button> -->
+    <i
+      id="closeCart"
+      class="fas fa-times"
+      @click="closeCart"
+      v-if="totalSum"
+    ></i>
+
     <div v-if="totalSum">
       <ul v-for="item in uniqueCartProducts" :key="item._id">
         <ShoppingCartItem :item="item" />
@@ -11,7 +15,6 @@
 
       <router-link to="/Checkout">
         <button @click="closeCart">
-          <!-- <span @click="closeCart"> -->
           Checkout
         </button>
       </router-link>
@@ -33,7 +36,7 @@ export default {
   },
 
   components: {
-    ShoppingCartItem
+    ShoppingCartItem,
   },
 
   computed: {
@@ -42,18 +45,18 @@ export default {
     },
 
     uniqueCartProducts() {
-      return [...new Set(this.cartProducts.map(item => item))];
+      return [...new Set(this.cartProducts.map((item) => item))];
     },
 
     totalSum() {
       return this.$store.getters.getTotalSum;
-    }
+    },
   },
   methods: {
     closeCart() {
       this.$emit("closeCart");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -65,17 +68,17 @@ export default {
   animation-name: animatetop;
   animation-duration: 0.4s;
   padding: 16px;
- #closeCart {
-   float: right;
- }
- 
- button {
-   width: 80px;
-  height: 30px;
-  border-radius: 20px;
-  background-color: #2c3e50;
-  color: white
- }
+  #closeCart {
+    float: right;
+  }
+
+  button {
+    width: 80px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #2c3e50;
+    color: white;
+  }
   .total {
     border-top: 1px solid black;
   }

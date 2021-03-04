@@ -34,7 +34,6 @@ export default {
   methods: {
     createOrder: async function() {
       const response = await makeOrder(POST_ORDER, this.getCartItemsId);
-      console.log(response);
       if (response.status === 200) {
         //order validation
         this.$store.commit("clearShoppingCart");

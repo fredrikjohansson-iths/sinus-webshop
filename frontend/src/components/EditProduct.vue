@@ -4,40 +4,64 @@
       <img src="" alt="" />
     </section>
     <section class="crud-details">
-      <label for="title">Product Name</label>
-      <input type="text" id="title" :value="editableProduct.title" />
-      <label for="short">Short description</label>
-      <input type="text" id="short" :value="editableProduct.shortDesc" />
-      <label for="price">Price</label>
-      <input type="text" id="price" :value="editableProduct.price" />
-      <label for="id">Serial Number</label>
-      <input type="text" id="id" :value="editableProduct._id" />
+      <p>{{ editableProduct }}</p>
+      <form @submit.prevent="updateProduct">
+        <label for="title">Product Name</label>
+        <input type="text" id="title" v-model="editableProduct.title" />
+        <label for="short">Short description</label>
+        <input type="text" id="short" :value="editableProduct.shortDesc" />
+        <label for="price">Price</label>
+        <input type="text" id="price" :value="editableProduct.price" />
+        <label for="id">Serial Number</label>
+        <input type="text" id="id" v-model="editableProduct.id" disabled />
+        <input type="submit" value="Update product" />
+      </form>
     </section>
     <section class="crud-description">
       <label for="long-desc">Full description</label>
-      <textarea
-        type="text"
-        name=""
-        id="long-desc"
-        rows="12"
-        v-model="editableProduct.longDesc"
-      ></textarea>
+      <textarea type="text" name="" id="long-desc" rows="12"></textarea>
+    </section>
+    <section>
+      <button @click="removeProduct">Remove this product</button>
     </section>
   </div>
 </template>
 
 <script>
+//import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
+import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
+
 export default {
-  data() {
-    return {
-      newProduct: {},
-    };
-  },
   computed: {
     editableProduct() {
       return this.$store.state.editableProduct;
-    },
+    }
   },
+  methods: {
+    updateProduct() {
+      const prodData = {
+        title: this.editableProduct.title,
+        price: this.editableProduct.price,
+        shortDesc: this.editableProduct.shortDesc,
+        longDesc: this.editableProduct.longDesc,
+        imgFile: this.editableProduct.imgFile
+      };
+      const prodId = this.editableProduct.id;
+      this.$store.dispatch("patchProduct", prodId, prodData);
+    },
+    removeProduct: async function() {
+      confirm("Are you sure you want to delete this item?");
+      const admin = this.$store.state.b.token;
+
+      const response = await deleteProduct(
+        DELETE_PRODUCT,
+        this.editableProduct.id,
+        admin
+      );
+      console.log(response);
+      // this.itemVisibility = "deleted-item";
+    }
+  }
 };
 </script>
 

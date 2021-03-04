@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
   position: bottom;
   left: 0;
@@ -108,15 +108,7 @@ li {
   position: relative;
   float: right;
   border-collapse: collapse;
+  padding: 1rem;
 }
 
-.logo {
-  justify-self: flex-start;
-  width: 15%;
-}
-
-.sm-logo {
-  width: 15%;
-  justify-content: space-between;
-}
 </style>

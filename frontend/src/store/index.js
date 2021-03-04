@@ -16,7 +16,10 @@ const moduleSession = {
     },
     sessionState(state) {
       state.session.active = true;
-    }
+    },
+    isAdmin(state) {
+      state.user.role === "admin";
+    },
   },
   actions: {}
 };

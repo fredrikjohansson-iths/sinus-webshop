@@ -28,13 +28,13 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false
+      cartModalStatus: false,
     };
   },
 
   components: {
     LoginModal,
-    ShoppingCart
+    ShoppingCart,
   },
 
   methods: {
@@ -43,7 +43,7 @@ export default {
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    }
+    },
   },
 
   computed: {
@@ -55,14 +55,17 @@ export default {
     },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 #nav {
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
 
   a {
     font-weight: bold;

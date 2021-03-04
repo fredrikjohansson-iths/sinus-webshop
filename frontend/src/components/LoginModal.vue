@@ -1,5 +1,6 @@
 <template>
-  <div id="login-modal"  @mouseout="exitLogin">
+  <div id="login-modal">
+    <i id="closeLogin" class="fas fa-times" @click="exitLogin"></i>
     <form @submit.prevent="authenticate">
       <section class="mail">
         <label for="email">Email</label>
@@ -66,6 +67,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#closeLogin {
+  float: right;
+}
 #login-modal {
   position: relative;
   height: auto;

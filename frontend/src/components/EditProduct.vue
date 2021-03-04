@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
+//import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
 import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
 
 export default {

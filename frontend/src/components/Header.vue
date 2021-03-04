@@ -12,8 +12,8 @@
 import HeaderNavBar from "@/components/HeaderNavBar.vue";
 export default {
   components: {
-    HeaderNavBar
-  }
+    HeaderNavBar,
+  },
 };
 </script>
 
@@ -23,6 +23,7 @@ export default {
   height: 80px;
   background-color: rgb(241, 237, 229);
   justify-content: space-between;
+  margin-bottom: 80px;
 }
 .logo-holder {
   display: flex;

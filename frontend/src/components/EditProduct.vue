@@ -4,8 +4,7 @@
       <img src="" alt="" />
     </section>
     <section class="crud-details">
-      <p>{{ editableProduct }}</p>
-      <form @submit.prevent="updateProduct">
+      <form @submit="updateProduct">
         <label for="title">Product Name</label>
         <input type="text" id="title" v-model="editableProduct.title" />
         <label for="short">Short description</label>
@@ -14,21 +13,23 @@
         <input type="text" id="price" :value="editableProduct.price" />
         <label for="id">Serial Number</label>
         <input type="text" id="id" v-model="editableProduct.id" disabled />
-        <input type="submit" value="Update product" />
+        <input type="submit" value="Update product" v-if="editableProduct.id" />
+        <input type="submit" value="Create product" v-else />
+        <button @click="removeProduct" v-if="editableProduct.id">
+          Remove this product
+        </button>
       </form>
     </section>
     <section class="crud-description">
       <label for="long-desc">Full description</label>
       <textarea type="text" name="" id="long-desc" rows="12"></textarea>
     </section>
-    <section>
-      <button @click="removeProduct">Remove this product</button>
-    </section>
+    <section></section>
   </div>
 </template>
 
 <script>
-//import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
+// import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
 import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
 
 export default {
@@ -46,8 +47,20 @@ export default {
         longDesc: this.editableProduct.longDesc,
         imgFile: this.editableProduct.imgFile
       };
+<<<<<<< HEAD
+
       const prodId = this.editableProduct.id;
       this.$store.dispatch("patchProduct", prodId, prodData);
+      // const response = await patchProduct(
+      //   PATCH_PRODUCT,
+      //   editedId,
+      //   prodData,
+      //   admin
+      // );
+=======
+      const prodId = this.editableProduct.id;
+      this.$store.dispatch("patchProduct", prodId, prodData);
+>>>>>>> 394eda8c659eec6b14cb6cccfe941c305376105e
     },
     removeProduct: async function() {
       confirm("Are you sure you want to delete this item?");
@@ -60,8 +73,15 @@ export default {
       );
       console.log(response);
       // this.itemVisibility = "deleted-item";
+<<<<<<< HEAD
+      // const prodId = this.editableProduct.id;
+      //  this.$store.dispatch("patchProduct", prodId, prodData);
+    },
+  },
+=======
     }
   }
+>>>>>>> 394eda8c659eec6b14cb6cccfe941c305376105e
 };
 </script>
 
@@ -73,9 +93,9 @@ export default {
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;
-  height: 300px;
   gap: 40px;
   margin-bottom: 80px;
+  padding: 20px;
 }
 .crud-details {
   display: flex;
@@ -90,5 +110,11 @@ export default {
 .crud-description {
   display: flex;
   flex-direction: column;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 12px 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 </style>

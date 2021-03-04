@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
+//import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
 
 export default {
   computed: {
@@ -34,17 +34,16 @@ export default {
     },
   },
   methods: {
-    updateProduct: async function() {
-      const editedProd = {
+    updateProduct() {
+      const prodData = {
         title: this.editableProduct.title,
         price: this.editableProduct.price,
         shortDesc: this.editableProduct.shortDesc,
         longDesc: this.editableProduct.longDesc,
         imgFile: this.editableProduct.imgFile,
       };
-      const editedId = this.editableProduct.id;
-      const response = await patchProduct(PATCH_PRODUCT, editedId, editedProd);
-      console.log(response);
+      const prodId = this.editableProduct.id;
+       this.$store.dispatch("patchProduct", prodId, prodData);
     },
   },
 };

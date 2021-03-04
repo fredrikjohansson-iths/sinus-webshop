@@ -17,6 +17,9 @@ const moduleSession = {
     sessionState(state) {
       state.session.active = true;
     },
+    isAdmin(state) {
+      state.user.role === "admin";
+    },
   },
   actions: {},
 };
@@ -29,13 +32,14 @@ const moduleAPI = {
     },
   },
   actions: {
-    auth({ commit }, cred) {
+    auth({ commit, dispatch }, cred) {
       axios
         .post("http://localhost:5000/api/auth", cred)
         .then((response) => {
           var token = response.data.token;
           commit("updateToken", token);
           commit("sessionState", { root: true });
+          dispatch("getUser");
         })
         .catch((error) => {
           console.log(error);

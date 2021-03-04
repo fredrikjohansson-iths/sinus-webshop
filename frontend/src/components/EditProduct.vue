@@ -43,6 +43,7 @@ export default {
         imgFile: this.editableProduct.imgFile,
       };
       const editedId = this.editableProduct.id;
+      console.log(editedProd);
       const response = await patchProduct(PATCH_PRODUCT, editedId, editedProd);
       console.log(response);
     },

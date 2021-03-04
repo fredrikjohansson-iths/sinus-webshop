@@ -6,7 +6,7 @@ const deleteProduct = async (url, id) => {
   try {
     const urlWithId = url + id;
     const response = await axios.delete(urlWithId);
-
+    console.log(response);
     return response;
   } catch (error) {
     console.log(error);

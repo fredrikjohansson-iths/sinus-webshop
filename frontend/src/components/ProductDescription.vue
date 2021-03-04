@@ -2,7 +2,7 @@
   <div class="product-description">
     <div class="product-innerbox">
       <div class="product-imagebox">
-        <img src="" alt="product image" height="400px" />
+        <img src="../assets/skate-hero-1.jpg" alt="product image" height="400px" />
       </div>
       <div class="product-decriptionbox">
         <table>

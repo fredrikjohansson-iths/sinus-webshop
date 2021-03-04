@@ -70,6 +70,14 @@ const moduleApi = {
         .catch(error => {
           console.log(error);
         });
+    },
+    postUser(payload) {
+      axios
+        .post("http://localhost:5000/api/products/register/", payload, {
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
   getters: {}

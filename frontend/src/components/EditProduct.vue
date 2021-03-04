@@ -21,11 +21,15 @@
       <label for="long-desc">Full description</label>
       <textarea type="text" name="" id="long-desc" rows="12"></textarea>
     </section>
+    <section>
+      <button @click="removeProduct">Remove this product</button>
+    </section>
   </div>
 </template>
 
 <script>
 import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
+import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
 
 export default {
   computed: {
@@ -42,10 +46,33 @@ export default {
         longDesc: this.editableProduct.longDesc,
         imgFile: this.editableProduct.imgFile,
       };
+
       const editedId = this.editableProduct.id;
-      console.log(editedProd);
-      const response = await patchProduct(PATCH_PRODUCT, editedId, editedProd);
+
+      const admin = this.$store.state.b.token;
+
+      const response = await patchProduct(
+        PATCH_PRODUCT,
+        editedId,
+        editedProd,
+        admin
+      );
+
+      if (response.status) {
+        alert("hej");
+      }
+    },
+    removeProduct: async function() {
+      confirm("Are you sure you want to delete this item?");
+      const admin = this.$store.state.b.token;
+
+      const response = await deleteProduct(
+        DELETE_PRODUCT,
+        this.editableProduct.id,
+        admin
+      );
       console.log(response);
+      // this.itemVisibility = "deleted-item";
     },
   },
 };

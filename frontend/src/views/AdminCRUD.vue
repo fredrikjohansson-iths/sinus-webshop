@@ -36,10 +36,14 @@ export default {
       productListVisibility: false,
     };
   },
-
+  computed: {
+    userRole() {
+      return this.$store.state.a.user.role;
+    }
+  },
   components: {
     EditProduct,
-    CRUDProductListItem,
+    CRUDProductListItem
   },
 
   methods: {

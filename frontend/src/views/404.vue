@@ -11,6 +11,9 @@
 <script>
 export default {
   name: "404",
+  mounted() {
+      setTimeout(() => this.$router.push("/"), 5000);
+  },
 };
 </script>
 

@@ -38,14 +38,15 @@ export default {
     },
   },
   methods: {
-    updateProduct: async function() {
-      const editedProd = {
+    updateProduct() {
+      const prodData = {
         title: this.editableProduct.title,
         price: this.editableProduct.price,
         shortDesc: this.editableProduct.shortDesc,
         longDesc: this.editableProduct.longDesc,
         imgFile: this.editableProduct.imgFile,
       };
+<<<<<<< HEAD
 
       const editedId = this.editableProduct.id;
 
@@ -73,6 +74,10 @@ export default {
       );
       console.log(response);
       // this.itemVisibility = "deleted-item";
+=======
+      const prodId = this.editableProduct.id;
+       this.$store.dispatch("patchProduct", prodId, prodData);
+>>>>>>> e4262bbfe9089fa9ba1066b4dca061193adef13c
     },
   },
 };

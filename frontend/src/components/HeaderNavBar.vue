@@ -1,19 +1,22 @@
 <template>
   <div id="site-header">
     <div id="nav">
-      <router-link to="/products">Our Products</router-link>
+      <router-link title="Browse our products" to="/products">Our Products</router-link>
       <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
 
-      <router-link v-if="adminSession" to="/admin">Admin</router-link>
+      <router-link title="Admin configuration view" v-if="adminSession" to="/admin">Admin</router-link>
 
       <a v-if="!userSession" @click="changeLoginModalStatus">Login</a>
 
-      <a class="shopping-cart-link" @click="changeCartStatus"
+      <a class="shopping-cart-link" title="View your shopping cart" @click="changeCartStatus"
         >Shopping Cart ({{ shoppingCartLength }})</a
       >
+      <router-link title="View your account" v-if="userSession" to="/profile"
+        >
+          <i class="grow fas fa-user"></i></router-link><i id="signout" v-if="userSession" title="Sign out" class="pointer grow fas fa-sign-out-alt"></i>
     </div>
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
-    <LoginModal
+    <LoginModal title="Login to Sinus Webshop"
       v-if="!userSession"
       v-show="loginModalStatus"
       @closeLogin="changeLoginModalStatus"
@@ -29,13 +32,13 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false,
+      cartModalStatus: false
     };
   },
 
   components: {
     LoginModal,
-    ShoppingCart,
+    ShoppingCart
   },
 
   methods: {
@@ -44,7 +47,7 @@ export default {
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    },
+    }
   },
 
   computed: {
@@ -52,16 +55,25 @@ export default {
       return this.$store.state.a.session.active;
     },
     adminSession() {
-      return this.$store.state.a.user.role;
+      return this.$store.state.adminSession;
     },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+
+#signout {left: 98.5%;
+position: absolute;
+top: 1%;}
+.grow { transition: all .3s ease-in-out; }
+.grow:hover { transform: scale(1.3); }
+
+.pointer {cursor: pointer;}
+
 #nav {
   padding: 30px;
   display: flex;
@@ -77,6 +89,7 @@ export default {
       color: whitesmoke;
     }
   }
+  i {color: #2c3e50;}
   .text-bold {
     font-weight: bold;
   }

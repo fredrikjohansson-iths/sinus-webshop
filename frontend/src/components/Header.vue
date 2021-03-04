@@ -28,6 +28,7 @@ export default {
   background-color: rgb(185, 180, 180);
   justify-content: space-between;
   margin-bottom: 80px;
+  width: 100%;
 }
 .logo-holder {
   display: flex;

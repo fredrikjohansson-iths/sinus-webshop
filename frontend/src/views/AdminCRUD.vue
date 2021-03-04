@@ -25,18 +25,21 @@ import CRUDProductListItem from "@/components/CRUDProductListItem.vue";
 export default {
   data() {
     return {
-      products: [],
+      products: []
     };
   },
-
   created: async function() {
     const response = await get(PRODUCTS_URL);
     this.products = response.data;
   },
-
+  computed: {
+    userRole() {
+      return this.$store.state.a.user.role;
+    }
+  },
   components: {
     EditProduct,
-    CRUDProductListItem,
+    CRUDProductListItem
   },
 };
 </script>

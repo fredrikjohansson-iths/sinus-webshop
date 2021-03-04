@@ -17,7 +17,7 @@ export default {
   components: {
     Header,
     Footer,
-  },
+  },  
       watch: {
       '$route' (to, from) {
         document.title = to.meta.title || from.meta.title

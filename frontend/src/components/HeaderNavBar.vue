@@ -74,7 +74,7 @@ export default {
     cursor: pointer;
 
     &.router-link-exact-active {
-      color: #9c2e8e;
+      color: white;
     }
   }
   .text-bold {

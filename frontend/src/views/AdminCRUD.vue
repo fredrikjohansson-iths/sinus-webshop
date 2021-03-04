@@ -1,10 +1,7 @@
 <template>
   <div>
-    <section class="crud-header">
-      <button>Add New Product</button>
-    </section>
     <EditProduct />
-    <ProductsContainer />
+    <ProductsContainer :editMode="editMode" />
   </div>
 </template>
 
@@ -12,6 +9,11 @@
 import EditProduct from "@/components/EditProduct.vue";
 import ProductsContainer from "@/components/ProductsContainer.vue";
 export default {
+  data() {
+    return {
+      editMode: true,
+    };
+  },
   components: {
     EditProduct,
     ProductsContainer,

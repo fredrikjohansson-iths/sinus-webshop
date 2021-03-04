@@ -2,19 +2,18 @@
   <div id="nav">
     <router-link to="/products">Our Products</router-link> |
     <!-- <router-link to="/MyAccount" v-if="userStatus">    </router-link> -->
-    <span>ANVÄNDAREN INLOGGAD |</span>
 
-    <router-link to="/admin">Admin</router-link> |
+    <router-link to="/admin" >Admin |</router-link>
 
-    <a v-if="!userSession" @click="changeLoginModalStatus" >Login |</a>
+    <a v-if="!userSession" @click="changeLoginModalStatus">Login |</a>
 
-    <a class="shopping-cart-link" @click="changeCartStatus"
-      >Shopping Cart ({{ shoppingCartLength }})</a
+    <a class="shopping-cart-link" @click="changeCartStatus">
+      Shopping Cart ({{ shoppingCartLength }})</a
     >
 
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
     <LoginModal
-    v-if="!userSession"
+      v-if="!userSession"
       v-show="loginModalStatus"
       @closeLogin="changeLoginModalStatus"
     />
@@ -29,13 +28,13 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false
+      cartModalStatus: false,
     };
   },
 
   components: {
     LoginModal,
-    ShoppingCart
+    ShoppingCart,
   },
 
   methods: {
@@ -44,7 +43,7 @@ export default {
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    }
+    },
   },
 
   computed: {
@@ -53,8 +52,8 @@ export default {
     },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    }
-  }
+    },
+  },
 };
 </script>
 

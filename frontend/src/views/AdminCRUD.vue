@@ -1,18 +1,22 @@
 <template>
-  <div>
-    <EditProduct />
-    <h2>All products</h2>
-    <section class="crud-product-list">
+  <div class="admin-view">
+    <EditProduct @change="changeVisibility" />
+
+    <section class="crud-product-list" v-if="productListVisibility">
+      <h2>All products</h2>
       <section class="list-header">
         <h3 class="title">Title</h3>
         <h3 class="id">Serial No</h3>
         <h3 class="category">Category</h3>
       </section>
-      <CRUDProductListItem
-        v-for="product in products"
-        :key="product._id"
-        :product="product"
-      />
+      <button @click="getProducts">refresh</button>
+      <div class="list-items">
+        <CRUDProductListItem
+          v-for="product in products"
+          :key="product._id"
+          :product="product"
+        />
+      </div>
     </section>
   </div>
 </template>
@@ -23,14 +27,15 @@ import EditProduct from "@/components/EditProduct.vue";
 import CRUDProductListItem from "@/components/CRUDProductListItem.vue";
 
 export default {
+  created() {
+    this.getProducts();
+  },
+
   data() {
     return {
-      products: []
+      products: [],
+      productListVisibility: false,
     };
-  },
-  created: async function() {
-    const response = await get(PRODUCTS_URL);
-    this.products = response.data;
   },
   computed: {
     userRole() {
@@ -41,16 +46,28 @@ export default {
     EditProduct,
     CRUDProductListItem
   },
+
+  methods: {
+    getProducts: async function() {
+      const response = await get(PRODUCTS_URL);
+      this.products = response;
+    },
+    changeVisibility(payload) {
+      if (payload === "create") {
+        this.productListVisibility = false;
+      } else this.productListVisibility = true;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.crud-product-list > :nth-child(even) {
+.list-items > :nth-child(odd) {
   background-color: rgb(248, 231, 237);
 }
 
 .list-header {
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   display: grid;

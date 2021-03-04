@@ -1,7 +1,7 @@
 <template>
-  <div @click="openEditor" :id="itemVisibility" class="list-item">
+  <div @click="openEditor" class="list-item">
     <section class="buttons"></section>
-    <span class="title">{{ product.title }}</span>
+    <h3 class="title">{{ product.title }}</h3>
     <span class="id">{{ product._id }}</span>
     <span class="category">{{ product.category }}</span>
   </div>
@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 .list-item {
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   display: grid;

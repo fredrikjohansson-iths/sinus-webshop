@@ -24,11 +24,13 @@ const moduleSession = {
 
 const moduleApi = {
   state: { token: String },
+
   mutations: {
     updateToken(state, token) {
       state.token = token;
     }
   },
+
   actions: {
     auth({ commit, dispatch }, cred) {
       axios
@@ -81,9 +83,43 @@ const moduleApi = {
         .catch(error => {
           console.log(error, newUser);
         });
+    },
+    deleteProduct({ commit, state }, id) {
+      axios
+        .delete("http://localhost:5000/api/products/" + id, {
+          headers: { Authorization: state.token }
+        })
+        .then(response => {
+          alert(response.data.message);
+          commit("setEditableProduct", {});
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    createProduct({ state }, payload) {
+      axios
+        .post("http://localhost:5000/api/products/" + payload, {
+          headers: { Authorization: state.token }
+        })
+        .then(response => {
+          alert(response.data.message);
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    postUser(payload) {
+      axios
+        .post("http://localhost:5000/api/products/register/", payload, {})
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
-  getters: { isAdmin() {} }
+  getters: {}
 };
 
 export default createStore({
@@ -105,7 +141,9 @@ export default createStore({
 
     shoppingCart: [],
 
-    editableProduct: {}
+    editableProduct: {},
+
+    productList: []
   },
 
   getters: {
@@ -156,6 +194,9 @@ export default createStore({
     },
     setEditableProduct(state, prod) {
       state.editableProduct = prod;
+    },
+    setProducts(state, products) {
+      state.productList = products;
     }
   },
 

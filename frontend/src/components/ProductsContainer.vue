@@ -21,15 +21,15 @@ export default {
       default: false,
     },
   },
+
   components: {
     ProductsItemHolder,
   },
 
   created: async function() {
     const response = await get(PRODUCTS_URL);
-    this.products = response.data;
+    this.products = response;
   },
-
   data() {
     return {
       products: [],

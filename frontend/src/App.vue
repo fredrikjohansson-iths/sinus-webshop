@@ -7,11 +7,10 @@
 </template>
 
 <script>
-
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 
-import './assets/scss/sinus-style.scss'
+import "./assets/scss/sinus-style.scss";
 
 export default {
   components: {
@@ -22,13 +21,12 @@ export default {
       '$route' (to, from) {
         document.title = to.meta.title || from.meta.title
       }
-    },
+  },
+  
 };
 </script>
 
-
-
- <style scoped>
+<style scoped>
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

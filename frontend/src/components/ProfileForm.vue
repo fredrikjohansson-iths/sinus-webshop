@@ -1,0 +1,154 @@
+<template>
+  <div><transition name="fade">
+    <div id="alert" class="alert" v-if="show">
+      <span class="closebtn"></span>
+      Saved successfully! 
+    </div></transition>
+    <form>
+      <label for="name"
+        >Name
+        <input
+          id="name"
+          type="text"
+          v-model="patchUser.name"
+          :disabled="inputState"
+          :placeholder="user.name"
+      /></label>
+      <label for="email"
+        >Email
+        <input
+          id="email"
+          type="text"
+          v-model="patchUser.email"
+          :disabled="inputState"
+          :placeholder="user.email"
+      /></label>
+      <label for="street"
+        >Street
+        <input
+          v-if="user.address"
+          id="street"
+          type="text"
+          :disabled="inputState"
+          v-model="patchUser.address.street"
+          :placeholder="user.address.street"
+      /></label>
+      <label for="zip"
+        >Zip
+        <input
+          v-if="user.address"
+          id="zip"
+          type="numbers"
+          v-model="patchUser.address.zip"
+          :placeholder="user.address.zip"
+          :disabled="inputState"
+      /></label>
+      <label for="city"
+        >City
+        <input
+          v-if="user.address"
+          id="city"
+          type="text"
+          v-model="patchUser.address.city"
+          :placeholder="user.address.city"
+          :disabled="inputState"
+      /></label>
+    </form>
+    <button @click="test" v-if="!enableEdit">Edit</button
+    ><button
+      @click="
+        test2();
+        test();
+      "
+      v-if="enableEdit"
+    >
+      Save</button
+    ><button @click="test" v-if="enableEdit">Cancel</button>
+  </div>
+</template>
+<script>
+export default {
+  name: "ProfileForm",
+  data() {
+    return {
+      enableEdit: false,
+      inputState: "disabled",
+      show: false,
+      patchUser: {
+        email: "",
+        name: "",
+        address: {
+          street: "",
+          zip: "",
+          city: ""
+        }
+      }
+    };
+  },
+  props: {
+    user: Object
+  },
+  watch: {
+    user(val) {
+      if (val) {
+        this.patchUser = this.user;
+        this.patchUser.address = this.user.address;
+      }
+    },
+    enableEdit(oldVal, newVal) {
+      if (newVal === true && oldVal === false) {
+        this.inputState = "disabled";
+      } else {
+        this.inputState = null;
+      }
+    }
+  },
+  methods: {
+    hideAlert() {
+      this.show = false
+    },
+    test2() {
+      this.$emit("mePatch", this.patchUser);
+      this.show = true;
+      setTimeout(() => this.show = false, 3000);
+    },
+    test() {
+      if (this.enableEdit === true) {
+        this.enableEdit = false;
+      } else {
+        this.enableEdit = true;
+      }
+    },
+    submit() {
+      const data = this.$data.user;
+      this.$emit("submitted", data);
+    }
+  }
+};
+</script>
+
+<style>
+.alert {
+  padding: 20px;
+  background-color: lightgreen; /* Green */
+  color: white;
+  margin-bottom: 15px;
+}
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.fade-enter, .fade-enter-active, .fade-leave-active {
+  transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>

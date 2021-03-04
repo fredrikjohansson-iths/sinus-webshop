@@ -7,9 +7,7 @@ const moduleSession = {
     user: Object,
     order: Object
   },
-
   getters: {},
-
   mutations: {
     setUser(state, payload) {
       state.user = payload;
@@ -19,12 +17,12 @@ const moduleSession = {
     },
     isAdmin(state) {
       state.user.role === "admin";
-    },
+    }
   },
   actions: {}
 };
 
-const moduleAPI = {
+const moduleApi = {
   state: { token: String },
   mutations: {
     updateToken(state, token) {
@@ -167,5 +165,5 @@ export default createStore({
       commit("changeProductModalId", id);
     }
   },
-  modules: { a: moduleSession, b: moduleAPI }
+  modules: { a: moduleSession, b: moduleApi }
 });

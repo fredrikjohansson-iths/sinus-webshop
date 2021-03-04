@@ -19,14 +19,17 @@ export default {
     product: {
       type: Object,
     },
+
     editMode: {
       type: Boolean,
       default: false,
     },
   },
+
   data() {
     return {};
   },
+
   methods: {
     getImgUrl(pic) {
       return require(pic);

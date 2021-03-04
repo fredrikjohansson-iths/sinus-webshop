@@ -15,13 +15,24 @@
     </section>
     <section class="crud-description">
       <label for="long-desc">Full description</label>
-      <textarea type="text" name="" id="long-desc" rows="12"></textarea>
+      <textarea
+        type="text"
+        name=""
+        id="long-desc"
+        rows="12"
+        v-model="editableProduct.longDesc"
+      ></textarea>
     </section>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      newProduct: {},
+    };
+  },
   computed: {
     editableProduct() {
       return this.$store.state.editableProduct;

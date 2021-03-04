@@ -14,7 +14,7 @@
       </section>
       <section class="password">
         <label for="password">Password</label>
-        <input :type="password" id="password" v-model="userPassword" required />
+        <input :type="password" id="paEditsword" v-model="userPassword" required />
       </section>
       <transition name="fade">
         <i title="Click to show password"
@@ -63,8 +63,10 @@ export default {
       var credentials = {
         email: this.userMail,
         password: this.userPassword,
+        
       };
       this.$store.dispatch("auth", credentials);
+      this.$router.push("Profile");
     },
     redirect() {
       this.$router.push("Register");

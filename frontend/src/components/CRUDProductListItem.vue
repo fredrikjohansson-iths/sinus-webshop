@@ -1,24 +1,14 @@
 <template>
-  <div :id="itemVisibility" class="list-item">
-    <section class="buttons">
-      <button @click="expand" class="more-details">expand</button>
-      <!-- <input type="checkbox" @change="check($event)" /> -->
-      <button @click="removeProduct">Delete</button>
-    </section>
+  <div @click="openEditor" :id="itemVisibility" class="list-item">
+    <section class="buttons"></section>
     <span class="title">{{ product.title }}</span>
     <span class="id">{{ product._id }}</span>
     <span class="category">{{ product.category }}</span>
-    <button @click="openModal" class="display-product-btn">
-      Display Modal
-    </button>
-    <section v-if="itemVisibility === 'expanded'">
-      <p>{{}}</p>
-    </section>
   </div>
 </template>
 
 <script>
-import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
+// import { DELETE_PRODUCT, deleteProduct } from "@/api/delete.js";
 
 export default {
   data() {
@@ -27,27 +17,36 @@ export default {
     };
   },
   methods: {
-    expand() {
-      if (this.itemVisibility === "") {
-        this.itemVisibility = "expanded";
-      } else if (this.itemVisibility === "expanded") {
-        this.itemVisibility = "";
-      }
-    },
-    openModal() {
-      this.$store.dispatch("changeProductModal", this.product._id);
-    },
-
-    removeProduct: async function() {
-      confirm("Are you sure you want to delete this item?");
-
-      const response = await deleteProduct(DELETE_PRODUCT, this.product._id);
-      console.log(response.data.message);
-      this.itemVisibility = "deleted-item";
-    },
+    // expand() {
+    //   if (this.itemVisibility === "") {
+    //     this.itemVisibility = "expanded";
+    //   } else if (this.itemVisibility === "expanded") {
+    //     this.itemVisibility = "";
+    //   }
+    // },
+    // openModal() {
+    //   this.$store.dispatch("changeProductModal", this.product._id);
+    // },
+    // removeProduct: async function() {
+    //   confirm("Are you sure you want to delete this item?");
+    //   const response = await deleteProduct(DELETE_PRODUCT, this.product._id);
+    //   console.log(response.data.message);
+    //   this.itemVisibility = "deleted-item";
+    // },
     // check() {
     //   alert("hej");
     // },
+    openEditor() {
+      const editProd = {
+        title: this.product.title,
+        price: this.product.price,
+        shortDesc: this.product.shortDesc,
+        longDesc: this.product.longDesc,
+        imgFile: this.product.imgFile,
+        id: this.product._id,
+      };
+      this.$store.commit("setEditableProduct", editProd);
+    },
   },
   components: {},
   props: {
@@ -69,10 +68,6 @@ export default {
 }
 #deleted-item {
   border: red 2px solid;
-}
-#expanded {
-  height: 400px;
-  grid-template-rows: repeat(auto-fill, 80px);
 }
 .buttons {
   grid-column: 1;

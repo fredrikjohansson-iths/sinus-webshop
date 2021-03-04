@@ -65,6 +65,18 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/AdminCRUD.vue")
   },
   {
+    path: "/profile",
+    name: "Profile",
+    meta: {
+      title: 'My Sinus Account',
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Profile.vue")
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "404",
     meta: {

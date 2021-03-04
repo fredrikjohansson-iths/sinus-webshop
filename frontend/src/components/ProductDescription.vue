@@ -42,11 +42,7 @@ export default {
     const response = await getProductById(PRODUCTID_URL, this.modalId);
     this.product = response.data;
   },
-  methods: {
-    addToCart() {
-      this.$store.dispatch("addProductToCart", this.product);
-    },
-  },
+
   data() {
     return {
       show: false,
@@ -71,6 +67,9 @@ export default {
   methods: {
     handleClick: function() {
       this.$store.commit("changeProductModalStatus");
+    },
+    addToCart() {
+      this.$store.dispatch("addProductToCart", this.product);
     },
   },
 };

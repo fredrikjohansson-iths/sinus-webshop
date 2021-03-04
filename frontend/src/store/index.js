@@ -5,7 +5,7 @@ const moduleSession = {
   state: {
     session: { active: false },
     user: Object,
-    order: Object,
+    order: Object
   },
 
   getters: {},
@@ -17,8 +17,11 @@ const moduleSession = {
     sessionState(state) {
       state.session.active = true;
     },
+    isAdmin(state) {
+      state.user.role === "admin";
+    },
   },
-  actions: {},
+  actions: {}
 };
 
 const moduleAPI = {
@@ -26,18 +29,19 @@ const moduleAPI = {
   mutations: {
     updateToken(state, token) {
       state.token = token;
-    },
+    }
   },
   actions: {
-    auth({ commit }, cred) {
+    auth({ commit, dispatch }, cred) {
       axios
         .post("http://localhost:5000/api/auth", cred)
-        .then((response) => {
+        .then(response => {
           var token = response.data.token;
           commit("updateToken", token);
           commit("sessionState", { root: true });
+          dispatch("getUser");
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
@@ -45,20 +49,32 @@ const moduleAPI = {
     getUser({ state, commit, rootState }) {
       axios
         .get("http://localhost:5000/api/me", {
-          headers: { Authorization: state.token },
+          headers: { Authorization: state.token }
         })
-        .then((response) => {
+        .then(response => {
           var payload = response.data;
           commit("setUser", payload, { root: true });
           console.log("sessionState", rootState.a.user);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
     getOrders() {},
+    patchProduct({ state }, id, payload) {
+      axios
+        .patch("http://localhost:5000/api/products/" + id, payload, {
+          headers: { Authorization: state.token }
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   },
-  getters: {},
+  getters: {}
 };
 
 export default createStore({
@@ -79,25 +95,25 @@ export default createStore({
 
     shoppingCart: [],
 
-    editableProduct: {},
+    editableProduct: {}
   },
 
   getters: {
-    getShoppingCartLength: (state) => {
+    getShoppingCartLength: state => {
       return state.shoppingCart.length;
     },
-    getAmountOfProduct: (state) => (id) => {
-      return state.shoppingCart.filter((item) => id === item._id).length;
+    getAmountOfProduct: state => id => {
+      return state.shoppingCart.filter(item => id === item._id).length;
     },
-    getTotalSum: (state) => {
+    getTotalSum: state => {
       let sum = 0;
-      state.shoppingCart.forEach((item) => (sum += item.price));
+      state.shoppingCart.forEach(item => (sum += item.price));
       return sum;
     },
-    getCartItemsId: (state) => {
-      let array = state.shoppingCart.map((item) => item._id);
+    getCartItemsId: state => {
+      let array = state.shoppingCart.map(item => item._id);
       return array;
-    },
+    }
   },
   mutations: {
     changeProductModalStatus(state) {
@@ -126,7 +142,7 @@ export default createStore({
     },
     setEditableProduct(state, prod) {
       state.editableProduct = prod;
-    },
+    }
   },
 
   actions: {
@@ -142,14 +158,14 @@ export default createStore({
     },
 
     removeProductFromCart({ commit, state }, id) {
-      const array = state.shoppingCart.filter((item) => item._id !== id);
+      const array = state.shoppingCart.filter(item => item._id !== id);
       commit("setShoppingCart", array);
     },
 
     changeProductModal({ commit }, id) {
       commit("changeProductModalStatus");
       commit("changeProductModalId", id);
-    },
+    }
   },
-  modules: { a: moduleSession, b: moduleAPI },
+  modules: { a: moduleSession, b: moduleAPI }
 });

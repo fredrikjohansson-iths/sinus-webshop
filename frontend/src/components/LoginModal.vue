@@ -1,5 +1,5 @@
 <template>
-  <div id="login-modal"  @mouseleave="exitLogin">
+  <div id="login-modal"  @mouseout="exitLogin">
     <form @submit.prevent="authenticate">
       <section class="mail">
         <label for="email">Email</label>

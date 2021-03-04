@@ -9,7 +9,6 @@
         <h3 class="id">Serial No</h3>
         <h3 class="category">Category</h3>
       </section>
-      <button @click="getProducts">refresh</button>
       <div class="list-items">
         <CRUDProductListItem
           v-for="product in products"

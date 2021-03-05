@@ -71,7 +71,7 @@ const moduleApi = {
         .get("http://localhost:5000/api/products/" + id)
         .then(response => {
           const payload = response.data;
-          console.log(payload, )
+          console.log(payload, state.token )
         })
         .catch(error => {
           console.log(error);

@@ -5,7 +5,7 @@
       <router-link title="Browse our products" to="/products">Our Products</router-link>
       <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
 
-      <router-link title="Admin configuration view" v-if="adminSession" to="/admin">Admin</router-link>
+      <router-link title="Admin configuration view" v-if="adminSession" to="/admin"><i class="pointer grow fas fa-users-cog"></i></router-link>
 
       <a title="Sign in to Sinus" v-if="!userSession" @click="changeLoginModalStatus">Login</a>
 

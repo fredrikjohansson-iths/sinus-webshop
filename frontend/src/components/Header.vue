@@ -24,9 +24,11 @@ export default {
   background-color: rgb(185, 180, 180);
   justify-content: space-between;
   width: 100%;
+  align-items: center;
 }
 .logo {
   color: red;
+  margin-left: 40px;
 }
 .logo-holder {
   display: flex;

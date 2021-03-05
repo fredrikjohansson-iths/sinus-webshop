@@ -25,7 +25,7 @@
           <tr class="product-size"></tr>
           <tr class="product-review"></tr>
 
-          <button class="product-add">Take my money</button>
+          <button class="btn-primary btn-product-description">Take my money</button>
         </table>
       </div>
       <span class="product-closeimage" @click="handleClick">X</span>
@@ -78,85 +78,9 @@ table {
   width: 100%;
 }
 tr {
-  // border: 1px solid #ddd;
   text-align: left;
 }
 
 
-.product {
-  &-description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 100vw;
-    height: 900px;
-    left: -8px;
-    top: 0px;
-    background-color: rgba(0, 0, 0, 0.85);
-  }
 
-  &-innerbox {
-    display: flex;
-    background-color: white;
-    width: 768px;
-    height: 508px;
-  }
-
-  &-descriptionbox {
-    margin-top: 2rem;
-    padding: 5px;
-  }
-
-  &-described {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
-    height: 250px;
-    vertical-align: middle;
-    color: rgba(0, 0, 0, 0.6);
-  }
-
-  &-add {
-    width: 202px;
-    height: 48px;
-    border-radius: 50px;
-    background-color: #2c3e50;
-    color: white;
-  }
-  &-closeimage {
-    z-index: 999999;
-    padding: 10px;
-    color: #000;
-    cursor: pointer;
-  }
-  &-title {
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 44px;
-    padding-bottom: 2rem !important;
-  }
-  &-price {
-    padding-top: 30px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 35px;
-    color: #000000;
-  }
-  &-imagebox {
-    margin: 20px;
-    
-  }
-  .productPhoto {
-    width: 356px;
-    height: 507px;
-    left: 46px;
-    top: 33px;
-  }
-}
 </style>

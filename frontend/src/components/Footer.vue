@@ -22,11 +22,11 @@
           />
         </li>
         <li>
-          <img
+         <img
             alt="Twitter logo"
             src="../assets/twitter.svg"
-            class="social-media-logo"
-          />
+            class="social-media-logo-twitter"
+          /> 
         </li>
       </ul>
     </div>

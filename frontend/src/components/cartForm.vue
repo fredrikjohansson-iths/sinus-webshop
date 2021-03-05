@@ -2,45 +2,56 @@
   <div class="cartForm">
   <form>
       <div>
-          <label> Name</label> <br>
+          <div class="label"><label> Name</label></div> 
       <input 
         id="name"
         type="text"
         
-      /> <br>
-      <label> Email </label><br>
+      /> 
+      <div class="label">
+      <label> Email </label></div>
       <input
         id="email"
         type="text"
       /></div>
 <div>
-
+<div class="label">
 <label> Adress</label>
-<br>
+</div>
+
       <input
         id="street"
         type="text"
       />
-<br>
+
+<div class="label">
 <label> Number</label>
-<br>
+</div>
+
       <input
         id="zip"
         type="numbers"
       /> </div>
 <div>
+    <div class="label">
     <label> Cardnumber</label>
-    <br>
+    </div>
+    
       <input
         id="city"
         type="text"
       /></div>
-      <div><label > CVV</label> <br>
+
+      <div>
+          <div class="label">
+          <label > CVV</label></div> 
         <input
         id="cvv"
         type="numbers"
-      /> </div><br>
+      /> </div>
+      <!-- <div class="label"> -->
       <label> Month</label>
+      <!-- </div> -->
       <select>
                     <option value="01">January</option>
                     <option value="02">February </option>
@@ -55,7 +66,9 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
                 </select>
+                <!-- <div class="label"> -->
                 <label> Year</label>
+                <!-- </div> -->
                 <select>
                     <option value="16"> 2021</option>
                     <option value="17"> 2022</option>
@@ -82,7 +95,7 @@ props: {
 }
 </script>
 
-<style>
+<style scoped>
 .cartForm {
     float: right;
     display: flex;
@@ -91,5 +104,20 @@ props: {
   width: 100%;
 }
 
+.label {
+   margin-bottom: 5px;
+}
 
+input {
+    margin-bottom: 10px;
+    width: 50%;
+    height: 20px;
+    border-radius: 2px;
+    border-style:groove;
+}
+
+select {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 </style>

@@ -28,7 +28,7 @@
           <button class="btn-primary btn-product-description" @click="addToCart">Take my money</button>
         </table>
       </div>
-      <span class="product-closeimage" @click="handleClick">X</span>
+      <span class="product-closeimage" @click="handleClick" ><i class="fas fa-times"></i></span>
       <div></div>
     </div>
   </div>

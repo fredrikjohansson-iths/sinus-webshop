@@ -110,7 +110,7 @@ props: {
 
 input {
     margin-bottom: 10px;
-    width: 50%;
+    width: 54%;
     height: 20px;
     border-radius: 2px;
     border-style:groove;
@@ -118,6 +118,10 @@ input {
 
 select {
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
+     border-radius: 2px;
+    border-style:groove;
+     height: 25px;
+     
 }
 </style>

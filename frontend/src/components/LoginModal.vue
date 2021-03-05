@@ -140,7 +140,7 @@ input {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s;
-  padding: 8px;
+  padding: 16px;
   text-align: center;
   max-width: 260px;
   min-width: 260px;

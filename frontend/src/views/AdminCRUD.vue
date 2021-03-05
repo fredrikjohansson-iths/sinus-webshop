@@ -1,8 +1,9 @@
 <template>
   <div id="admin-view">
-    <h3 @click="prodOrderToggle = false">Orders</h3>
-    <h3 @click="prodOrderToggle = true">Products</h3>
-
+    <div class="Prod-Order">
+      <h3 @click="prodOrderToggle = false">Orders</h3>
+      <h3 @click="prodOrderToggle = true">Products</h3>
+    </div>
     <section class="product-crud">
       <EditProduct @change="changeVisibility" />
 
@@ -81,6 +82,10 @@ export default {
 <style lang="scss" scoped>
 #admin-view {
   width: 80%;
+}
+.Prod-Order {
+  display: flex;
+  flex-direction: row;
 }
 .list-items > :nth-child(odd) {
   background-color: rgb(248, 231, 237);

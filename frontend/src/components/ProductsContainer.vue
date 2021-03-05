@@ -42,7 +42,7 @@ export default {
 #product-holder {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

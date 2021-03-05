@@ -4,8 +4,6 @@
       v-for="item in products"
       :key="item.id"
       :product="item"
-      class="product"
-      :editMode="editMode"
     />
   </div>
 </template>
@@ -45,10 +43,7 @@ export default {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
-}
-
-.product {
-  margin-left: 60px;
+  padding: 80px;
+  gap: 60px;
 }
 </style>

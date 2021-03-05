@@ -7,7 +7,12 @@ const moduleSession = {
     user: Object,
     order: [],
   },
-  getters: {},
+  getters: {
+    getAmountOfItems: (state) => {
+      let array = state.order.map((item) => item.amount);
+      console.log(array);
+    },
+  },
   mutations: {
     setUser(state, payload) {
       state.user = payload;

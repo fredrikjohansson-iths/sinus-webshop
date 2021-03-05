@@ -4,6 +4,9 @@
       @submitted="test"
       :orders="ordersData"
     />
+    <section class="order-list">
+      <OrderList v-for="item in orders" :key="item._id" :order="item" />
+    </section>
   </div>
 </template>
 
@@ -18,12 +21,20 @@ export default {
   data() {
     return {
       userData: {},
-      ordersData: {}
+      ordersData: {},
     };
   },
-
-  components: { ProfileForm }
+  computed: {
+    orders() {
+      return this.$store.state.a.order;
+    },
+  },
+  components: { ProfileForm },
 };
 </script>
 
-<style></style>
+<style scoped>
+.order-list > :nth-child(odd) {
+  background-color: khaki;
+}
+</style>

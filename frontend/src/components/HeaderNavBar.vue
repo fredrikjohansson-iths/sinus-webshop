@@ -17,7 +17,7 @@
         title="Sign in to Sinus"
         v-if="!userSession"
         @click="changeLoginModalStatus"
-        >Login</a
+        >Login / Register</a
       >
 
       <a
@@ -66,7 +66,7 @@ export default {
   methods: {
     signout() {
       Cookies.remove("vuex")
-      this.$router.push("/")
+      this.$router.go()
     },
     changeLoginModalStatus() {
       this.loginModalStatus = !this.loginModalStatus;
@@ -91,6 +91,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 #signout {
   left: 98.5%;
   position: absolute;

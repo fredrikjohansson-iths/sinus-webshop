@@ -16,22 +16,17 @@ export default {
   components: {
     Header,
     Footer,
-  },  
-      watch: {
-      '$route' (to, from) {
-        document.title = to.meta.title || from.meta.title
-      }
   },
-  
+  watch: {
+    $route(to, from) {
+      document.title = to.meta.title || from.meta.title;
+    },
+  },
 };
 </script>
 
 <style scoped>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-} */
+#app {
+  height: minmax(100vh, max-content);
+}
 </style>

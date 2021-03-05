@@ -44,9 +44,6 @@ export default {
 #crud-component {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
   justify-content: space-between;
   padding: 20px;
 }
@@ -56,21 +53,20 @@ section {
 
 .mode-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: baseline;
   cursor: pointer;
+
   .tab {
     height: 40px;
     width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   #create {
     background-color: khaki;
   }
   #edit {
     background-color: rosybrown;
+    margin: 0px;
   }
 }
 </style>

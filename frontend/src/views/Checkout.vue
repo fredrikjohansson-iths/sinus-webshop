@@ -13,7 +13,7 @@
       <section class="payment"></section>
     </section>
     <section class="cta centered">
-      <button @click="updateOrders" class="product-add">Take my Money</button>
+      <button @click="updateOrders" class="btn-primary btn-product-description">Take my Money</button>
     </section>
   </div>
   <OrderComplete v-else class="order-finished" />

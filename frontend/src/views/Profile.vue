@@ -1,12 +1,18 @@
 <template>
   <div>
-    <ProfileForm @mePatch="test" :user="userData" />
+    <ProfileForm @mePatch="test" :user="userData" /><ProfileOrders
+      @submitted="test"
+      :orders="ordersData"
+    />
+    <section class="order-list">
+      <OrderList v-for="item in orders" :key="item._id" :order="item" />
+    </section>
   </div>
 </template>
 
 <script>
-//import axios from "axios";
 import ProfileForm from "@/components/ProfileForm.vue";
+import OrderList from "@/components/OrderList.vue";
 
 export default {
   beforeMount() {
@@ -15,12 +21,20 @@ export default {
   data() {
     return {
       userData: {},
-      ordersData: {}
+      ordersData: {},
     };
   },
-
-  components: { ProfileForm }
+  computed: {
+    orders() {
+      return this.$store.state.a.order;
+    },
+  },
+  components: { ProfileForm, OrderList },
 };
 </script>
 
-<style></style>
+<style scoped>
+.order-list > :nth-child(odd) {
+  background-color: khaki;
+}
+</style>

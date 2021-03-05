@@ -22,9 +22,10 @@ export default {
 <style lang="scss" scoped>
 /* The element to apply the animation to */
 div {
-  width: 600px;
-  height: 100px;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   animation-name: example;
   animation-duration: 6s;
 }

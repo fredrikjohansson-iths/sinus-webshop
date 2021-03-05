@@ -22,11 +22,11 @@
           />
         </li>
         <li>
-          <img
+         <img
             alt="Twitter logo"
             src="../assets/twitter.svg"
-            class="social-media-logo"
-          />
+            class="social-media-logo-twitter"
+          /> 
         </li>
       </ul>
     </div>
@@ -37,7 +37,7 @@
           <router-link to="Customer-service">Customer Service</router-link>
         </li>
         <li><router-link to="About-us">About Us</router-link></li>
-        <li><router-link to="Admin">Admin</router-link></li>
+        <li><router-link to="AdminCrud">Admin</router-link></li>
       </ul>
     </div>
   </div>

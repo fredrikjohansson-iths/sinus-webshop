@@ -1,9 +1,9 @@
 <template>
   <div id="product-holder">
     <ProductsItemHolder
-      v-for="item in products"
-      :key="item.id"
-      :product="item"
+      v-for="product in products"
+      :key="product._id"
+      :product="product"
       class="product"
       :editMode="editMode"
     />
@@ -11,30 +11,24 @@
 </template>
 
 <script>
-import { get, PRODUCTS_URL } from "@/api/get.js";
 import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
 
 export default {
   props: {
     editMode: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
 
   components: {
-    ProductsItemHolder,
+    ProductsItemHolder
   },
-
-  created: async function() {
-    const response = await get(PRODUCTS_URL);
-    this.products = response;
-  },
-  data() {
-    return {
-      products: [],
-    };
-  },
+  computed: {
+    products() {
+      return this.$store.state.allProducts;
+    }
+  }
 };
 </script>
 

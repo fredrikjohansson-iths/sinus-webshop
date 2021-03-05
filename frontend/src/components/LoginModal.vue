@@ -145,6 +145,7 @@ input {
   max-width: 260px;
   min-width: 260px;
   border-radius: 2%;
+  height: 215px;
 }
 
 button {

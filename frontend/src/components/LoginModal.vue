@@ -107,14 +107,14 @@ input {
 #eye1,
 #eye2 {
   position: absolute;
-  top: 41%;
+  top: 40.5%;
 }
 
 .fa-eye {
-  left: 80%;
+  left: 88.5%;;
 }
 .fa-eye-slash {
-  left: 79.9%;
+  left: 88.5%;;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -142,6 +142,7 @@ input {
   animation-duration: 0.4s;
   padding: 8px;
   text-align: center;
+  max-width: 260px;
   min-width: 260px;
   border-radius: 2%;
 }

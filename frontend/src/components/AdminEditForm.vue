@@ -5,7 +5,7 @@
     </section>
     <section class="crud-details">
       <label for="title">Product Name</label>
-      <input type="text" id="title" :value="editableProduct.title" />
+      <input type="text" id="title" :placeholder="editableProduct.title" />
       <label for="price">Price</label>
       <input type="text" id="price" :value="editableProduct.price" />
       <label for="category">Category</label>

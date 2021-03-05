@@ -1,6 +1,11 @@
 <template>
   <div id="login-modal">
-    <i title="Close" id="closeLogin" class="pointer fas fa-times" @click="exitLogin"></i>
+    <i
+      title="Close"
+      id="closeLogin"
+      class="pointer fas fa-times"
+      @click="exitLogin"
+    ></i>
     <form @submit.prevent="authenticate">
       <section class="mail">
         <label for="email">Email</label>
@@ -14,10 +19,16 @@
       </section>
       <section class="password">
         <label for="password">Password</label>
-        <input :type="password" id="paEditsword" v-model="userPassword" required />
+        <input
+          :type="password"
+          id="paEditsword"
+          v-model="userPassword"
+          required
+        />
       </section>
       <transition name="fade">
-        <i title="Click to show password"
+        <i
+          title="Click to show password"
           id="eye1"
           @click="showPassword"
           class="pointer fas fa-eye-slash"
@@ -25,7 +36,8 @@
         ></i
       ></transition>
       <transition name="fade">
-        <i title="Click to hide password"
+        <i
+          title="Click to hide password"
           id="eye2"
           @click="showPassword"
           class="pointer fas fa-eye"
@@ -63,7 +75,6 @@ export default {
       var credentials = {
         email: this.userMail,
         password: this.userPassword,
-        
       };
       this.$store.dispatch("auth", credentials);
       this.$router.push("Profile");
@@ -124,13 +135,13 @@ input {
 }
 
 #login-modal {
-  position: relative;
+  position: absolute;
   height: auto;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s;
-  padding: 16px;
+  padding: 8px;
   text-align: center;
   min-width: 260px;
   border-radius: 2%;

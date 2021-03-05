@@ -36,6 +36,7 @@ export default {
       const response = await makeOrder(POST_ORDER, this.getCartItemsId);
       if (response.status === 200) {
         //order validation
+        this.$store.dispatch("getOrders");
         this.$store.commit("clearShoppingCart");
         this.orderStatus = !this.orderStatus;
       }

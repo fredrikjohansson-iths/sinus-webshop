@@ -33,8 +33,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .list-item {
-  width: 60%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   display: grid;

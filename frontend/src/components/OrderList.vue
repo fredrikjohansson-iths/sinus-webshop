@@ -2,11 +2,11 @@
   <div>
     <section class="single-order" @click="activeClass = !activeClass">
       <p>{{ order._id }}</p>
-      <p>items: {{ order.items.length }}</p>
+      <p>Items: {{ getAmountOfItems }}</p>
       <p>${{ order.orderValue }}</p>
       <section v-if="activeClass">
         <p v-for="item in order.items" :key="item._id">
-          {{ item.title }}
+          {{ item.title }} x {{ item.amount }}
         </p>
       </section>
     </section>
@@ -24,6 +24,15 @@ export default {
     return {
       activeClass: false,
     };
+  },
+  computed: {
+    getAmountOfItems() {
+      let sum = 0;
+      this.order.items.forEach((element) => {
+        sum += element.amount;
+      });
+      return sum;
+    },
   },
 };
 </script>

@@ -25,6 +25,7 @@ export default {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+
 }
 .logo {
   color: red;

@@ -23,6 +23,7 @@ button:focus {
 
 .div-btn-view {
     width: 50%;
+    padding-right: 5px;
 }
 
 .div-btn-view {
@@ -45,6 +46,7 @@ button:focus {
 
 .btn-product-description {
     width: 200px;
+    font-size: 15px;
 }
 
 .centered {
@@ -196,6 +198,13 @@ section {
 
 /* Product description*/
 
+.description {
+    &-img-product {
+        margin-top: 25%;
+        margin-left: 25%;
+    }
+}
+
 .product {
     &-description {
         display: flex;
@@ -217,14 +226,17 @@ section {
     &-descriptionbox {
         margin-top: 2rem;
         padding: 5px;
+        width: 50%;
     }
     &-described {
-        font-family: Open Sans;
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 150%;
+<<<<<<< HEAD
         height: 150px;
+=======
+>>>>>>> 2748b698b4f9907dba4b848a86b9e5894fdcb7a1
         vertical-align: middle;
         color: rgba(0, 0, 0, 0.6);
     }
@@ -235,7 +247,6 @@ section {
         cursor: pointer;
     }
     &-title {
-        font-family: Open Sans;
         font-style: normal;
         font-weight: bold;
         font-size: 32px;
@@ -243,7 +254,6 @@ section {
         padding-bottom: 2rem !important;
     }
     &-price {
-        padding-top: 30px;
         font-style: normal;
         font-weight: bold;
         font-size: 26px;
@@ -252,6 +262,7 @@ section {
     }
     &-imagebox {
         margin: 20px;
+        width: 50%;
     }
     .productPhoto {
         width: 356px;

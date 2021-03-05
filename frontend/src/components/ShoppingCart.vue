@@ -74,7 +74,15 @@ export default {
   #closeCart {
     float: right;
   }
-
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+  }
   button {
     width: 80px;
     height: 30px;

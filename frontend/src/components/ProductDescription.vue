@@ -25,7 +25,7 @@
           <tr class="product-size"></tr>
           <tr class="product-review"></tr>
 
-          <button class="product-add">Take my money</button>
+          <button class="product-add" @click="addToCart">Take my money</button>
         </table>
       </div>
       <span class="product-closeimage" @click="handleClick">X</span>
@@ -68,6 +68,10 @@ export default {
     handleClick: function() {
       this.$store.commit("changeProductModalStatus");
     },
+addToCart() {
+      this.$store.dispatch("addProductToCart", this.product);
+    },
+
   },
 };
 </script>

@@ -1,9 +1,6 @@
 <template>
   <div>
-    <ProfileForm @mePatch="test" :user="userData" /><ProfileOrders
-      @submitted="test"
-      :orders="ordersData"
-    />
+    <ProfileForm @mePatch="test" :user="userData" />
   </div>
 </template>
 

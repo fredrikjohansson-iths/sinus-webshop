@@ -6,7 +6,7 @@
     </div>
 
     <div class="middle-pane">
-      <ul>
+      <!-- <ul>
         <li>
           <img
             alt="Insta logo"
@@ -28,7 +28,7 @@
             class="social-media-logo-twitter"
           /> 
         </li>
-      </ul>
+      </ul> -->
     </div>
 
     <div class="right-pane">

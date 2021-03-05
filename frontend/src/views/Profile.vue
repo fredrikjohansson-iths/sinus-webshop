@@ -1,18 +1,15 @@
 <template>
   <div>
-    <ProfileForm @mePatch="test" :user="userData" /><ProfileOrders
-      @submitted="test"
-      :orders="ordersData"
-    />
-    <section class="order-list">
-      <OrderList v-for="item in orders" :key="item._id" :order="item" />
+    <ProfileForm :user="userData" />
+    <section v-if="orders !== null" class="order-list">
+     <!-- <OrderList  v-for="item in orders" :key="item._id" :order="item" /> -->
     </section>
   </div>
 </template>
 
 <script>
 import ProfileForm from "@/components/ProfileForm.vue";
-import OrderList from "@/components/OrderList.vue";
+//import OrderList from "@/components/OrderList.vue";
 
 export default {
   beforeMount() {
@@ -21,7 +18,6 @@ export default {
   data() {
     return {
       userData: {},
-      ordersData: {},
     };
   },
   computed: {
@@ -29,7 +25,7 @@ export default {
       return this.$store.state.a.order;
     },
   },
-  components: { ProfileForm, OrderList },
+  components: { ProfileForm, /*OrderList*/ },
 };
 </script>
 

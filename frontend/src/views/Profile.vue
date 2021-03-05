@@ -11,8 +11,8 @@
 </template>
 
 <script>
-//import axios from "axios";
 import ProfileForm from "@/components/ProfileForm.vue";
+import OrderList from "@/components/OrderList.vue";
 
 export default {
   beforeMount() {
@@ -29,7 +29,7 @@ export default {
       return this.$store.state.a.order;
     },
   },
-  components: { ProfileForm },
+  components: { ProfileForm, OrderList },
 };
 </script>
 

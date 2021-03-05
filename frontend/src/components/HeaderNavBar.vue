@@ -31,6 +31,7 @@
         <i class="grow fas fa-user"></i></router-link
       ><i
         id="signout"
+        @click="signout"
         v-if="userSession"
         title="Sign out"
         class="pointer grow fas fa-sign-out-alt"
@@ -48,6 +49,7 @@
 <script>
 import LoginModal from "@/components/LoginModal.vue";
 import ShoppingCart from "@/components/ShoppingCart.vue";
+import * as Cookies from "js-cookie";
 
 export default {
   data() {
@@ -56,13 +58,16 @@ export default {
       cartModalStatus: false
     };
   },
-
   components: {
     LoginModal,
     ShoppingCart
   },
 
   methods: {
+    signout() {
+      Cookies.remove("vuex")
+      this.$router.push("/")
+    },
     changeLoginModalStatus() {
       this.loginModalStatus = !this.loginModalStatus;
     },

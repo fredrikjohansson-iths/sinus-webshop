@@ -5,16 +5,22 @@
     </section>
     <section class="information">
       <section class="items">
+            
         <ul v-for="item in uniqueCartProducts" :key="item._id">
           <ShoppingCartItem :title="item.title" :id="item._id" :item="item" />
         </ul>
+    
       </section>
       <section class="delivery"></section>
       <section class="payment"></section>
+       <CartForm /> 
     </section>
+
+  
     <section class="cta centered">
       <button @click="updateOrders" class="btn-primary btn-product-description">Take my Money</button>
     </section>
+   
   </div>
   <OrderComplete v-else class="order-finished" />
 </template>
@@ -22,7 +28,7 @@
 <script>
 import ShoppingCartItem from "@/components/ShoppingCartItem.vue";
 import OrderComplete from "@/components/OrderComplete.vue";
-
+import CartForm from '@/components/CartForm.vue';
 export default {
   data() {
     return {
@@ -41,7 +47,8 @@ export default {
 
   components: {
     ShoppingCartItem,
-    OrderComplete
+    OrderComplete,
+    CartForm
   },
 
   computed: {
@@ -68,12 +75,13 @@ export default {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
 }
 
 .items,
 .delivery,
 .payment {
   width: 33%;
-  border-left: black 1px solid;
+  // border-left: black 1px solid;
 }
 </style>

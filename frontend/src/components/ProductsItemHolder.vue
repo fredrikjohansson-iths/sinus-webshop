@@ -2,7 +2,7 @@
   <div id="product">
     <section class="centered">
       <h3>{{ product.title }}</h3>
-      <p>Price: {{ product.price }}</p>
+      <p>${{ product.price }}</p>
       <img
         class="img-product"
         src="../assets/hoodie-fire.png"
@@ -53,6 +53,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+#product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 // button {
 //   width: 80px;
 //   height: 40px;

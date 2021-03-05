@@ -25,8 +25,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #app {
   height: minmax(100vh, max-content);
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>

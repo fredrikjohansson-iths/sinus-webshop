@@ -1,17 +1,13 @@
 <template>
   <section id="shopping-cart-item">
-    <section class="image">
-      <img :src="getImgUrl(item.imgFile)" height="60px" />
-    </section>
-    <section class="information">
+    <section class="title-buttons">
       <h5>{{ item.title }}</h5>
       <section class="buttons">
-        <button @click="decrement" class="cartButton"> - </button>
-        <span>{{ getProductAmount }}</span>
-        <button @click="increment" class="cartButton"> + </button>
-        <button @click="eraseProduct">Radera</button>
+        <i class="fas fa-minus-square" @click="decrement"></i>
+        <span>Quantity: {{ getProductAmount }}</span>
+        <i class="fas fa-plus-square" @click="increment"></i>
+        <i class="fas fa-trash" @click="eraseProduct"></i>
       </section>
-  
     </section>
   </section>
 </template>
@@ -20,13 +16,13 @@
 export default {
   props: {
     item: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   computed: {
     getProductAmount() {
       return this.$store.getters.getAmountOfProduct(this.item._id);
-    }
+    },
   },
   methods: {
     eraseProduct() {
@@ -40,36 +36,35 @@ export default {
     },
     getImgUrl(pic) {
       return require("../assets/" + pic);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 #shopping-cart-item {
   margin-bottom: 24px;
   display: flex;
+  border-bottom: 1px gray solid;
+  margin-bottom: 40px;
 }
-button {
- 
-  width: 80px;
-  height: 30px;
-  border-radius: 20px;
-  background-color: #2c3e50;
-  color: white;
-
-}
- 
- .cartButton{
-    width: 20px;
-    height: 20px;
-  }
-
-.information {
+.title-buttons {
   display: flex;
   flex-direction: column;
 }
-
-
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    margin: 0px 10px 0px 10px;
+  }
+}
+.fa-trash {
+  margin-right: 60px;
+}
+.cartButton {
+  width: 20px;
+  height: 20px;
+}
 </style>

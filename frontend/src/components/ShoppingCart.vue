@@ -11,13 +11,16 @@
       <ul v-for="item in uniqueCartProducts" :key="item._id">
         <ShoppingCartItem :item="item" />
       </ul>
-      <p class="total">Total: {{ totalSum }}</p>
-
-      <router-link to="/Checkout">
-        <button @click="closeCart">
-          Checkout
-        </button>
-      </router-link>
+      <div class="bottom-sum-cta">
+        <p class="total">
+          <strong> Total: {{ totalSum }}</strong>
+        </p>
+        <router-link to="/Checkout">
+          <button @click="closeCart">
+            Checkout
+          </button>
+        </router-link>
+      </div>
     </div>
     <div v-else>
       <p>Your shopping cart is empty!</p>
@@ -79,11 +82,12 @@ export default {
     background-color: #2c3e50;
     color: white;
   }
-  .total {
-    border-top: 1px solid black;
-  }
 }
-
+.bottom-sum-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 /* Add Animation */
 @keyframes animatetop {
   from {

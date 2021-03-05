@@ -25,7 +25,7 @@
           <tr class="product-size"></tr>
           <tr class="product-review"></tr>
 
-          <button class="btn-primary btn-product-description">Take my money</button>
+          <button class="btn-primary btn-product-description" @click="addToCart">Take my money</button>
         </table>
       </div>
       <span class="product-closeimage" @click="handleClick">X</span>

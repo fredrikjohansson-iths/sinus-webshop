@@ -37,6 +37,8 @@ const getUser = async () => {
     console.log(error);
   }
 };
+
+
 export {
   PRODUCTS_URL,
   get,

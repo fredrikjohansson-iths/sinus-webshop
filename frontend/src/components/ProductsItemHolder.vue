@@ -7,9 +7,13 @@
       <p>Price: {{ product.price }}</p>
       <img class="img-product" src="../assets/hoodie-fire.png" alt="product image"/>
     </section>
-    <section class="centered">
-      <button @click="change">View product</button>
-      <button class="product-add" @click="addToCart" v-if="!editMode">Add to cart</button>
+    <section class="centered product-btn-section">
+      <div>
+          <button class="btn-primary btn-product" @click="change">View product</button>
+      </div>
+      <div>
+        <button class="btn-primary btn-product" @click="addToCart" v-if="!editMode">Add to cart</button>
+      </div>
       <button v-if="editMode">Edit</button>
     </section>
   </div>
@@ -61,11 +65,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 
-button {
-  width: 80px;
-  height: 40px;
-  border-radius: 40px;
-  background-color: #2c3e50;
-  color: white;
-}
+// button {
+//   width: 80px;
+//   height: 40px;
+//   border-radius: 40px;
+//   background-color: #2c3e50;
+//   color: white;
+// }
 </style>

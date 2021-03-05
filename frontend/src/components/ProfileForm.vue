@@ -1,60 +1,55 @@
 <template>
-  <div><transition name="fade">
-    <div id="alert" class="alert" v-if="show">
-      <span class="closebtn"></span>
-      Saved successfully! 
-    </div></transition>
+  <div class="container">
+    <transition name="fade">
+      <div id="alert" class="alert" v-if="show">
+        <span class="closebtn"></span>
+        Saved successfully!
+      </div></transition
+    >
     <form>
-      <label for="name"
-        >Name
-        <input
-          id="name"
-          type="text"
-          v-model="patchUser.name"
-          :disabled="inputState"
-          :placeholder="user.name"
-      /></label>
-      <label for="email"
-        >Email
-        <input
-          id="email"
-          type="text"
-          v-model="patchUser.email"
-          :disabled="inputState"
-          :placeholder="user.email"
-      /></label>
-      <label for="street"
-        >Street
-        <input
-          v-if="user.address"
-          id="street"
-          type="text"
-          :disabled="inputState"
-          v-model="patchUser.address.street"
-          :placeholder="user.address.street"
-      /></label>
-      <label for="zip"
-        >Zip
-        <input
-          v-if="user.address"
-          id="zip"
-          type="numbers"
-          v-model="patchUser.address.zip"
-          :placeholder="user.address.zip"
-          :disabled="inputState"
-      /></label>
-      <label for="city"
-        >City
-        <input
-          v-if="user.address"
-          id="city"
-          type="text"
-          v-model="patchUser.address.city"
-          :placeholder="user.address.city"
-          :disabled="inputState"
-      /></label>
+      <input
+        id="name"
+        type="text"
+        v-model="patchUser.name"
+        :disabled="inputState"
+        :placeholder="user.name"
+      />
+      <input
+        id="email"
+        type="text"
+        v-model="patchUser.email"
+        :disabled="inputState"
+        :placeholder="user.email"
+      />
+
+      <input
+        v-if="user.address"
+        id="street"
+        type="text"
+        :disabled="inputState"
+        v-model="patchUser.address.street"
+        :placeholder="user.address.street"
+      />
+
+      <input
+        v-if="user.address"
+        id="zip"
+        type="numbers"
+        v-model="patchUser.address.zip"
+        :placeholder="user.address.zip"
+        :disabled="inputState"
+      />
+
+      <input
+        v-if="user.address"
+        id="city"
+        type="text"
+        v-model="patchUser.address.city"
+        :placeholder="user.address.city"
+        :disabled="inputState"
+      />
     </form>
-    <button @click="test" v-if="!enableEdit">Edit</button
+    <button id="edit" @click="test" v-if="!enableEdit">Edit</button
     ><button
       @click="
         test2();
@@ -105,12 +100,12 @@ export default {
   },
   methods: {
     hideAlert() {
-      this.show = false
+      this.show = false;
     },
     test2() {
       this.$emit("mePatch", this.patchUser);
       this.show = true;
-      setTimeout(() => this.show = false, 3000);
+      setTimeout(() => (this.show = false), 3000);
     },
     test() {
       if (this.enableEdit === true) {
@@ -128,6 +123,23 @@ export default {
 </script>
 
 <style>
+#edit {  margin-top: 25px;
+  margin-left: 100%;
+  margin-right: 100%;}
+
+.container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 100%;
+  clear: both;
+  margin-top: 25px;
+  margin-left: 100%;
+  margin-right: 100%;
+}
+
 .alert {
   padding: 20px;
   background-color: lightgreen; /* Green */
@@ -145,7 +157,9 @@ export default {
   cursor: pointer;
 }
 
-.fade-enter, .fade-enter-active, .fade-leave-active {
+.fade-enter,
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 2s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {

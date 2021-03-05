@@ -22,10 +22,4 @@ export default {
 };
 </script>
 
-<style>
-#product-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
+<style></style>

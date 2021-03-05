@@ -1,7 +1,8 @@
 <template>
   <div id="nav-bar">
-    
-    <router-link title="Back to home" to="/" ><img class="logo" src="@/assets/sinus-logo.svg" height="100" width="200"/></router-link>      
+    <router-link title="Back to home" to="/"
+      ><img class="logo" src="@/assets/sinus-logo.svg" height="100" width="200"
+    /></router-link>
     <HeaderNavBar />
   </div>
 </template>
@@ -22,10 +23,11 @@ export default {
   height: 100px;
   background-color: rgb(185, 180, 180);
   justify-content: space-between;
-  margin-bottom: 80px;
   width: 100%;
 }
-.logo {color: red;}
+.logo {
+  color: red;
+}
 .logo-holder {
   display: flex;
   align-items: center;

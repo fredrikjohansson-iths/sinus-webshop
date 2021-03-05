@@ -66,7 +66,6 @@ export default {
         
       };
       this.$store.dispatch("auth", credentials);
-      this.$router.push("Profile");
     },
     redirect() {
       this.$router.push("Register");

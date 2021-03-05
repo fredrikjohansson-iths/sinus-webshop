@@ -1,20 +1,40 @@
 <template>
   <div id="site-header">
     <div id="nav">
-      
-      <router-link title="Browse our products" to="/products">Our Products</router-link>
+      <router-link title="Browse our products" to="/products"
+        >Our Products</router-link
+      >
       <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
 
-      <router-link title="Admin configuration view" v-if="adminSession" to="/admin">Admin</router-link>
-
-      <a title="Sign in to Sinus" v-if="!userSession" @click="changeLoginModalStatus">Login</a>
-
-      <a class="shopping-cart-link" title="View your shopping cart" @click="changeCartStatus"
-        > <i class="fas fa-shopping-cart"></i>({{ shoppingCartLength }})</a
+      <router-link
+        title="Admin configuration view"
+        v-if="adminSession"
+        to="/admin"
+        >Admin</router-link
       >
-      <router-link title="View your account" v-if="userSession" to="/profile"
-        >
-          <i class="grow fas fa-user"></i></router-link><i id="signout" v-if="userSession" title="Sign out" class="pointer grow fas fa-sign-out-alt"></i>
+
+      <a
+        title="Sign in to Sinus"
+        v-if="!userSession"
+        @click="changeLoginModalStatus"
+        >Login</a
+      >
+
+      <a
+        class="shopping-cart-link"
+        title="View your shopping cart"
+        @click="changeCartStatus"
+      >
+        <i class="fas fa-shopping-cart"></i>({{ shoppingCartLength }})</a
+      >
+      <router-link title="View your account" v-if="userSession" to="/profile">
+        <i class="grow fas fa-user"></i></router-link
+      ><i
+        id="signout"
+        v-if="userSession"
+        title="Sign out"
+        class="pointer grow fas fa-sign-out-alt"
+      ></i>
     </div>
     <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
     <LoginModal
@@ -33,13 +53,13 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false
+      cartModalStatus: false,
     };
   },
 
   components: {
     LoginModal,
-    ShoppingCart
+    ShoppingCart,
   },
 
   methods: {
@@ -48,7 +68,7 @@ export default {
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    }
+    },
   },
 
   computed: {
@@ -60,20 +80,27 @@ export default {
     },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+#signout {
+  left: 98.5%;
+  position: absolute;
+  top: 1%;
+}
+.grow {
+  transition: all 0.3s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.3);
+}
 
-#signout {left: 98.5%;
-position: absolute;
-top: 1%;}
-.grow { transition: all .3s ease-in-out; }
-.grow:hover { transform: scale(1.3); }
-
-.pointer {cursor: pointer;}
+.pointer {
+  cursor: pointer;
+}
 
 #nav {
   padding: 30px;
@@ -90,7 +117,9 @@ top: 1%;}
       color: whitesmoke;
     }
   }
-  i {color: #2c3e50;}
+  i {
+    color: #2c3e50;
+  }
   .text-bold {
     font-weight: bold;
   }

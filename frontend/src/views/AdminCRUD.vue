@@ -1,19 +1,18 @@
 <template>
   <div id="admin-view">
-    <h3 @click="toggleProdOrder">Orders</h3>
-    <h3 @click="toggleProdOrder">Products</h3>
+    <h3 @click="prodOrderToggle = false">Orders</h3>
+    <h3 @click="prodOrderToggle = true">Products</h3>
 
-    <section class="product-crud" v-if="prodOrderToggle === false">
+    <section class="product-crud">
       <EditProduct @change="changeVisibility" />
 
-      <section class="crud-product-list" v-if="productListVisibility">
+      <section class="crud-product-list" v-show="productListVisibility">
         <h2>All products</h2>
         <section class="list-header">
           <h3 class="title">Title</h3>
           <h3 class="id">Serial No</h3>
           <h3 class="category">Category</h3>
         </section>
-
         <div class="list-items">
           <CRUDProductListItem
             v-for="product in products"
@@ -24,7 +23,7 @@
       </section>
     </section>
 
-    <section class="order-list" v-else>
+    <section class="order-list">
       <OrderList v-for="item in orders" :key="item._id" :order="item" />
     </section>
   </div>
@@ -45,7 +44,7 @@ export default {
     return {
       products: [],
       productListVisibility: false,
-      prodOrderToggle: true,
+      prodOrderToggle: false,
     };
   },
   computed: {
@@ -72,9 +71,9 @@ export default {
         this.productListVisibility = false;
       } else this.productListVisibility = true;
     },
-    toggleProdOrder() {
-      this.prodOrderToggle = !this.prodOrderToggle;
-    },
+    // toggleProdOrder() {
+    //   this.prodOrderToggle = !this.prodOrderToggle;
+    // },
   },
 };
 </script>

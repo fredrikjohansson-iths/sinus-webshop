@@ -2,7 +2,7 @@
   <div class="footer">
     <!-- Logga -->
     <div class="left-pane">
-      <img class="sinus-logo" alt="Sinus logo" src="../assets/sinus-logo.svg" />
+      <!-- <img class="sinus-logo" alt="Sinus logo" src="../assets/sinus-logo.svg" /> -->
     </div>
 
     <div class="middle-pane">
@@ -36,8 +36,9 @@
         <li>
           <router-link to="Customer-service">Customer Service</router-link>
         </li>
-        <li><router-link to="About-us">About Us</router-link></li>
-        <li><router-link to="AdminCrud">Admin</router-link></li>
+        <li>
+          <router-link to="About-us">About Us</router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -51,3 +52,9 @@ export default {
   methods: {},
 };
 </script>
+
+<style lang="scss" scoped>
+.footer {
+  text-decoration: none;
+}
+</style>

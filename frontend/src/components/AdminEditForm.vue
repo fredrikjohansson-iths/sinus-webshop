@@ -1,19 +1,19 @@
 <template>
   <section class="crud-form">
     <section class="crud-image">
-      <img :src="editableProduct.imgFile" alt="" />
+      <img :src="editProduct.imgFile" alt="" />
     </section>
     <section class="crud-details">
       <label for="title">Product Name</label>
-      <input type="text" id="title" :value="editableProduct.title" />
+      <input type="text" id="title" v-model="editProduct.title" />
       <label for="price">Price</label>
-      <input type="text" id="price" :value="editableProduct.price" />
+      <input type="number" id="price" v-model="editProduct.price" />
       <label for="category">Category</label>
-      <input type="text" id="category" :value="editableProduct.category" />
+      <input type="text" id="category" v-model="editProduct.category" />
       <label for="short">Short description</label>
-      <input type="text" id="short" :value="editableProduct.shortDesc" />
+      <input type="text" id="short" v-model="editProduct.shortDesc" />
       <label for="id">Serial Number</label>
-      <input type="text" id="id" v-model="editableProduct.id" disabled />
+      <input type="text" id="id" :value="editProduct._id" disabled />
       <section class="crud-buttons">
         <button @click="updateProduct">
           Update product
@@ -33,29 +33,58 @@
 <script>
 export default {
   computed: {
-    editableProduct() {
-      return this.$store.state.editableProduct;
+    editProduct() {
+      return this.$store.state.productModal;
     },
+  },
+  data() {
+    return {
+      prodData: {
+        title: "",
+        price: null,
+        shortDesc: "",
+        longDesc: "",
+        imgFile: "add-img.svg",
+        _id: "",
+        category: "",
+      },
+    };
   },
   methods: {
     updateProduct() {
-      const prodData = {
-        title: this.editableProduct.title,
-        price: this.editableProduct.price,
-        shortDesc: this.editableProduct.shortDesc,
-        longDesc: this.editableProduct.longDesc,
-        imgFile: this.editableProduct.imgFile,
-        category: this.editableProduct.category,
-      };
-      const prodId = this.editableProduct.id;
-      this.$store.dispatch("patchProduct", prodId, prodData);
+      console.log(this.prodData);
+      this.$store.dispatch(
+        "patchProducts",
+        this.this.prodData._id,
+        this.prodData
+      );
+      this.$store.dispatch("getProducts");
+      location.reload();
     },
+
     removeProduct() {
       confirm("Are you sure you want to delete this item?");
       this.$store.dispatch("deleteProduct", this.editableProduct.id);
       //   this.$store.commit("setEditableProduct", {});
     },
   },
+  watch: {
+    productToEdit() {
+      this.prodData = this.editProduct;
+    },
+  },
+  // watch: {
+  //   editableProduct(val) {
+  //     if (val) {
+  //       this.prodData.title = this.editableProduct.title;
+  //       this.prodData.price = this.editableProduct.price;
+  //       this.prodData.shortDesc = this.editableProduct.shortDesc;
+  //       this.prodData.longDesc = this.editableProduct.longDesc;
+  //       this.prodData.imgFile = this.editableProduct.imgFile;
+  //       this.prodId = this.editableProduct._id;
+  //     }
+  //   },
+  // },
 };
 </script>
 

@@ -7,7 +7,7 @@ const moduleSession = {
   state: {
     session: { active: false },
     user: Object,
-    order: Array
+    order: Array,
   },
   getters: {
     getAmountOfItems: state => {
@@ -27,9 +27,9 @@ const moduleSession = {
     },
     isAdmin(state) {
       state.user.role === "admin";
-    }
+    },
   },
-  actions: {}
+  actions: {},
 };
 
 const moduleApi = {
@@ -38,49 +38,49 @@ const moduleApi = {
   mutations: {
     updateToken(state, token) {
       state.token = token;
-    }
+    },
   },
 
   actions: {
     auth({ commit, dispatch }, cred) {
       axios
         .post("http://localhost:5000/api/auth", cred)
-        .then(response => {
+        .then((response) => {
           var token = response.data.token;
           commit("updateToken", token);
           commit("sessionState", { root: true });
           dispatch("getUser");
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     getUser({ state, commit }) {
       axios
         .get("http://localhost:5000/api/me", {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           const payload = response.data;
           commit("setUser", payload, { root: true });
           if (payload.role === "admin") {
             commit("setAdminSession", { root: true });
           }
         })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getSingleProduct(id) {
+      axios
+        .get("http://localhost:5000/api/products/" + id)
+        .then(response => {
+          const payload = response.data;
+        })
         .catch(error => {
           console.log(error);
         });
     },
-    // getSingleProduct(id) {
-    //   axios
-    //     .get("http://localhost:5000/api/products/" + id)
-    //     .then(response => {
-    //       const payload = response.data;
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //     });
-    // },
     getProducts({ commit }) {
       axios
         .get("http://localhost:5000/api/products")
@@ -88,40 +88,40 @@ const moduleApi = {
           this.response = response.data;
           commit("updateProducts", this.response, { root: true });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     getOrders({ state }) {
       axios
         .get("http://localhost:5000/api/orders", {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
         .then(response => {
           this.response = response.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
-    patchProducts({ state }, id, payload) {
+    patchProducts({ state, commit }, id, payload) {
       axios
         .patch("http://localhost:5000/api/products/" + id, payload, {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
         .then(response => {
           this.response = response.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     postOrders({ state, commit }, payload) {
       axios
         .post("http://localhost:5000/api/orders/", payload, {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           commit("setOrderList", payload, { root: true });
           this.response = response.data;
         })
@@ -138,7 +138,7 @@ const moduleApi = {
           dispatch("getUser");
           return response.data.message;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
@@ -149,39 +149,39 @@ const moduleApi = {
         .then(response => {
           this.response = response.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error, newUser);
         });
     },
     deleteProduct({ commit, state }, id) {
       axios
         .delete("http://localhost:5000/api/products/" + id, {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           alert(response.data.message);
           commit("setEditableProduct", {});
           this.response = response.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     createProduct({ state }, payload) {
       axios
         .post("http://localhost:5000/api/products/" + payload, {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           alert(response.data.message);
           console.log(response);
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
-    }
+    },
   },
-  getters: {}
+  getters: {},
 };
 
 export default createStore({
@@ -191,7 +191,7 @@ export default createStore({
     productModalStatus: false,
 
     //sets the ID of the chosen product
-    productModalId: "",
+    productModal: {},
 
     allProducts: [],
 
@@ -207,25 +207,25 @@ export default createStore({
 
     editableProduct: {},
 
-    productList: []
+    productList: [],
   },
 
   getters: {
-    getShoppingCartLength: state => {
+    getShoppingCartLength: (state) => {
       return state.shoppingCart.length;
     },
-    getAmountOfProduct: state => id => {
-      return state.shoppingCart.filter(item => id === item._id).length;
+    getAmountOfProduct: (state) => (id) => {
+      return state.shoppingCart.filter((item) => id === item._id).length;
     },
-    getTotalSum: state => {
+    getTotalSum: (state) => {
       let sum = 0;
-      state.shoppingCart.forEach(item => (sum += item.price));
+      state.shoppingCart.forEach((item) => (sum += item.price));
       return sum;
     },
-    getCartItemsId: state => {
-      let array = state.shoppingCart.map(item => item._id);
+    getCartItemsId: (state) => {
+      let array = state.shoppingCart.map((item) => item._id);
       return array;
-    }
+    },
   },
   mutations: {
     setAdminSession(state) {
@@ -235,8 +235,8 @@ export default createStore({
     changeProductModalStatus(state) {
       state.productModalStatus = !state.productModalStatus;
     },
-    changeProductModalId(state, id) {
-      state.productModalId = id;
+    changeProductModal(state, prod) {
+      state.productModal = prod;
     },
     changeLoginStatus(state) {
       state.loginStatus = !state.loginStatus;
@@ -257,6 +257,7 @@ export default createStore({
       state.shoppingCart = [];
     },
     setEditableProduct(state, prod) {
+      console.log(prod);
       state.editableProduct = prod;
     },
     setProducts(state, products) {
@@ -264,7 +265,8 @@ export default createStore({
     },
     updateProducts(state, payload) {
       state.allProducts = payload;
-    }
+      console.log("updateProdcuts read state", state.allProducts);
+    },
   },
 
   actions: {
@@ -280,16 +282,16 @@ export default createStore({
     },
 
     removeProductFromCart({ commit, state }, id) {
-      const array = state.shoppingCart.filter(item => item._id !== id);
+      const array = state.shoppingCart.filter((item) => item._id !== id);
       commit("setShoppingCart", array);
     },
 
-    changeProductModal({ commit }, id) {
+    changeProductModalStatus({ commit }) {
       commit("changeProductModalStatus");
-      commit("changeProductModalId", id);
-    }
+    },
   },
   modules: { a: moduleSession, b: moduleApi },
+<<<<<<< HEAD
   // plugins: [
   //   createPersistedState({
   //     getState: key => Cookies.getJSON(key),
@@ -297,4 +299,13 @@ export default createStore({
   //       Cookies.set(key, state, { expires: 3, secure: true })
   //   })
   // ]
+=======
+  plugins: [
+    createPersistedState({
+      getState: (key) => Cookies.getJSON(key),
+      setState: (key, state) =>
+        Cookies.set(key, state, { expires: 3, secure: true }),
+    }),
+  ],
+>>>>>>> 3045f7a87eec7f8d30b36085f7f6aa9e879a86d6
 });

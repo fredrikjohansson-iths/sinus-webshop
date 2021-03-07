@@ -183,7 +183,7 @@ export default createStore({
     //controls if the product description modal is open or closed
     productModalStatus: false,
 
-    //sets the ID of the chosen product
+    //holds the chosen product
     productModal: {},
 
     allProducts: [],

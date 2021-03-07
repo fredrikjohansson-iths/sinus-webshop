@@ -1,13 +1,9 @@
 <template>
   <div id="admin-view">
-    <div class="Prod-Order">
-      <h3 @click="prodOrderToggle = false">Orders</h3>
-      <h3 @click="prodOrderToggle = true">Products</h3>
-    </div>
     <section class="product-crud">
-      <EditProduct @change="changeVisibility" />
+      <EditProduct />
 
-      <section class="crud-product-list" v-show="productListVisibility">
+      <section class="crud-product-list">
         <h2>All products</h2>
         <section class="list-header">
           <h3 class="title">Title</h3>
@@ -31,24 +27,21 @@
 </template>
 
 <script>
-import { get, PRODUCTS_URL } from "@/api/get.js";
 import EditProduct from "@/components/EditProduct.vue";
 import CRUDProductListItem from "@/components/CRUDProductListItem.vue";
 import OrderList from "@/components/OrderList.vue";
 
 export default {
-  created() {
-    this.getProducts();
-  },
-
   data() {
     return {
-      products: [],
       productListVisibility: false,
-      prodOrderToggle: false,
     };
   },
   computed: {
+    products() {
+      return this.$store.state.allProducts;
+    },
+
     userRole() {
       return this.$store.state.a.user.role;
     },
@@ -63,18 +56,11 @@ export default {
   },
 
   methods: {
-    getProducts: async function() {
-      const response = await get(PRODUCTS_URL);
-      this.products = response;
-    },
     changeVisibility(payload) {
       if (payload === "create") {
         this.productListVisibility = false;
       } else this.productListVisibility = true;
     },
-    // toggleProdOrder() {
-    //   this.prodOrderToggle = !this.prodOrderToggle;
-    // },
   },
 };
 </script>

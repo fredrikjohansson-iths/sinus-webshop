@@ -1,72 +1,54 @@
 <template>
-  <div id="crud-component">
-    <section class="mode-header">
-      <section id="create" class="tab" @click="changeActiveClass">
-        Create
-      </section>
-      <section id="edit" class="tab" @click="changeActiveClass">
-        Edit
+  <section class="crud-form">
+    <section class="crud-image">
+      <img src="" alt="" />
+    </section>
+    <section class="crud-details">
+      <p>{{ clickedProduct.title }}</p>
+      <label for="title">Product Name</label>
+      <input type="text" id="title" />
+      <label for="price">Price</label>
+      <input type="number" id="price" />
+      <label for="category">Category</label>
+      <input type="text" id="category" />
+      <label for="short">Short description</label>
+      <input type="text" id="short" />
+      <label for="id">Serial Number</label>
+      <input type="text" id="id" disabled />
+      <section class="crud-buttons">
+        <button @click="updateProduct">
+          Update product
+        </button>
+        <button @click="removeProduct">
+          Remove this product
+        </button>
       </section>
     </section>
-    <AdminEditForm v-if="activeClass === 'edit'" />
-    <AdminCreateForm v-if="activeClass === 'create'" />
-  </div>
+    <section class="crud-description">
+      <label for="long-desc">Full description</label>
+      <textarea type="text" name="" id="long-desc" rows="12" />
+    </section>
+  </section>
 </template>
 
 <script>
-// import { PATCH_PRODUCT, patchProduct } from "@/api/patch.js";
-import AdminEditForm from "@/components/AdminEditForm.vue";
-import AdminCreateForm from "@/components/AdminCreateForm.vue";
 export default {
-  components: {
-    AdminEditForm,
-    AdminCreateForm,
-  },
-  data() {
-    return {
-      activeClass: "create",
-    };
-  },
-  methods: {
-    changeActiveClass() {
-      if (this.activeClass === "create") {
-        this.activeClass = "edit";
-      } else if (this.activeClass === "edit") {
-        this.activeClass = "create";
-      }
-      this.$emit("change", this.activeClass);
+  computed: {
+    clickedProduct() {
+      return this.$store.state.productModal;
     },
   },
+  components: {},
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
-#crud-component {
+.crud-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-}
-section {
-  padding-bottom: 0;
-}
-
-.mode-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  cursor: pointer;
-
-  .tab {
-    height: 40px;
-    width: 80px;
-  }
-  #create {
-    background-color: khaki;
-  }
-  #edit {
-    background-color: rosybrown;
-    margin: 0px;
-  }
 }
 </style>

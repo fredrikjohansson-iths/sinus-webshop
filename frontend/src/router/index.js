@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import store from "../store/index.js";
 
+
 const routes = [
   {
     path: "/",
@@ -92,7 +93,8 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  plugins: [createPersistedState()]
 });
 
 router.beforeEach((to, from, next) => {
@@ -105,6 +107,13 @@ router.beforeEach((to, from, next) => {
     next();
     console.log(to.name);
   }
+});
+
+router.beforeEach((to, from, next) => {
+  if (store.state.shoppingCart <= 0 && to.name === "Checkout") {
+    next(false);
+    router.back();
+  } else next();
 });
 
 export default router;

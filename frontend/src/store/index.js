@@ -71,13 +71,16 @@ const moduleApi = {
           console.log(error);
         });
     },
-    getSingleProduct(id) {
+    getSingleProduct({ state, commit }, id) {
       axios
         .get("http://localhost:5000/api/products/" + id)
-        .then(response => {
+        .then((response) => {
           const payload = response.data;
+          commit("changeProductModal", payload);
+          console.log(payload, state.token);
+          return payload;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
@@ -104,7 +107,7 @@ const moduleApi = {
           console.log(error);
         });
     },
-    patchProducts({ state, commit }, id, payload) {
+    patchProducts({ state }, id, payload) {
       axios
         .patch("http://localhost:5000/api/products/" + id, payload, {
           headers: { Authorization: state.token },

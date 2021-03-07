@@ -11,16 +11,6 @@
 export default {
   methods: {
     openEditor() {
-      // const editProd = {
-      //   title: this.product.title,
-      //   price: this.product.price,
-      //   category: this.product.category,
-      //   shortDesc: this.product.shortDesc,
-      //   longDesc: this.product.longDesc,
-      //   imgFile: this.product.imgFile,
-      //   _id: this.product._id,
-      // };
-      // console.log(editProd)
       this.$store.dispatch("getSingleProduct", this.product._id);
     },
   },

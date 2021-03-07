@@ -26,28 +26,18 @@
 </template>
 
 <script>
-// import { getProductById, PRODUCTID_URL } from "@/api/get.js";
 
 export default {
-  // created: async function() {
-  //   const response = await getProductById(PRODUCTID_URL, this.modalId);
-  //   this.product = response.data;
-  // },
-
   data() {
     return {
-      // show: false,
       product: this.clickedProduct,
     };
   },
 
   computed: {
     clickedProduct() {
-      return this.$store.state.productModal;
+      return this.$store.state.activeProduct;
     },
-    // getImg(pic) {
-    //   return require("@/assets/" + pic);
-    // },
   },
 
   methods: {

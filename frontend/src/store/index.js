@@ -291,7 +291,6 @@ export default createStore({
     },
   },
   modules: { a: moduleSession, b: moduleApi },
-<<<<<<< HEAD
   // plugins: [
   //   createPersistedState({
   //     getState: key => Cookies.getJSON(key),
@@ -299,13 +298,4 @@ export default createStore({
   //       Cookies.set(key, state, { expires: 3, secure: true })
   //   })
   // ]
-=======
-  plugins: [
-    createPersistedState({
-      getState: (key) => Cookies.getJSON(key),
-      setState: (key, state) =>
-        Cookies.set(key, state, { expires: 3, secure: true }),
-    }),
-  ],
->>>>>>> 3045f7a87eec7f8d30b36085f7f6aa9e879a86d6
 });

@@ -8,12 +8,13 @@ const moduleSession = {
     session: { active: false },
     user: Object,
     order: Array,
+    productsUrl: "http://localhost:5000/api/products",
   },
   getters: {
-    getAmountOfItems: state => {
-      let array = state.order.map(item => item.amount);
-      return array
-    }
+    getAmountOfItems: (state) => {
+      let array = state.order.map((item) => item.amount);
+      return array;
+    },
   },
   mutations: {
     setUser(state, payload) {
@@ -71,20 +72,23 @@ const moduleApi = {
           console.log(error);
         });
     },
-    getSingleProduct(id) {
+    getSingleProduct({ state, commit }, id) {
       axios
         .get("http://localhost:5000/api/products/" + id)
-        .then(response => {
+        .then((response) => {
           const payload = response.data;
+          commit("setActiveProduct", payload, { root: true });
+          console.log(payload, state.token);
+          return payload;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     getProducts({ commit }) {
       axios
         .get("http://localhost:5000/api/products")
-        .then(response => {
+        .then((response) => {
           this.response = response.data;
           commit("updateProducts", this.response, { root: true });
         })
@@ -97,20 +101,23 @@ const moduleApi = {
         .get("http://localhost:5000/api/orders", {
           headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           this.response = response.data;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    patchProducts({ state, commit }, id, payload) {
+    patchProducts({ state, commit, rootState }, payload) {
+      const url =
+        "http://localhost:5000/api/products/" + rootState.activeProduct._id;
       axios
-        .patch("http://localhost:5000/api/products/" + id, payload, {
+        .patch(url, payload, {
           headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           this.response = response.data;
+          commit("setActiveProduct", {});
         })
         .catch((error) => {
           console.log(error);
@@ -125,16 +132,16 @@ const moduleApi = {
           commit("setOrderList", payload, { root: true });
           this.response = response.data;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     patchUser({ state, dispatch }, payload) {
       axios
         .patch("http://localhost:5000/api/me/", payload, {
-          headers: { Authorization: state.token }
+          headers: { Authorization: state.token },
         })
-        .then(response => {
+        .then((response) => {
           dispatch("getUser");
           return response.data.message;
         })
@@ -146,7 +153,7 @@ const moduleApi = {
       console.log(state.token);
       axios
         .post("http://localhost:5000/api/register/", newUser)
-        .then(response => {
+        .then((response) => {
           this.response = response.data;
         })
         .catch((error) => {
@@ -167,13 +174,12 @@ const moduleApi = {
           console.log(error);
         });
     },
-    createProduct({ state }, payload) {
+    postProduct({ state }, payload) {
       axios
         .post("http://localhost:5000/api/products/" + payload, {
           headers: { Authorization: state.token },
         })
         .then((response) => {
-          alert(response.data.message);
           console.log(response);
         })
         .catch((error) => {
@@ -191,7 +197,7 @@ export default createStore({
     productModalStatus: false,
 
     //holds the chosen product
-    productModal: {},
+    activeProduct: {},
 
     allProducts: [],
 
@@ -235,8 +241,8 @@ export default createStore({
     changeProductModalStatus(state) {
       state.productModalStatus = !state.productModalStatus;
     },
-    changeProductModal(state, prod) {
-      state.productModal = prod;
+    setActiveProduct(state, prod) {
+      state.activeProduct = prod;
     },
     changeLoginStatus(state) {
       state.loginStatus = !state.loginStatus;

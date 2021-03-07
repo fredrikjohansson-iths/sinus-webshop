@@ -16,7 +16,6 @@ export default {
   }},
     mounted()  {
       this.$store.dispatch("getProducts")
-      console.log(this.$store.state.allProducts)
 
   },
   components: {

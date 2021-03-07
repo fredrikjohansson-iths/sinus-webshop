@@ -117,7 +117,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #edit {
   margin-top: 25px;
   margin-left: 100%;

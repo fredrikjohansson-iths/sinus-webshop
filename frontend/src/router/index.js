@@ -93,8 +93,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes,
-  plugins: [createPersistedState()]
+  routes
 });
 
 router.beforeEach((to, from, next) => {

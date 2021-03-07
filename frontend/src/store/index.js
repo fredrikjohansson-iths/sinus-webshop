@@ -268,7 +268,6 @@ export default createStore({
     },
     updateProducts(state, payload) {
       state.allProducts = payload;
-      console.log("updateProdcuts read state", state.allProducts);
     },
   },
 

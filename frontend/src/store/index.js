@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-// import createPersistedState from "vuex-persistedstate";
+import createPersistedState from "vuex-persistedstate";
 // import * as Cookies from "js-cookie";
 import axios from "axios";
 
@@ -292,7 +292,7 @@ export default createStore({
       commit("changeProductModalStatus");
     },
   },
-  modules: { a: moduleSession, b: moduleApi },
+  modules: { a: moduleSession, b: moduleApi },plugins: [createPersistedState]
   // plugins: [
   //   createPersistedState({
   //     getState: key => Cookies.getJSON(key),

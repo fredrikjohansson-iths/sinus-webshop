@@ -39,7 +39,6 @@
         :placeholder="user.address.zip"
         :disabled="inputState"
       />
-
       <input
         v-if="user.address"
         id="city"
@@ -49,16 +48,17 @@
         :disabled="inputState"
       />
     </form>
-    <button id="edit" @click="test" v-if="!enableEdit">Edit</button
+    <button id="edit" @click="toggleEdit();mirrorData();" v-if="!enableEdit">Edit</button
     ><button
       @click="
-        test2();
-        test();
+        saveUser();
+        toggleEdit();
       "
       v-if="enableEdit"
     >
       Save</button
-    ><button @click="test" v-if="enableEdit">Cancel</button>
+    ><button @click="toggleEdit" v-if="enableEdit">Cancel</button
+    >
   </div>
 </template>
 <script>
@@ -84,12 +84,6 @@ export default {
     user: Object
   },
   watch: {
-    user(val) {
-      if (val) {
-        this.patchUser = this.user;
-        this.patchUser.address = this.user.address;
-      }
-    },
     enableEdit(oldVal, newVal) {
       if (newVal === true && oldVal === false) {
         this.inputState = "disabled";
@@ -102,30 +96,33 @@ export default {
     hideAlert() {
       this.show = false;
     },
-    test2() {
-      this.$emit("mePatch", this.patchUser);
+    saveUser() {
+      this.$store.dispatch("patchUser", this.patchUser)
       this.show = true;
       setTimeout(() => (this.show = false), 3000);
     },
-    test() {
+    toggleEdit() {
       if (this.enableEdit === true) {
         this.enableEdit = false;
       } else {
         this.enableEdit = true;
       }
     },
-    submit() {
-      const data = this.$data.user;
-      this.$emit("submitted", data);
+    mirrorData() {
+      this.patchUser = this.user;
+      this.patchUser.address = this.user.address;
+      console.log(this.user);
     }
   }
 };
 </script>
 
 <style>
-#edit {  margin-top: 25px;
+#edit {
+  margin-top: 25px;
   margin-left: 100%;
-  margin-right: 100%;}
+  margin-right: 100%;
+}
 
 .container {
   width: 500px;

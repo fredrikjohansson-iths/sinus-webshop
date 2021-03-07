@@ -13,12 +13,14 @@ import ProfileForm from "@/components/ProfileForm.vue";
 
 export default {
   beforeMount() {
-    this.userData = this.$store.state.a.user;
+
+    this.userData = this.$store.state.a.user
+    console.log(this.userData)
   },
   data() {
     return {
-      userData: {},
-    };
+      userData: {}
+    }
   },
   computed: {
     orders() {

@@ -30,13 +30,12 @@ module.exports = {
   },
 
   async create(body) {
-    let { title, price, category, shortDesc, longDesc, imgFile } = body;
+    let { title, price, shortDesc, longDesc, imgFile } = body;
     let serial = Date.now();
     try {
       const product = await products.insert({
         title,
         price,
-        category,
         shortDesc,
         longDesc,
         imgFile,

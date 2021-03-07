@@ -13,11 +13,10 @@ export default {
   computed: {
     modalStatus() {
       return this.$store.state.productModalStatus;
-  }},
-    mounted()  {
-      this.$store.dispatch("getProducts")
-      console.log(this.$store.state.allProducts)
-
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getProducts");
   },
   components: {
     ProductsContainer,

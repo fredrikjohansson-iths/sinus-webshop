@@ -43,7 +43,8 @@ export default {
     },
 
     change() {
-      this.$store.dispatch("changeProductModal", this.product._id);
+      this.$store.dispatch("changeProductModalStatus", this.product._id);
+      this.$store.dispatch("getSingleProduct", this.product._id);
     },
 
     addToCart() {

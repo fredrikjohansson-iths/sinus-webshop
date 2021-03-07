@@ -11,16 +11,17 @@
 export default {
   methods: {
     openEditor() {
-      const editProd = {
-        title: this.product.title,
-        price: this.product.price,
-        category: this.product.category,
-        shortDesc: this.product.shortDesc,
-        longDesc: this.product.longDesc,
-        imgFile: this.product.imgFile,
-        id: this.product._id,
-      };
-      this.$store.commit("setEditableProduct", editProd);
+      // const editProd = {
+      //   title: this.product.title,
+      //   price: this.product.price,
+      //   category: this.product.category,
+      //   shortDesc: this.product.shortDesc,
+      //   longDesc: this.product.longDesc,
+      //   imgFile: this.product.imgFile,
+      //   _id: this.product._id,
+      // };
+      // console.log(editProd)
+      this.$store.dispatch("getSingleProduct", this.product._id);
     },
   },
   components: {},
@@ -33,7 +34,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .list-item {
   width: 80%;
   margin-left: auto;

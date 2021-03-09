@@ -1,7 +1,7 @@
 <template>
   <div id="checkout" v-if="!orderStatus">
     <section class="header centered">
-      <h2>Your Cart</h2>
+      <h2>Checkout</h2>
     </section>
     <section class="information">
       <section class="items">
@@ -10,9 +10,16 @@
         </ul>
       </section>
 
-      <CartForm class="cart-form-container" />
+      <CartForm class="cart-form-container" v-if="cartProducts.length > 0" />
+      <div v-else>
+        You have no items here baby, do some shopping and come back!
+      </div>
     </section>
-    <button @click="updateOrders" class="btn-primary btn-product-description">
+    <button
+      @click="updateOrders"
+      class="btn-primary btn-product-description"
+      v-if="cartProducts.length > 0"
+    >
       Take my Money
     </button>
   </div>
@@ -65,14 +72,16 @@ export default {
 <style lang="scss" scoped>
 #checkout {
   width: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  height: 100vh;
 }
 
 .information {
   width: 60%;
+  min-height: 50%;
   display: flex;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .information {

@@ -108,10 +108,10 @@ export default {
   
 }
 input {
-  width: 100%;
+  width: 50%;
   clear: both;
   margin-top: 25px;
- margin-left: 10%;
+ /* margin-left: 10%; */
   /* margin-right: 100%;  */
 }
 select {

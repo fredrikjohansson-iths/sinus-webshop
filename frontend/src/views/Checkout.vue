@@ -83,6 +83,7 @@ export default {
   min-height: 50%;
   display: flex;
 }
+
 .information {
   display: flex;
   justify-content: space-between;

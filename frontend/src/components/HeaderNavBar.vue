@@ -31,7 +31,8 @@
         <i class="fas fa-shopping-cart"></i>({{ shoppingCartLength }})</a
       >
       <router-link title="View your account" v-if="userSession" to="/profile">
-        <i class="grow fas fa-user"> </i><a> {{ userName }}</a></router-link
+        <i class="grow fas fa-user"> </i
+        ><a> {{ firstNameOfUser }}</a></router-link
       ><i
         id="signout"
         @click="signout"
@@ -83,8 +84,11 @@ export default {
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
     },
-    userName() {
-      return this.$store.state.a.user.name;
+    firstNameOfUser() {
+      const name = this.$store.state.a.user.name;
+      let names = name.split(" ");
+      let firstName = names[0];
+      return firstName;
     },
   },
 };

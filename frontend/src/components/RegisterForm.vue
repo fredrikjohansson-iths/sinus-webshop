@@ -80,9 +80,8 @@ body {
 	min-height: 480px;
   margin-left: 200px;
 }
+
 form {
-
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -93,19 +92,16 @@ form {
 }
 
 
-
 input[type=text], select, textarea {
-  
-
   background-color: #eee;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
 }
-input[type=password], select, textarea {
 
-  background-color: #eee;
+input[type=password], select, textarea {
+ background-color: #eee;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -113,7 +109,6 @@ input[type=password], select, textarea {
 }
 
 input[type=numbers], select, textarea {
- 
   background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -127,7 +122,6 @@ label {
 }
 
 input[type=submit] {
-
   color: rgb(185, 180, 180);
   padding: 12px 20px;
   border: none;

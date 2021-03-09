@@ -25,10 +25,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

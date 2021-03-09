@@ -93,11 +93,10 @@ export default {
   display: block;
 }
 input {
-  display: block;
   width: 50%;
   clear: both;
   margin-top: 25px;
-  margin-left: 10%;
+ /* margin-left: 10%; */
   /* margin-right: 100%;  */
 /* } */
 

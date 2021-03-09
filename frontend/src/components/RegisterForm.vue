@@ -2,24 +2,24 @@
   <div class="container">
     <form>
       <label for="name"
-        >Name <input id="name" type="text" placeholder="e.g. Tonya Hawk" class="col-75" />
+        >Name <input id="name" type="text" v-model="user.name" placeholder="e.g. Tonya Hawk" class="col-75" />
       </label>
       <label for="email"
         >Email
-        <input id="email" type="text" placeholder="e.g. example@email.com" />
+        <input id="email" type="text" v-model="user.email" placeholder="e.g. example@email.com" />
       </label>
       <label for="password"
-        >Password <input id="password" type="password" placeholder="*******"
+        >Password <input id="password" type="password" v-model="user.password" placeholder="*******"
       /></label>
       <label for="street"
         >Street
-        <input id="street" type="text" placeholder="e.g. Thrasher Avenue 10"
+        <input id="street" type="text" v-model="user.street" placeholder="e.g. Thrasher Avenue 10"
       /></label>
       <label for="zip"
-        >Zip <input id="zip" type="numbers" placeholder="e.g. 123 45"
+        >Zip <input id="zip" type="numbers" v-model="user.zip" placeholder="e.g. 123 45"
       /></label>
       <label for="city"
-        >City <input id="city" type="text" placeholder="e.g. Dogtown"
+        >City <input id="city" type="text" v-model="user.city" placeholder="e.g. Dogtown"
       /></label>
       <button type="button" @click="postUser">Sign me up!</button>
     </form>
@@ -32,13 +32,13 @@ export default {
   data() {
     return {
       user: {
-        email: "test@test.se",
-        password: "test123",
-        name: "test",
+        name: " ",
+        password: " ",
+        email: " ",
         address: {
-          street: "testaddress 1",
-          zip: "123456",
-          city: "Test"
+          street: " ",
+          zip: " ",
+          city: " "
         }
       }
     };
@@ -78,11 +78,10 @@ body {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
-  margin-left: 500px;
+  margin-left: 200px;
 }
+
 form {
-
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -93,19 +92,16 @@ form {
 }
 
 
-
 input[type=text], select, textarea {
-  
-
   background-color: #eee;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
 }
-input[type=password], select, textarea {
 
-  background-color: #eee;
+input[type=password], select, textarea {
+ background-color: #eee;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -113,7 +109,6 @@ input[type=password], select, textarea {
 }
 
 input[type=numbers], select, textarea {
- 
   background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -127,7 +122,6 @@ label {
 }
 
 input[type=submit] {
-
   color: rgb(185, 180, 180);
   padding: 12px 20px;
   border: none;

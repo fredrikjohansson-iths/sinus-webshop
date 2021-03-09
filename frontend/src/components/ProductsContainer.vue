@@ -17,18 +17,18 @@ export default {
   props: {
     editMode: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   components: {
-    ProductsItemHolder
+    ProductsItemHolder,
   },
   computed: {
     products() {
       return this.$store.state.allProducts;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -36,10 +36,7 @@ export default {
 #product-holder {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 80px;
+  padding-top: 80px;
   gap: 60px;
 }
 </style>

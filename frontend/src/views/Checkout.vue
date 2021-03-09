@@ -5,22 +5,15 @@
     </section>
     <section class="information">
       <section class="items">
-            
         <ul v-for="item in uniqueCartProducts" :key="item._id">
           <ShoppingCartItem :title="item.title" :id="item._id" :item="item" />
         </ul>
-    
       </section>
-      <section class="delivery"></section>
-      <section class="payment"></section>
-       <CartForm /> 
+      <CartForm class="cart-form-container" />
+      <button @click="updateOrders" class="btn-primary btn-product-description">
+        Take my Money
+      </button>
     </section>
-
-  
-    <section class="cta centered">
-      <button @click="updateOrders" class="btn-primary btn-product-description">Take my Money</button>
-    </section>
-   
   </div>
   <OrderComplete v-else class="order-finished" />
 </template>
@@ -28,11 +21,11 @@
 <script>
 import ShoppingCartItem from "@/components/ShoppingCartItem.vue";
 import OrderComplete from "@/components/OrderComplete.vue";
-import CartForm from '@/components/CartForm.vue';
+import CartForm from "@/components/CartForm.vue";
 export default {
   data() {
     return {
-      orderStatus: false
+      orderStatus: false,
     };
   },
 
@@ -42,13 +35,13 @@ export default {
       this.$store.dispatch("getOrders");
       this.$store.commit("clearShoppingCart");
       this.orderStatus = !this.orderStatus;
-    }
+    },
   },
 
   components: {
     ShoppingCartItem,
     OrderComplete,
-    CartForm
+    CartForm,
   },
 
   computed: {
@@ -56,32 +49,27 @@ export default {
       return this.$store.state.shoppingCart;
     },
     uniqueCartProducts() {
-      return [...new Set(this.cartProducts.map(item => item))];
+      return [...new Set(this.cartProducts.map((item) => item))];
     },
     getCartItemsId() {
       const order = {
-        items: this.$store.getters.getCartItemsId
+        items: this.$store.getters.getCartItemsId,
       };
       return order;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .information {
-  border-top: black 1px solid;
-  min-height: 400px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 60%;
   display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  min-height: 480px;
+  margin-left: 500px;
 }
 
-.items,
-.delivery,
-.payment {
-  width: 33%;
-  // border-left: black 1px solid;
-}
 </style>

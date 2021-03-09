@@ -111,10 +111,10 @@ input {
 }
 
 .fa-eye {
-  left: 88.5%;;
+  left: 88.5%;
 }
 .fa-eye-slash {
-  left: 88.5%;;
+  left: 88.5%;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -146,6 +146,7 @@ input {
   min-width: 260px;
   border-radius: 2%;
   height: 215px;
+  z-index: 2;
 }
 
 button {

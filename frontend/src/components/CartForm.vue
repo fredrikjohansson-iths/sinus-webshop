@@ -1,43 +1,28 @@
 <template>
   <div class="cartForm">
     <form>
-      <label for=""></label>
-      <label for="name"
-        >Name <input id="name" type="text" v-model="billingInfo.name"
-      /></label>
-      <label for="email"
-        >Email <input id="email" type="text" v-model="billingInfo.email"
-      /></label>
+      <label for="name">Name</label>
+      <input id="name" type="text" v-model="billingInfo.name" />
+      <label for="email">Email</label>
+      <input id="email" type="text" v-model="billingInfo.email" />
 
-      <label for="street"
-        >Street
-        <input id="street" type="text" v-model="billingInfo.address.street"
-      /></label>
+      <label for="street">Street</label>
+      <input id="street" type="text" v-model="billingInfo.address.street" />
 
-      <label for="zip"
-        >Zip <input id="zip" type="numbers" v-model="billingInfo.address.zip"
-      /></label>
-      <label for="city"
-        >City <input id="city" type="text" v-model="billingInfo.address.city"
-      /></label>
+      <label for="zip">Zip</label>
+      <input id="zip" type="numbers" v-model="billingInfo.address.zip" />
+      <label for="city">City</label>
+      <input id="city" type="text" v-model="billingInfo.address.city" />
 
-      <div>
-        <div class="label">
-          <label> Card Number</label>
-          <input id="cardnumber" type="text" />
-        </div>
-      </div>
+      <label for="cardnumber"> Card Number</label>
+      <input id="cardnumber" type="text" />
 
-      <div>
-        <div class="label">
-          <label> CVV</label>
-        </div>
-        <input id="cvv" type="numbers" />
-      </div>
-      <!-- <div class="label"> -->
-      <label> Month</label>
-      <!-- </div> -->
-      <select>
+      <label for="cvv"> CVV</label>
+
+      <input id="cvv" type="numbers" />
+
+      <label for="month"> Month</label>
+      <select id="month">
         <option value="01">January</option>
         <option value="02">February </option>
         <option value="03">March</option>
@@ -51,10 +36,10 @@
         <option value="11">November</option>
         <option value="12">December</option>
       </select>
-      <!-- <div class="label"> -->
-      <label> Year</label>
-      <!-- </div> -->
-      <select>
+
+      <label for="year"> Year</label>
+
+      <select id="year">
         <option value="16"> 2021</option>
         <option value="17"> 2022</option>
         <option value="18"> 2023</option>
@@ -100,12 +85,12 @@ export default {
 .cartForm {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
 }
-
+/*
 .label {
   margin-bottom: 5px;
-  
+  display: block;
 }
 input {
   width: 50%;
@@ -113,12 +98,65 @@ input {
   margin-top: 25px;
  /* margin-left: 10%; */
   /* margin-right: 100%;  */
-}
-select {
+/* } */
+
+/* select {
   margin-left: 10px;
   margin-right: 20px;
   border-radius: 2px;
   border-style: groove;
   height: 25px;
+}  */
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+input[type="text"],
+select,
+textarea {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 50%;
+}
+input[type="password"],
+select,
+textarea {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 50%;
+}
+
+input[type="numbers"],
+select,
+textarea {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 50%;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  color: rgb(185, 180, 180);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 </style>

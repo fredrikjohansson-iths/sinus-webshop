@@ -27,12 +27,6 @@ export default {
   margin-right: auto;
   text-align: left;
   font-size: 1.2rem;
-  width: auto;
-}
-#deleted-item {
-  border: red 2px solid;
-}
-span {
-  margin-left: 20px;
+  width: 100%;
 }
 </style>

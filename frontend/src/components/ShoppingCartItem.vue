@@ -2,6 +2,7 @@
   <section id="shopping-cart-item">
     <section class="title-buttons">
       <h5>{{ item.title }} , {{ item.category }}</h5>
+      <p>${{ item.price }}</p>
       <section class="buttons">
         <i
           class="fas fa-minus-square"
@@ -78,5 +79,9 @@ export default {
 .cartButton {
   width: 20px;
   height: 20px;
+}
+h5 {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 </style>

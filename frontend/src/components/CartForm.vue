@@ -76,15 +76,15 @@ export default {
         address: {
           street: "",
           zip: "",
-          city: ""
-        }
-      }
+          city: "",
+        },
+      },
     };
   },
   props: {
     item: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   mounted() {
     if (this.$store.state.a.session.active) {
@@ -92,32 +92,21 @@ export default {
       this.billingInfo.address = this.$store.state.a.user.address;
     }
   },
-  methods: {
-  }
+  methods: {},
 };
 </script>
 
 <style scoped>
 .cartForm {
-  float: right;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   width: 100%;
 }
 
 .label {
   margin-bottom: 5px;
 }
-
 input {
-  margin-bottom: 10px;
-  width: 54%;
-  height: 20px;
-  border-radius: 2px;
-  border-style: groove;
-}
- input {
   width: 100%;
   clear: both;
   margin-top: 25px;

@@ -1,24 +1,20 @@
 <template>
   <section class="crud-form">
-    <button id="edit" @click="mirrorData" v-if="!enableEdit">
-      Edit
-    </button>
-
-    <section class="crud-image">
-      <img src="" alt="" />
-    </section>
     <section class="crud-details container">
+      <h3 v-if="editMode">Create Product</h3>
+      <h3 v-if="!editMode">Edit Product</h3>
+      <button id="edit" @click="mirrorData">
+        Edit
+      </button>
+      <section class="crud-image">
+        <img src="" alt="" />
+      </section>
       <label for="title">Product Name</label>
       <input type="text" id="title" v-model="editedProd.title" />
       <label for="price">Price</label>
       <input type="number" id="price" v-model="editedProd.price" />
       <label for="category">Category</label>
-      <input
-        type="text"
-        id="category"
-        :value="clickedProduct.category"
-        disabled
-      />
+      <input type="text" id="category" v-model="editedProd.category" />
       <label for="short">Short description</label>
       <input type="text" id="short" v-model="editedProd.shortDesc" />
       <label for="id">Product Id</label>
@@ -58,26 +54,47 @@ export default {
       editedProd: {
         title: "",
         price: null,
+        category: "",
         shortDesc: "",
         longDesc: "",
         imgFile: "",
       },
+      editMode: true,
     };
   },
   methods: {
+    changeEditMode() {
+      this.editMode = !this.editMode;
+    },
+
     createNewProduct() {
       this.$store.dispatch("postProduct", this.product);
       this.$store.commit("setActiveProduct", {});
     },
+
     updateProduct() {
+      confirm("Are you sure you want to update this product?");
       this.$store.dispatch("patchProducts", this.editedProd);
+      this.resetRedirect();
+    },
+
+    removeProduct() {
+      confirm("Are you sure you want to delete this item?");
+      this.$store.dispatch("deleteProduct", this.editableProduct.id);
+      this.resetRedirect();
+    },
+    resetRedirect() {
       this.$store.commit("setActiveProduct", {});
       this.$store.dispatch("getProducts");
-      this.$router.go();
+      location.reload();
+      // this.$router.go();
     },
+
     mirrorData() {
+      this.changeEditMode();
       this.editedProd.title = this.clickedProduct.title;
       this.editedProd.price = this.clickedProduct.price;
+      this.editedProd.category = this.clickedProduct.category;
       this.editedProd.shortDesc = this.clickedProduct.shortDesc;
       this.editedProd.longDesc = this.clickedProduct.longDesc;
       this.editedProd.imgFile = this.clickedProduct.imgFile;
@@ -91,17 +108,12 @@ export default {
 .crud-form {
   display: flex;
   flex-direction: column;
-}
-.container {
+  // width: 100%;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
-  overflow: hidden;
-  width: 60%px;
-  max-width: 50%;
-  min-height: 480px;
-  margin-left: 500px;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,6 +121,7 @@ export default {
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  margin-right: 60px;
 }
 
 input[type="text"],

@@ -3,21 +3,14 @@
     <section class="product-crud">
       <EditProduct />
 
-      <section class="crud-product-list">
-        <h2>All products</h2>
-        <section class="list-header">
-          <h3 class="title">Title</h3>
-          <h3 class="id">Serial No</h3>
-          <h3 class="category">Category</h3>
-        </section>
-        <div class="list-items">
-          <CRUDProductListItem
-            v-for="product in products"
-            :key="product._id"
-            :product="product"
-          />
-        </div>
-      </section>
+      <div class="list-items">
+        <h3>All Products</h3>
+        <CRUDProductListItem
+          v-for="product in products"
+          :key="product._id"
+          :product="product"
+        />
+      </div>
     </section>
 
     <section class="order-list">
@@ -68,32 +61,24 @@ export default {
 <style lang="scss" scoped>
 #admin-view {
   width: 80%;
+  padding-top: 80px;
 }
-.Prod-Order {
+.product-crud {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
 }
-.list-items > :nth-child(odd) {
+.list-items {
+  height: max-content;
+  width: 30%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow-x: hidden;
+  padding: 50px;
+  text-align: center;
+}
+.list-items > :nth-child(even) {
   background-color: rgb(248, 231, 237);
-}
-.order-list > :nth-child(odd) {
-  background-color: khaki;
-}
-.list-header {
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  display: grid;
-  grid-template-columns: 20% repeat(3, 20%) 20%;
-  text-align: left;
-  .title {
-    grid-column: 2;
-  }
-  .id {
-    grid-column: 3;
-  }
-  .category {
-    grid-column: 4;
-  }
 }
 </style>

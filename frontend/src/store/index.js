@@ -160,14 +160,12 @@ const moduleApi = {
           console.log(error, newUser);
         });
     },
-    deleteProduct({ commit, state }, id) {
+    deleteProduct({ state }, id) {
       axios
         .delete("http://localhost:5000/api/products/" + id, {
           headers: { Authorization: state.token },
         })
         .then((response) => {
-          alert(response.data.message);
-          commit("setEditableProduct", {});
           this.response = response.data;
         })
         .catch((error) => {
@@ -295,7 +293,8 @@ export default createStore({
       commit("changeProductModalStatus");
     },
   },
-  modules: { a: moduleSession, b: moduleApi },plugins: [createPersistedState]
+  modules: { a: moduleSession, b: moduleApi },
+  plugins: [createPersistedState],
   // plugins: [
   //   createPersistedState({
   //     getState: key => Cookies.getJSON(key),

@@ -28,6 +28,7 @@
 
 <script>
 export default {
+ 
   name: "RegisterForm",
   data() {
     return {
@@ -57,8 +58,11 @@ export default {
       };
       // const payload = this.user.data
       this.$store.dispatch("postUser", payload)
-    }
-  }
+    },
+  
+  },
+ 
+
 };
 </script>
 

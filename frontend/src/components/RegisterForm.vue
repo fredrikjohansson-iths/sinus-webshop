@@ -2,24 +2,55 @@
   <div class="container">
     <form>
       <label for="name"
-        >Name <input id="name" type="text" v-model="user.name" placeholder="e.g. Tonya Hawk" class="col-75" />
+        >Name
+        <input
+          id="name"
+          type="text"
+          v-model="user.name"
+          placeholder="e.g. Tonya Hawk"
+          class="col-75"
+        />
       </label>
       <label for="email"
         >Email
-        <input id="email" type="text" v-model="user.email" placeholder="e.g. example@email.com" />
+        <input
+          id="email"
+          type="text"
+          v-model="user.email"
+          placeholder="e.g. example@email.com"
+        />
       </label>
       <label for="password"
-        >Password <input id="password" type="password" v-model="user.password" placeholder="*******"
+        >Password
+        <input
+          id="password"
+          type="password"
+          v-model="user.password"
+          placeholder="*******"
       /></label>
       <label for="street"
         >Street
-        <input id="street" type="text" v-model="user.street" placeholder="e.g. Thrasher Avenue 10"
+        <input
+          id="street"
+          type="text"
+          v-model="user.address.street"
+          placeholder="e.g. Thrasher Avenue 10"
       /></label>
       <label for="zip"
-        >Zip <input id="zip" type="numbers" v-model="user.zip" placeholder="e.g. 123 45"
+        >Zip
+        <input
+          id="zip"
+          type="numbers"
+          v-model="user.address.zip"
+          placeholder="e.g. 123 45"
       /></label>
       <label for="city"
-        >City <input id="city" type="text" v-model="user.city" placeholder="e.g. Dogtown"
+        >City
+        <input
+          id="city"
+          type="text"
+          v-model="user.address.city"
+          placeholder="e.g. Dogtown"
       /></label>
       <button type="button" @click="postUser">Sign me up!</button>
     </form>
@@ -28,7 +59,6 @@
 
 <script>
 export default {
- 
   name: "RegisterForm",
   data() {
     return {
@@ -39,9 +69,9 @@ export default {
         address: {
           street: " ",
           zip: " ",
-          city: " "
-        }
-      }
+          city: " ",
+        },
+      },
     };
   },
   methods: {
@@ -53,71 +83,72 @@ export default {
         address: {
           street: this.user.address.street,
           zip: this.user.address.zip,
-          city: this.user.address.city
-        }
+          city: this.user.address.city,
+        },
       };
       // const payload = this.user.data
-      this.$store.dispatch("postUser", payload)
+      this.$store.dispatch("postUser", payload);
     },
-  
   },
- 
-
 };
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 body {
   box-sizing: border-box;
 }
 .container {
   background-color: #fff;
-	border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
-	width: 768px;
-	max-width: 100%;
-	min-height: 480px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
   margin-left: 200px;
 }
 
 form {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 50px;
-	height: 100%;
-	text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
 }
 
-
-input[type=text], select, textarea {
+input[type="text"],
+select,
+textarea {
   background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
 }
 
-input[type=password], select, textarea {
- background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
-}
-
-input[type=numbers], select, textarea {
+input[type="password"],
+select,
+textarea {
   background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 50%;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+input[type="numbers"],
+select,
+textarea {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 50%;
 }
 
 label {
@@ -125,7 +156,7 @@ label {
   display: inline-block;
 }
 
-input[type=submit] {
+input[type="submit"] {
   color: rgb(185, 180, 180);
   padding: 12px 20px;
   border: none;
@@ -133,6 +164,4 @@ input[type=submit] {
   cursor: pointer;
   margin-bottom: 20px;
 }
-
-
 </style>

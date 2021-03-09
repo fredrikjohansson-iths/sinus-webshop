@@ -67,9 +67,7 @@ export default {
 
 <style lang="scss" scoped>
 
-#checkout {
-  display: 
-}
+
 .information {
   width: 60%;
   display: flex;

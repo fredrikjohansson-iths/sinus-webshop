@@ -63,6 +63,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 body {
   box-sizing: border-box;
 }
@@ -116,7 +118,7 @@ input[type=numbers], select, textarea {
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
-	width: 100%;
+	width: 50%;
 }
 
 label {

@@ -133,7 +133,7 @@ export default {
   width: 100%;
   clear: both;
   margin-top: 25px;
-  margin-left: 100%;
+  margin-left: 100%; 
   margin-right: 100%;
 }
 

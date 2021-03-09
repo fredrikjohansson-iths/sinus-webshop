@@ -32,9 +32,9 @@ export default {
   data() {
     return {
       user: {
-        email: " ",
-        password: " ",
         name: " ",
+        password: " ",
+        email: " ",
         address: {
           street: " ",
           zip: " ",

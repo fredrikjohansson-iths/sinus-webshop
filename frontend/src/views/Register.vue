@@ -1,5 +1,6 @@
 <template>
-  <div><h1>Create your Sinus Webshop Account!</h1><h2>This will allow you to save your billing information and view all of your previous orders! Pretty cool, right?</h2><RegisterForm @submitted="postUser" /></div>
+  <div><h1>Create your Sinus Webshop Account!</h1><h2>This will allow you to save your billing information and view all of your previous orders! Pretty cool, right?</h2>
+  <RegisterForm @submitted="postUser" /></div>
 </template>
 
 <script>

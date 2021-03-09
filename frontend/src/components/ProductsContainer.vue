@@ -36,7 +36,11 @@ export default {
 #product-holder {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding-top: 80px;
   gap: 60px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

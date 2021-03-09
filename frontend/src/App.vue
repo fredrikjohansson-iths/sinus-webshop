@@ -25,11 +25,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 #app {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

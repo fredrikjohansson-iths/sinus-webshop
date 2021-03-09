@@ -58,6 +58,10 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 7px 14px rgba(83, 83, 83, 0.22),
+    0 10px 10px rgba(83, 83, 83, 0.22);
 }
 // button {
 //   width: 80px;

@@ -9,14 +9,18 @@
           <ShoppingCartItem :title="item.title" :id="item._id" :item="item" />
         </ul>
       </section>
+      
       <CartForm class="cart-form-container" />
+        </section>
       <button @click="updateOrders" class="btn-primary btn-product-description">
         Take my Money
       </button>
-    </section>
+  
   </div>
   <OrderComplete v-else class="order-finished" />
+  
 </template>
+
 
 <script>
 import ShoppingCartItem from "@/components/ShoppingCartItem.vue";
@@ -62,6 +66,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+#checkout {
+  display: 
+}
 .information {
   width: 60%;
   display: flex;

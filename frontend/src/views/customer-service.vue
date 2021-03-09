@@ -15,7 +15,7 @@ export default {
 <style>
 img {
 margin-top: 100px;
-/* margin-bottom: 515px; */
+
 position: inherit;
 }
 

@@ -125,7 +125,7 @@ export default {
 }
 
 .container {
-  width: 500px;
+  width: 400px;
   clear: both;
 }
 

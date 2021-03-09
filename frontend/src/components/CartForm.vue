@@ -99,11 +99,10 @@ export default {
 
 <style scoped>
 .cartForm {
-  float: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
+ 
+  width: 500px;
+  /* clear: both; */
+  clear: left;
 }
 
 .label {
@@ -111,11 +110,11 @@ export default {
 }
 
 input {
-  margin-bottom: 10px;
-  width: 54%;
-  height: 20px;
-  border-radius: 2px;
-  border-style: groove;
+  
+  width: 100%;
+  clear: right;
+  margin-top: 25px;
+
 }
 
 select {

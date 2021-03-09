@@ -48,7 +48,15 @@
         :disabled="inputState"
       />
     </form>
-    <button id="edit" @click="toggleEdit();mirrorData();" v-if="!enableEdit">Edit</button
+    <button
+      id="edit"
+      @click="
+        toggleEdit();
+        mirrorData();
+      "
+      v-if="!enableEdit"
+    >
+      Edit</button
     ><button
       @click="
         saveUser();
@@ -57,8 +65,7 @@
       v-if="enableEdit"
     >
       Save</button
-    ><button @click="toggleEdit" v-if="enableEdit">Cancel</button
-    >
+    ><button @click="toggleEdit" v-if="enableEdit">Cancel</button>
   </div>
 </template>
 <script>
@@ -75,13 +82,13 @@ export default {
         address: {
           street: "",
           zip: "",
-          city: ""
-        }
-      }
+          city: "",
+        },
+      },
     };
   },
   props: {
-    user: Object
+    user: Object,
   },
   watch: {
     enableEdit(oldVal, newVal) {
@@ -90,14 +97,14 @@ export default {
       } else {
         this.inputState = null;
       }
-    }
+    },
   },
   methods: {
     hideAlert() {
       this.show = false;
     },
     saveUser() {
-      this.$store.dispatch("patchUser", this.patchUser)
+      this.$store.dispatch("patchUser", this.patchUser);
       this.show = true;
       setTimeout(() => (this.show = false), 3000);
     },
@@ -112,29 +119,26 @@ export default {
       this.patchUser = this.user;
       this.patchUser.address = this.user.address;
       console.log(this.user);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 #edit {
   margin-top: 25px;
-  margin-left: 100%;
-  margin-right: 100%;
 }
 
 .container {
+  margin-top: 80px;
   width: 400px;
-  clear: both;
+  /* clear: both; */
 }
 
 .container input {
   width: 100%;
   clear: both;
   margin-top: 25px;
-  margin-left: 100%; 
-  margin-right: 100%;
 }
 
 .alert {
@@ -142,6 +146,8 @@ export default {
   background-color: lightgreen; /* Green */
   color: white;
   margin-bottom: 15px;
+  position: absolute;
+  margin-top: -80px;
 }
 /* The close button */
 .closebtn {

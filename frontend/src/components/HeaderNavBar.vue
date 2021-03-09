@@ -2,10 +2,8 @@
   <div id="site-header">
     <div id="nav">
       <router-link title="Browse our products" to="/products"
-        >Our Products</router-link
+        >Products</router-link
       >
-      <!-- <router-link to="/MyAccount" v-if="userStatus" /> -->
-
       <router-link
         title="Admin configuration view"
         v-if="adminSession"
@@ -17,9 +15,14 @@
         title="Sign in to Sinus"
         v-if="!userSession"
         @click="changeLoginModalStatus"
-        >Login / Register</a
+        >Login</a
       >
-
+      <LoginModal
+        v-if="!userSession"
+        v-show="loginModalStatus"
+        @closeLogin="changeLoginModalStatus"
+      />
+      <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
       <a
         class="shopping-cart-link"
         title="View your shopping cart"
@@ -28,7 +31,7 @@
         <i class="fas fa-shopping-cart"></i>({{ shoppingCartLength }})</a
       >
       <router-link title="View your account" v-if="userSession" to="/profile">
-        <i class="grow fas fa-user"></i></router-link
+        <i class="grow fas fa-user"> </i><a> {{ userName }}</a></router-link
       ><i
         id="signout"
         @click="signout"
@@ -37,12 +40,6 @@
         class="pointer grow fas fa-sign-out-alt"
       ></i>
     </div>
-    <ShoppingCart v-if="cartModalStatus" @closeCart="changeCartStatus" />
-    <LoginModal
-      v-if="!userSession"
-      v-show="loginModalStatus"
-      @closeLogin="changeLoginModalStatus"
-    />
   </div>
 </template>
 
@@ -55,25 +52,25 @@ export default {
   data() {
     return {
       loginModalStatus: false,
-      cartModalStatus: false
+      cartModalStatus: false,
     };
   },
   components: {
     LoginModal,
-    ShoppingCart
+    ShoppingCart,
   },
 
   methods: {
     signout() {
-      Cookies.remove("vuex")
-      this.$router.go()
+      Cookies.remove("vuex");
+      this.$router.go();
     },
     changeLoginModalStatus() {
       this.loginModalStatus = !this.loginModalStatus;
     },
     changeCartStatus() {
       this.cartModalStatus = !this.cartModalStatus;
-    }
+    },
   },
 
   computed: {
@@ -85,13 +82,15 @@ export default {
     },
     shoppingCartLength() {
       return this.$store.getters.getShoppingCartLength;
-    }
-  }
+    },
+    userName() {
+      return this.$store.state.a.user.name;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 #signout {
   left: 98.5%;
   position: absolute;
@@ -111,27 +110,22 @@ export default {
 #nav {
   padding: 30px;
   display: flex;
-  justify-content: space-between;
-  width: 300px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    text-decoration: none;
-    cursor: pointer;
+  gap: 60px;
+  width: 500px;
+  justify-content: flex-end;
+}
+a {
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+  cursor: pointer;
 
-    &.router-link-exact-active {
-      color: whitesmoke;
-    }
+  &.router-link-exact-active {
+    color: whitesmoke;
   }
-  i {
-    color: #2c3e50;
-  }
-  .text-bold {
-    font-weight: bold;
-  }
+}
 
-  .text-italic {
-    font-style: italic;
-  }
+i {
+  color: #2c3e50;
 }
 </style>

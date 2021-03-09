@@ -1,16 +1,14 @@
 <template>
   <section class="crud-form">
+    <div id="edit-modal">
+      <span> Do you want to edit {{ clickedProduct.title }} ?</span
+      ><button id="edit" @click="mirrorData">
+        Yes
+      </button>
+      <span>Click a product from in the list</span>
+    </div>
     <section class="crud-header">
-      <h3 v-if="editMode">Create Product</h3>
-      <h3 v-if="!editMode">Edit Product</h3>
-      <div id="edit-modal">
-        Do you want to edit: {{ clickedProduct.title }} ?<button
-          id="edit"
-          @click="mirrorData"
-        >
-          Edit
-        </button>
-      </div>
+      <span>I want to create, clear fields?</span>
       <button @click="clearEditedProd">Clear</button>
     </section>
     <section class="crud-image">
@@ -127,7 +125,6 @@ export default {
 .crud-form {
   display: flex;
   flex-direction: column;
-  // width: 100%;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -145,15 +142,13 @@ export default {
 .crud-header {
   display: flex;
   justify-content: space-between;
-
-  #edit-modal {
-    position: absolute;
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 40px;
-  }
 }
-
+#edit-modal {
+  position: relative;
+  background-color: white;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  // padding: 20px;
+}
 input[type="text"],
 select,
 textarea {

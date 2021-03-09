@@ -1,12 +1,24 @@
 <template>
   <section id="shopping-cart-item">
     <section class="title-buttons">
-      <h5>{{ item.title }}</h5>
+      <h5>{{ item.title }} , {{ item.category }}</h5>
       <section class="buttons">
-        <i class="fas fa-minus-square" @click="decrement"></i>
+        <i
+          class="fas fa-minus-square"
+          @click="decrement"
+          title="Decrease amount"
+        ></i>
         <span>Quantity: {{ getProductAmount }}</span>
-        <i class="fas fa-plus-square" @click="increment"></i>
-        <i class="fas fa-trash" @click="eraseProduct"></i>
+        <i
+          class="fas fa-plus-square"
+          @click="increment"
+          title="Increase amount"
+        ></i>
+        <i
+          class="fas fa-trash"
+          @click="eraseProduct"
+          title="Remove this item"
+        ></i>
       </section>
     </section>
   </section>
@@ -46,11 +58,11 @@ export default {
   margin-bottom: 24px;
   display: flex;
   border-bottom: 1px gray solid;
-  margin-bottom: 40px;
 }
 .title-buttons {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 .buttons {
   display: flex;

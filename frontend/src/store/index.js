@@ -77,11 +77,7 @@ const moduleApi = {
         .get("http://localhost:5000/api/products/" + id)
         .then((response) => {
           const payload = response.data;
-<<<<<<< HEAD
-          commit("changeProductModal", payload);
-=======
           commit("setActiveProduct", payload, { root: true });
->>>>>>> 7694635660f23630530d145dad596dc403989515
           console.log(payload, state.token);
           return payload;
         })
@@ -112,13 +108,9 @@ const moduleApi = {
           console.log(error);
         });
     },
-<<<<<<< HEAD
-    patchProducts({ state }, id, payload) {
-=======
     patchProducts({ state, commit, rootState }, payload) {
       const url =
         "http://localhost:5000/api/products/" + rootState.activeProduct._id;
->>>>>>> 7694635660f23630530d145dad596dc403989515
       axios
         .patch(url, payload, {
           headers: { Authorization: state.token },

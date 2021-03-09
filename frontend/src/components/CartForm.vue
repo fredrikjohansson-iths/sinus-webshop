@@ -107,6 +107,7 @@ export default {
 
 .label {
   margin-bottom: 5px;
+  
 }
 
 input {
@@ -120,8 +121,8 @@ input {
   width: 100%;
   clear: both;
   margin-top: 25px;
-  margin-left: 100%;
-  margin-right: 100%;
+ margin-left: 10%;
+  /* margin-right: 100%;  */
 }
 select {
   margin-left: 10px;

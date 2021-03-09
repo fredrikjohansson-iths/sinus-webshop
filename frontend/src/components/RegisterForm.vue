@@ -78,7 +78,7 @@ body {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
-  margin-left: 500px;
+  margin-left: 200px;
 }
 form {
 

@@ -1,42 +1,48 @@
 <template>
   <section class="crud-form">
-    <section class="crud-details container">
+    <section class="crud-header">
       <h3 v-if="editMode">Create Product</h3>
       <h3 v-if="!editMode">Edit Product</h3>
-      <button id="edit" @click="mirrorData">
-        Edit
+      <div id="edit-modal">
+        Do you want to edit: {{ clickedProduct.title }} ?<button
+          id="edit"
+          @click="mirrorData"
+        >
+          Edit
+        </button>
+      </div>
+      <button @click="clearEditedProd">Clear</button>
+    </section>
+    <section class="crud-image">
+      <img src="" alt="" />
+    </section>
+    <label for="title">Product Name</label>
+    <input type="text" id="title" v-model="editedProd.title" />
+    <label for="price">Price</label>
+    <input type="number" id="price" v-model="editedProd.price" />
+    <label for="category">Category</label>
+    <input type="text" id="category" v-model="editedProd.category" />
+    <label for="short">Short description</label>
+    <input type="text" id="short" v-model="editedProd.shortDesc" />
+    <label for="id">Product Id</label>
+    <input type="text" id="id" :value="productID" disabled />
+    <section class="crud-description">
+      <label for="long-desc">Full description</label>
+      <textarea
+        type="text"
+        name=""
+        id="long-desc"
+        rows="12"
+        v-model="editedProd.longDesc"
+      />
+    </section>
+    <section class="crud-buttons">
+      <button @click="updateProduct">
+        Update product
       </button>
-      <section class="crud-image">
-        <img src="" alt="" />
-      </section>
-      <label for="title">Product Name</label>
-      <input type="text" id="title" v-model="editedProd.title" />
-      <label for="price">Price</label>
-      <input type="number" id="price" v-model="editedProd.price" />
-      <label for="category">Category</label>
-      <input type="text" id="category" v-model="editedProd.category" />
-      <label for="short">Short description</label>
-      <input type="text" id="short" v-model="editedProd.shortDesc" />
-      <label for="id">Product Id</label>
-      <input type="text" id="id" :value="clickedProduct._id" disabled />
-      <section class="crud-description">
-        <label for="long-desc">Full description</label>
-        <textarea
-          type="text"
-          name=""
-          id="long-desc"
-          rows="12"
-          v-model="editedProd.longDesc"
-        />
-      </section>
-      <section class="crud-buttons">
-        <button @click="updateProduct">
-          Update product
-        </button>
-        <button @click="removeProduct">
-          Remove this product
-        </button>
-      </section>
+      <button @click="removeProduct">
+        Remove this product
+      </button>
     </section>
   </section>
 </template>
@@ -59,6 +65,7 @@ export default {
         longDesc: "",
         imgFile: "",
       },
+      productID: "",
       editMode: true,
     };
   },
@@ -98,7 +105,19 @@ export default {
       this.editedProd.shortDesc = this.clickedProduct.shortDesc;
       this.editedProd.longDesc = this.clickedProduct.longDesc;
       this.editedProd.imgFile = this.clickedProduct.imgFile;
+      this.productID = this.clickedProduct._id;
       console.log(this.editedProd);
+    },
+    clearEditedProd() {
+      this.editedProd = {
+        title: "",
+        price: null,
+        category: "",
+        shortDesc: "",
+        longDesc: "",
+        imgFile: "",
+      };
+      this.productID = "";
     },
   },
 };
@@ -122,6 +141,17 @@ export default {
   height: 100%;
   text-align: center;
   margin-right: 60px;
+}
+.crud-header {
+  display: flex;
+  justify-content: space-between;
+
+  #edit-modal {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 40px;
+  }
 }
 
 input[type="text"],
@@ -151,11 +181,6 @@ textarea {
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
 }
 
 input[type="submit"] {

@@ -1,5 +1,6 @@
 <template>
   <div id="admin-view">
+    
     <section class="product-crud">
       <EditProduct />
 

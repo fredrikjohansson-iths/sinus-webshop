@@ -117,7 +117,13 @@ input {
   border-radius: 2px;
   border-style: groove;
 }
-
+ input {
+  width: 100%;
+  clear: both;
+  margin-top: 25px;
+  margin-left: 100%;
+  margin-right: 100%;
+}
 select {
   margin-left: 10px;
   margin-right: 20px;

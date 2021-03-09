@@ -13,10 +13,10 @@ export default {
   computed: {
     modalStatus() {
       return this.$store.state.productModalStatus;
-  }},
-    mounted()  {
-      this.$store.dispatch("getProducts")
-
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getProducts");
   },
   components: {
     ProductsContainer,
@@ -25,4 +25,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#product-view {
+  width: 100vw;
+}
+</style>

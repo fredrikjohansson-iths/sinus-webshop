@@ -27,7 +27,8 @@ export default {
 
 <style>
 #app {
-  height: minmax(100vh, max-content);
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
 }
 </style>

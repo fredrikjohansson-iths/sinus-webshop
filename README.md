@@ -1,3 +1,26 @@
+Vår grupp har bestått av Fredrik, Marcus, Monika & Maddy.
+
+I ett tidigt skede av arbetet hade vi ett möte där vi gick igenom kravspecifikationen och pratade löst om hur vi skulle kunna lösa de olika delarna av hemsidan. Sedan utnämnde vi Fredrik till någon slags Scrum Master eftersom han hade mest erfarenhet av att arbeta agilt. Han fick till uppgift att leda mötena vi hade tre gånger i veckan. Han fick en administrativ roll över dokumentationen av arbetet också. 
+
+Det första vi gjorde var att öppna en board i Projects under vårt projekt i GitHub. Där fick vi alla möjlighet att bygga upp en backlog med de olika moment, funktioner och behov vi kunde utläsa skulle kunna finnas inom projektet.
+
+Vi hade lite svårt med att veta hur detaljerade vi skulle vara när vi skrev saker i vår backlog men insåg ganska snabbt att det var bättre att hålla det väldigt kort. Att man dessutom kunde fylla i backlogen utan att behöva tänka så mycket. Det viktiga var bara att skriva ner så mycket vi kom på. 
+
+### Möten
+
+Vi beslutade oss för att ha sprintmöten varje måndag, onsdag och fredag eftersom det är de enda dagarna då vi inte har lektion. Halv tio på förmiddagen började vi mötet med att varje person fick berätta vad de jobbat med dagen innan, vad de skulle jobba med under dagen och om det var något som stod i vägen för att kunna åstadkomma det. Det skulle ge alla i gruppen en chans att berätta om vad de gjort samt be om hjälp om det var något man fastnat på. 
+
+### Reflektion
+
+I efterhand så tänker vi att vi borde haft en tydligare planering och strukturerat upp arbetet ännu tydligare. Vi hade stora ambitioner tidigt och tänkte nog att vi skulle hinna klara av dem allihop. Allt eftersom arbetet fortskred insåg vi dock att en del saker tog mer tid än vad vi kunnat förutse. Förutom problemlösning med själva koden och funktioner där så fick vi flera gånger problem med konflikter i Github. Även olika problem med datorerna som satte stopp för oss. I och med att vi är oerfarna på området så var det väldigt svårt att förutse vad som skulle ta tid och vad som skulle gå fort.
+
+Något som vi i efterhand har insett är att vi kunde lagt mer fokus på att vi skulle vara överens när det gäller utseendet på hemsidan. Vi baserade designen först löst på en av våra egna layouts men gled sakta över till att jobba mer efter den layout som skolan försett oss med. Det blev alltså ganska otydligt för gruppen vad som gällde. Vi borde ha spikat en design från början och jobbat utifrån den. Vi kunde också ha lagt ner lite mer tid på att komma överens om saker som namngivning osv. 
+
+Stressen över att bli klar gjorde också att vi ibland glömde att kommunicera vilket kanske egentligen bara sinkade oss. Vi ser det här projektet som en lärdom för oss. Även om det inte blev precis såsom vi hade tänkt oss från början så lärde vi oss otroligt mycket på vägen.
+
+
+
+
 # SINUS Webshop
 
 ## Agilt Arbetssätt

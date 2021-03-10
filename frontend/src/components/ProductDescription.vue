@@ -2,7 +2,7 @@
   <div class="product-description">
     <div class="product-innerbox">
       <div class="product-imagebox">
-        <img class="img-product description-img-product" alt="product image" />
+        <img class="img-product description-img-product" :src="getImgUrl(clickedProduct.imgFile)" alt="product image" />
       </div>
       <div class="product-descriptionbox">
         <p class="product-title">{{ clickedProduct.title }}</p>
@@ -46,6 +46,9 @@ export default {
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
     },
+    getImgUrl(pic) {
+      return require('../assets/'+pic);
+    },
   },
 };
 </script>
@@ -55,7 +58,8 @@ export default {
 .description {
   &-img-product {
     margin-top: 25%;
-    margin-left: 25%;
+    margin-left: 10%;
+    width: 75%;
   }
 }
 

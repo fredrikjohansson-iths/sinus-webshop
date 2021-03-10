@@ -64,7 +64,7 @@ export default {
   methods: {
     signout() {
       Cookies.remove("vuex");
-      this.$router.go();
+      this.$router.push("/");
     },
     changeLoginModalStatus() {
       this.loginModalStatus = !this.loginModalStatus;

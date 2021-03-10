@@ -1,38 +1,65 @@
 <template>
-  <div>
-    <ProfileForm :user="userData" />
-    <section v-if="orders !== null" class="order-list">
-     <!-- <OrderList  v-for="item in orders" :key="item._id" :order="item" /> -->
+  <div id="profile-page">
+    <h1>Hello {{ firstName }}!</h1>
+
+    <section class="information">
+      <section class="personal-information">
+        <h2>These are your details</h2>
+        <ProfileForm :user="userData" />
+      </section>
+
+      <section class="order-list">
+        <h2>This is your order history</h2>
+        <OrderList />
+      </section>
     </section>
   </div>
 </template>
 
 <script>
 import ProfileForm from "@/components/ProfileForm.vue";
-//import OrderList from "@/components/OrderList.vue";
+import OrderList from "@/components/OrderList.vue";
 
 export default {
-  beforeMount() {
-
-    this.userData = this.$store.state.a.user
-    console.log(this.userData)
+  created() {
+    this.userData = this.$store.state.a.user;
+    console.log(this.userData);
   },
   data() {
     return {
-      userData: {}
-    }
+      userData: {},
+    };
   },
   computed: {
-    orders() {
-      return this.$store.state.a.order;
+    // orders() {
+    //   return this.$store.state.a.order;
+    // },
+    firstName() {
+      const name = this.userData.name;
+      let names = name.split(" ");
+      let firstName = names[0];
+      return firstName;
     },
   },
-  components: { ProfileForm, /*OrderList*/ },
+  components: { ProfileForm, OrderList },
 };
 </script>
 
 <style scoped>
-.order-list > :nth-child(odd) {
-  background-color: khaki;
+#profile-page {
+  display: flex;
+  flex-direction: column;
+}
+.personal-information,
+.order-list {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 50px;
+}
+.information {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
 }
 </style>

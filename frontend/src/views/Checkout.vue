@@ -1,7 +1,7 @@
 <template>
   <div id="checkout" v-if="!orderStatus">
-    <section class="header centered">
-      <h2>Checkout</h2>
+    <section class="header" v-if="cartProducts.length > 0">
+      <h2>Manage your purchase here.</h2>
     </section>
     <section class="information">
       <section class="items">
@@ -9,11 +9,12 @@
           <ShoppingCartItem :title="item.title" :id="item._id" :item="item" />
         </ul>
       </section>
-
-      <CartForm class="cart-form-container" v-if="cartProducts.length > 0" />
-      <div v-else>
-        You have no items here baby, do some shopping and come back!
-      </div>
+      <section>
+        <CartForm class="cart-form-container" v-if="cartProducts.length > 0" />
+        <div v-else>
+          You have no items here baby, do some shopping and come back!
+        </div>
+      </section>
     </section>
     <button
       @click="updateOrders"
@@ -76,12 +77,16 @@ export default {
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   height: 100vh;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
 }
 
 .information {
   width: 60%;
   min-height: 50%;
   display: flex;
+  justify-content: space-between;
 }
 
 .information {

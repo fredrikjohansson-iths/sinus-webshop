@@ -1,38 +1,51 @@
 <template>
   <div>
-    <section class="single-order" @click="activeClass = !activeClass">
-      <p>{{ order._id }}</p>
-      <p>Items: {{ getAmountOfItems }}</p>
-      <p>${{ order.orderValue }}</p>
-      <section v-if="activeClass">
-        <p v-for="item in order.items" :key="item._id">
-          {{ item.title }} x {{ item.amount }}
-        </p>
-      </section>
+    <section class="single-order">
+      <ul>
+        <li v-for="order in orders" :key="order._id" @click="showDetails">
+          <span>{{ order._id }}</span>
+          ,
+          <span>{{ order.orderValue }}</span>
+          <OrderListItem
+            v-show="activeClass"
+            v-for="(item, index) in order.items"
+            :key="index"
+            :item="item"
+          />
+        </li>
+      </ul>
     </section>
   </div>
 </template>
 
 <script>
+import OrderListItem from "@/components/OrderListItem.vue";
 export default {
-  props: {
-    order: {
-      type: Object,
-    },
+  beforeMount() {
+    this.$store.dispatch("getOrders");
   },
+  // props: {
+  //   order: {
+  //     type: Object,
+  //   },
+  // },
   data() {
     return {
       activeClass: false,
     };
   },
   computed: {
-    getAmountOfItems() {
-      let sum = 0;
-      this.order.items.forEach((element) => {
-        sum += element.amount;
-      });
-      return sum;
+    orders() {
+      return this.$store.state.a.order;
     },
+  },
+  methods: {
+    showDetails() {
+      this.activeClass = !this.activeClass;
+    },
+  },
+  components: {
+    OrderListItem,
   },
 };
 </script>
@@ -40,8 +53,10 @@ export default {
 <style lang="scss" scoped>
 .single-order {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  width: 60%;
+}
+li {
+  list-style: none;
 }
 </style>

@@ -1,5 +1,45 @@
 # SINUS Webshop
 
+## Agilt Arbetssätt
+
+### Github Projects
+
+#### Backlog
+
+>
+
+#### To-do
+
+>
+
+#### In progress
+
+>
+
+#### Done
+
+>
+
+### Card Template
+
+#### Title
+
+##### Description
+
+>
+ 
+##### Type
+Component
+
+###### Checklist
+- [x] Checked
+- [ ] Unchecked
+
+###### Relations
+
+##### Assigned to
+ - @
+
 ## Arbetssätt
 Samla era erfarenheter från Kanban, Scrum och diskussionerna av Modern Agile och kom överens i 
 gruppen om vilka delar och hur ni ska inkorporera detta i ert arbete. 

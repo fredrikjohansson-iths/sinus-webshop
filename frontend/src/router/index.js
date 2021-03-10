@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import store from "../store/index.js";
 
-
 const routes = [
   {
     path: "/",
@@ -112,6 +111,13 @@ router.beforeEach((to, from, next) => {
   if (store.state.shoppingCart <= 0 && to.name === "Checkout") {
     next(false);
     router.back();
+  } else next();
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.name === "Profile" && !store.state.a.session.active) {
+    next(false);
+    router.push("/");
   } else next();
 });
 

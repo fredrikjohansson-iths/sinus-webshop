@@ -2,16 +2,21 @@
   <div>
     <section class="single-order">
       <ul>
-        <li v-for="order in orders" :key="order._id" @click="showDetails">
-          <span>{{ order._id }}</span>
-          ,
-          <span>{{ order.orderValue }}</span>
-          <OrderListItem
-            v-show="activeClass"
-            v-for="(item, index) in order.items"
-            :key="index"
-            :item="item"
-          />
+        <li
+          class="test"
+          v-for="order in orders"
+          :key="order._id"
+          @click="showDetails"
+        >
+          <span :id="order._id"
+            >{{ order._id }}
+            {{ order.orderValue }}
+            <OrderListItem
+              v-show="show === order._id"
+              v-for="(item, index) in order.items"
+              :key="index"
+              :item="item"
+          /></span>
         </li>
       </ul>
     </section>
@@ -24,29 +29,25 @@ export default {
   beforeMount() {
     this.$store.dispatch("getOrders");
   },
-  // props: {
-  //   order: {
-  //     type: Object,
-  //   },
-  // },
   data() {
     return {
       activeClass: false,
+      show: ""
     };
   },
   computed: {
     orders() {
       return this.$store.state.a.order;
-    },
+    }
   },
   methods: {
-    showDetails() {
-      this.activeClass = !this.activeClass;
-    },
+    showDetails(event) {
+      this.show = event.target.id
+    }
   },
   components: {
-    OrderListItem,
-  },
+    OrderListItem
+  }
 };
 </script>
 

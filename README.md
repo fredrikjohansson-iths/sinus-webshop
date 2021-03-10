@@ -19,45 +19,49 @@ Något som vi i efterhand har insett är att vi kunde lagt mer fokus på att vi 
 Stressen över att bli klar gjorde också att vi ibland glömde att kommunicera vilket kanske egentligen bara sinkade oss. Vi ser det här projektet som en lärdom för oss. Även om det inte blev precis såsom vi hade tänkt oss från början så lärde vi oss otroligt mycket på vägen.
 
 
-
-
 # SINUS Webshop
 
 ## Agilt Arbetssätt
-
+> 
 ### Github Projects
-
+> Allt arbete ska beskrivas och kontinuerligt uppdateras i projektet "Sinus Webshop".
+> Vid mötestillfällen ska mallen "Agenda" följas.
+> Ta hjälp av mallen "Card Template" vid manuellt skapande av nya kort.
 #### Backlog
 
->
+>När ett nytt manuellt kort skapas, ska det initiellt placeras i *Backlog* innan det kan fortsätta vidare i pipelinen.
 
 #### To-do
 
->
+>Kort som ligger i kolumnen *To-do* innebär ett inplanerat arbete som tilldelats en eller flera utvecklare.
+>Samtliga utvecklare får max ha 3 st kort i *To-do* samtidigt, detta för att undvika överarbete och att redan påbörjat arbete lämnas oavslutat.
+>Kort som skickas in via en *Issue* eller en *Pull request* hamnar automatiskt i *To-do*.
 
 #### In progress
 
->
+>Kort som arbetas aktivt med ska placeras i *In progress*.
+>Om arbete pausas måste berört kort flyttas tillbaka till *To do*. 
 
 #### Done
 
->
+>Efter att allt arbete som innefattas av ett kort har avslutats ska det flyttas vidare till *Done*.
+>Vid situationer då det upptäcks i efterhand att kompletterande arbete krävs, ska kortet flyttas tillbaka till *In progress* tillsvidare.
 
 ### Card Template
 ```markdown
-#### Title
+#### Card Template
 
 ##### Description
-
- 
+> Write a short description here
 ##### Type
-Component
+Define type of task (e.g. component)
 
 ###### Checklist
 - [x] Checked
 - [ ] Unchecked
 
 ###### Relations
+Note any related components or functions, e.g. parent or child.
 
 ##### Assigned to
  - @

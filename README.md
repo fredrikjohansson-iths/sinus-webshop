@@ -41,6 +41,17 @@ Däremot är jag stolt över det faktumet att jag faktiskt VÅGADE koda trots at
 > Avslutningsvis så känner jag att jag har gjort stora personliga framsteg kunskapsmässigt, och jag känner mycket nöjd över att ha gått steget extra med att integrera   vuex med axios, och ha nyttjat mer avancerade funktioner tillgängliga i vue-router.
 @fredrikjohansson-iths - Stig Fredrik Johansson
 
+###### Marcus
+Äntligen kan vi lämna in det här projektet! Så känner jag nu. Och jag tycker att min känsla av lättnad över att kunna lämna in reflekterar hur mycket tid och kraft jag har lagt ner på det här. Det här projektet har varit det största bygge jag någonsin varit med på och jag känner mig stolt över att vi fick ihop det tillslut. 
+
+Jag är också glad över att jag personligen varit med och byggt på alla delar av koden. Jag känner efter det här att jag behärskar både vuex, api-hantering mm. Det känns otroligt bra. 
+
+Något jag vill förbättra till nästa gång är min kommunikation. Jag har känt mig väldigt stressad och har då gått in och bara fokuserat på att göra så mycket jag kan själv. I framtiden vill jag bli bättre på att involvera andra och att bidra till en mer öppen och direkt kommunikation genom att ställa frågor, påminna om att underrätta varandra om vad man jobbar med osv. Jag vill helt enkelt bli bättre på att skapa team-känsla. 
+
+Jag vill också förbättra mina kunskaper inom hantering av Git eftersom det varit något som satt lite käppar i hjulen hos oss.
+
+Slutsatsen är att jag är väldigt nöjd med det jag lärt mig under det här projektet. Tack för den här tiden Niklas!
+
 ## Agilt Arbetssätt
 > 
 ### Github Projects

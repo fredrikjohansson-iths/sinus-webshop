@@ -5,7 +5,7 @@
       <p>${{ product.price }}</p>
       <!-- <img
         class="img-product"
-        src="../assets/hoodie-fire.png"
+        :src= "require(`../assets/${product.imgFile}`)"
         alt="product image"
       /> -->
       <img
@@ -54,6 +54,9 @@ export default {
       this.$store.dispatch("addProductToCart", this.product);
     },
   },
+ 
+    
+ 
 };
 </script>
 <style lang="scss" scoped>

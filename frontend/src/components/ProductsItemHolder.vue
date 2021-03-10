@@ -5,7 +5,7 @@
       <p>${{ product.price }}</p>
       <img
         class="img-product"
-        :src= "require(`../assets/${product.imgFile}`)"
+        :src="require(`../assets/${product.imgFile}`)"
         alt="product image"
       />
     </section>
@@ -38,10 +38,6 @@ export default {
   },
 
   methods: {
-    getImgUrl(pic) {
-      return require(pic);
-    },
-
     change() {
       this.$store.dispatch("changeProductModalStatus", this.product._id);
       this.$store.dispatch("getSingleProduct", this.product._id);
@@ -51,13 +47,9 @@ export default {
       this.$store.dispatch("addProductToCart", this.product);
     },
   },
- 
-    
- 
 };
 </script>
 <style lang="scss" scoped>
-
 #product {
   padding: 10px;
   background: #ffffff;
@@ -74,5 +66,4 @@ export default {
 .img-product {
   width: 70%;
 }
-
 </style>

@@ -65,6 +65,7 @@ export default {
 #admin-view {
   width: 80%;
   padding-top: 80px;
+  padding-bottom: 80px;
 }
 .product-crud {
   display: flex;

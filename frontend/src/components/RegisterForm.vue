@@ -52,7 +52,9 @@
           v-model="user.address.city"
           placeholder="e.g. Dogtown"
       /></label>
-      <button type="button" @click="postUser">Sign me up!</button>
+      <button type="button" @click="postUser" class="btn-primary">
+        Sign me up!
+      </button>
     </form>
   </div>
 </template>

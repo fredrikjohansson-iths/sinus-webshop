@@ -54,20 +54,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
 #product {
+  padding: 10px;
+  background: #ffffff;
+  /* small drop */
+  box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.06);
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 7px 14px rgba(83, 83, 83, 0.22),
-    0 10px 10px rgba(83, 83, 83, 0.22);
+  justify-content: space-around;
+  width: 260px;
+  height: 400px;
 }
-// button {
-//   width: 80px;
-//   height: 40px;
-//   border-radius: 40px;
-//   background-color: #2c3e50;
-//   color: white;
-// }
+
+.img-product {
+  width: 70%;
+}
+
 </style>

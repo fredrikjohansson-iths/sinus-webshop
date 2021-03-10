@@ -95,7 +95,6 @@ export default {
       this.$store.commit("setActiveProduct", {});
       this.$store.dispatch("getProducts");
       location.reload();
-      // this.$router.go();
     },
 
     mirrorData() {

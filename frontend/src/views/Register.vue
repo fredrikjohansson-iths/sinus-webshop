@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="register-page">
     <h1>Create your Sinus Webshop Account!</h1>
     <h2>
       This will allow you to save your billing information and view all of your
@@ -10,12 +10,11 @@
 </template>
 
 <script>
-
 import RegisterForm from "@/components/RegisterForm.vue";
 
 export default {
   name: "Register",
-  components: { RegisterForm  },
+  components: { RegisterForm },
   methods: {
     postUser(payload) {
       this.$store.b.dispatch("postUser", payload);
@@ -25,6 +24,10 @@ export default {
 </script>
 
 <style>
+#register-page {
+  min-height: 100vh;
+  margin-bottom: 80px;
+}
 h1,
 h2 {
   text-align: center;

@@ -1,5 +1,7 @@
 <template>
   <div id="admin-view">
+    <h1>Hello Admin!</h1>
+    <h2>Create, read, edit and delete right here.</h2>
     <section class="product-crud">
       <EditProduct />
 
@@ -67,6 +69,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 80px;
+  padding-top: 80px;
 }
 .list-items {
   height: max-content;

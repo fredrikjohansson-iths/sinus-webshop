@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
-// import * as Cookies from "js-cookie";
+import * as Cookies from "js-cookie";
 import axios from "axios";
 
 const moduleSession = {
@@ -96,13 +96,14 @@ const moduleApi = {
           console.log(error);
         });
     },
-    getOrders({ state }) {
+    getOrders({ state, commit }) {
       axios
         .get("http://localhost:5000/api/orders", {
           headers: { Authorization: state.token },
         })
         .then((response) => {
-          this.response = response.data;
+          console.log(response);
+          commit("setOrderList", response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -294,12 +295,12 @@ export default createStore({
     },
   },
   modules: { a: moduleSession, b: moduleApi },
-  plugins: [createPersistedState],
-  // plugins: [
-  //   createPersistedState({
-  //     getState: key => Cookies.getJSON(key),
-  //     setState: (key, state) =>
-  //       Cookies.set(key, state, { expires: 3, secure: true })
-  //   })
-  // ]
+  // plugins: [createPersistedState],
+  plugins: [
+    createPersistedState({
+      getState: (key) => Cookies.getJSON(key),
+      setState: (key, state) =>
+        Cookies.set(key, state, { expires: 3, secure: true }),
+    }),
+  ],
 });

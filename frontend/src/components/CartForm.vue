@@ -1,52 +1,54 @@
 <template>
   <div class="cartForm">
     <form>
-      <label for="name">Name</label>
-      <input id="name" type="text" v-model="billingInfo.name" />
-      <label for="email">Email</label>
-      <input id="email" type="text" v-model="billingInfo.email" />
+      <section class="personal-details">
+        <label for="name">Name</label>
+        <input id="name" type="text" v-model="billingInfo.name" />
+        <label for="email">Email</label>
+        <input id="email" type="text" v-model="billingInfo.email" />
 
-      <label for="street">Street</label>
-      <input id="street" type="text" v-model="billingInfo.address.street" />
+        <label for="street">Street</label>
+        <input id="street" type="text" v-model="billingInfo.address.street" />
 
-      <label for="zip">Zip</label>
-      <input id="zip" type="numbers" v-model="billingInfo.address.zip" />
-      <label for="city">City</label>
-      <input id="city" type="text" v-model="billingInfo.address.city" />
+        <label for="zip">Zip</label>
+        <input id="zip" type="numbers" v-model="billingInfo.address.zip" />
+        <label for="city">City</label>
+        <input id="city" type="text" v-model="billingInfo.address.city" />
+      </section>
 
-      <label for="cardnumber"> Card Number</label>
-      <input id="cardnumber" type="text" />
+      <section class="payment-details">
+        <label for="cardnumber"> Card Number</label>
+        <input id="cardnumber" type="text" />
 
-      <label for="cvv"> CVV</label>
+        <label for="cvv"> CVV</label>
+        <input id="cvv" type="numbers" />
 
-      <input id="cvv" type="numbers" />
+        <label for="month"> Month</label>
+        <select id="month">
+          <option value="01">January</option>
+          <option value="02">February </option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="08">August</option>
+          <option value="09">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
 
-      <label for="month"> Month</label>
-      <select id="month">
-        <option value="01">January</option>
-        <option value="02">February </option>
-        <option value="03">March</option>
-        <option value="04">April</option>
-        <option value="05">May</option>
-        <option value="06">June</option>
-        <option value="07">July</option>
-        <option value="08">August</option>
-        <option value="09">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
-      </select>
-
-      <label for="year"> Year</label>
-
-      <select id="year">
-        <option value="16"> 2021</option>
-        <option value="17"> 2022</option>
-        <option value="18"> 2023</option>
-        <option value="19"> 2024</option>
-        <option value="20"> 2025</option>
-        <option value="21"> 2026</option>
-      </select>
+        <label for="year"> Year</label>
+        <select id="year">
+          <option value="16"> 2021</option>
+          <option value="17"> 2022</option>
+          <option value="18"> 2023</option>
+          <option value="19"> 2024</option>
+          <option value="20"> 2025</option>
+          <option value="21"> 2026</option>
+        </select>
+      </section>
     </form>
   </div>
 </template>
@@ -85,7 +87,6 @@ export default {
 .cartForm {
   display: flex;
   flex-direction: column;
-  width: 60%;
 }
 /*
 .label {
@@ -97,7 +98,7 @@ input {
   clear: both;
   margin-top: 25px;
  /* margin-left: 10%; */
-  /* margin-right: 100%;  */
+/* margin-right: 100%;  */
 /* } */
 
 /* select {
@@ -111,7 +112,6 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   padding: 0 50px;
   height: 100%;
   text-align: center;

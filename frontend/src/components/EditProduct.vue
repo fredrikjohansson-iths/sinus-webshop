@@ -168,7 +168,7 @@ textarea {
   width: 100%;
 }
 
-input[type="numbers"],
+input[type="number"],
 select,
 textarea {
   background-color: #eee;

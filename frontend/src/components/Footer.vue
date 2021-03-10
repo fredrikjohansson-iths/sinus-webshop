@@ -1,6 +1,5 @@
 <template>
   <div class="footer">
-    <!-- Logga -->
     <div class="left-pane">
       <img class="sinus-logo" alt="Sinus logo" src="../assets/sinus-logo.svg" />
     </div>
@@ -57,4 +56,7 @@ export default {
 .footer {
   text-decoration: none;
 }
+// img {
+//   size: 40%;
+// }
 </style>

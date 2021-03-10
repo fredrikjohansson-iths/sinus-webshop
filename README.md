@@ -49,7 +49,7 @@ Stressen över att bli klar gjorde också att vi ibland glömde att kommunicera 
 
 ### Card Template
 ```markdown
-#### Card Template
+#### Card Title
 
 ##### Description
 > Write a short description here

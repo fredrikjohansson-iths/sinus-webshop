@@ -88,7 +88,7 @@ export default {
 
     removeProduct() {
       confirm("Are you sure you want to delete this item?");
-      this.$store.dispatch("deleteProduct", this.editableProduct.id);
+      this.$store.dispatch("deleteProduct", this.productID);
       this.resetRedirect();
     },
     resetRedirect() {

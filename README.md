@@ -1,3 +1,7 @@
+# SINUS Webshop
+
+## Inledning
+
 Vår grupp har bestått av Fredrik, Marcus, Monika & Maddy.
 
 I ett tidigt skede av arbetet hade vi ett möte där vi gick igenom kravspecifikationen och pratade löst om hur vi skulle kunna lösa de olika delarna av hemsidan. Sedan utnämnde vi Fredrik till någon slags Scrum Master eftersom han hade mest erfarenhet av att arbeta agilt. Han fick till uppgift att leda mötena vi hade tre gånger i veckan. Han fick en administrativ roll över dokumentationen av arbetet också. 
@@ -10,7 +14,7 @@ Vi hade lite svårt med att veta hur detaljerade vi skulle vara när vi skrev sa
 
 Vi beslutade oss för att ha sprintmöten varje måndag, onsdag och fredag eftersom det är de enda dagarna då vi inte har lektion. Halv tio på förmiddagen började vi mötet med att varje person fick berätta vad de jobbat med dagen innan, vad de skulle jobba med under dagen och om det var något som stod i vägen för att kunna åstadkomma det. Det skulle ge alla i gruppen en chans att berätta om vad de gjort samt be om hjälp om det var något man fastnat på. 
 
-### Reflektion
+### Övergripande reflektion
 
 I efterhand så tänker vi att vi borde haft en tydligare planering och strukturerat upp arbetet ännu tydligare. Vi hade stora ambitioner tidigt och tänkte nog att vi skulle hinna klara av dem allihop. Allt eftersom arbetet fortskred insåg vi dock att en del saker tog mer tid än vad vi kunnat förutse. Förutom problemlösning med själva koden och funktioner där så fick vi flera gånger problem med konflikter i Github. Även olika problem med datorerna som satte stopp för oss. I och med att vi är oerfarna på området så var det väldigt svårt att förutse vad som skulle ta tid och vad som skulle gå fort.
 
@@ -18,11 +22,24 @@ Något som vi i efterhand har insett är att vi kunde lagt mer fokus på att vi 
 
 Stressen över att bli klar gjorde också att vi ibland glömde att kommunicera vilket kanske egentligen bara sinkade oss. Vi ser det här projektet som en lärdom för oss. Även om det inte blev precis såsom vi hade tänkt oss från början så lärde vi oss otroligt mycket på vägen.
 
-// Egna reflektioner Maddy:
+### Personliga reflektioner
+
 Jag tror att jag var en bidragande del till sinkadet i gruppen då jag inte alls kunde göra lika mkt som resten av gruppen rent tidsmässigt och hade mera kunskapsluckor. Utöver det så hade jag svårigheter med att be om hjälp då jag redan från början kände mig som en börda istället för en tillgång. Det jag tar med mig utav det är att det blir inte enklare för mig eller någon annan i gruppen om jag inte flaggar när jag inte hänger med i vissa saker. 
 Däremot är jag stolt över det faktumet att jag faktiskt VÅGADE koda trots att jag var osäker på mycket. Tidigare har jag hellre suttit och hjälpt till när andra kodat istället för att försöka själv och precis såsom jag hört så lär man sig mycket genom att göra fel och försöka om på nytt. 
+//Maddy
 
-# SINUS Webshop
+> Trots att vi inte lyckades hålla den utsatta tidsplanen tycker jag att vi har åstadkommit mycket, hade förutsättningar sett annorlunda ut hade vi åstadkommit ännu  > mer.
+>
+> Ett av det allra svåraste med projektplanering är att uppskatta tidsåtgång, något som är och förblir en utmaning. 
+>
+> Något som jag kommer att ta lärdom av är att försöka hålla min personliga ambitionsnivå i jämnare höjd med hur ens förutsättningar ser ut, och att lägga ner mer tid  på att etablera tydliga riktlinjer för hur arbetet bör ske och hur det bör fördelas.
+>
+> Vikten av versionshantering är något som verkligen har belysts i sammanband med det här projektet, att se till att koda med gott avstånd ifrån varandra.
+> 
+> Jag tror att min intitiella tanke om att branchfördela projektet var god, och det är något som jag i framtiden kommer att arbeta mer med.
+>
+> Avslutningsvis så känner jag att jag har gjort stora personliga framsteg kunskapsmässigt, och jag känner mycket nöjd över att ha gått steget extra med att integrera   vuex med axios, och ha nyttjat mer avancerade funktioner tillgängliga i vue-router.
+@fredrikjohansson-iths - Stig Fredrik Johansson
 
 ## Agilt Arbetssätt
 > 

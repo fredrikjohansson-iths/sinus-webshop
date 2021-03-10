@@ -214,6 +214,8 @@ export default createStore({
     editableProduct: {},
 
     productList: [],
+
+    editStatus: false,
   },
 
   getters: {
@@ -270,6 +272,9 @@ export default createStore({
     },
     updateProducts(state, payload) {
       state.allProducts = payload;
+    },
+    changeEditStatus(state) {
+      state.editStatus = !state.editStatus;
     },
   },
 

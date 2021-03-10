@@ -1,15 +1,15 @@
 <template>
   <section class="crud-form">
-    <div id="edit-modal">
-      <span> Do you want to edit {{ clickedProduct.title }} ?</span
-      ><button id="edit" @click="mirrorData">
-        Yes
+    <div id="edit-modal" v-show="editStatus">
+      <h3>
+        Do you want to edit <strong>{{ clickedProduct.title }}</strong> ?
+      </h3>
+      <button id="edit" @click="mirrorData">
+        Yes, I do
       </button>
-      <span>Click a product from in the list</span>
     </div>
     <section class="crud-header">
-      <span>I want to create, clear fields?</span>
-      <button @click="clearEditedProd">Clear</button>
+      <h3 v-if="!editStatus">I want to create a product</h3>
     </section>
     <section class="crud-image">
       <img src="" alt="" />
@@ -35,6 +35,7 @@
       />
     </section>
     <section class="crud-buttons">
+      <button @click="clearEditedProd">Clear Fields</button>
       <button @click="updateProduct">
         Update product
       </button>
@@ -54,6 +55,9 @@ export default {
     clickedProduct() {
       return this.$store.state.activeProduct;
     },
+    editStatus() {
+      return this.$store.state.editStatus;
+    },
   },
   components: {},
   data() {
@@ -67,12 +71,11 @@ export default {
         imgFile: "",
       },
       productID: "",
-      editMode: true,
     };
   },
   methods: {
     changeEditMode() {
-      this.editMode = !this.editMode;
+      this.$store.commit("changeEditStatus");
     },
 
     createNewProduct() {
@@ -83,12 +86,14 @@ export default {
     updateProduct() {
       confirm("Are you sure you want to update this product?");
       this.$store.dispatch("patchProducts", this.editedProd);
+      this.changeEditMode();
       this.resetRedirect();
     },
 
     removeProduct() {
       confirm("Are you sure you want to delete this item?");
       this.$store.dispatch("deleteProduct", this.productID);
+      this.changeEditMode();
       this.resetRedirect();
     },
     resetRedirect() {
@@ -98,7 +103,6 @@ export default {
     },
 
     mirrorData() {
-      this.changeEditMode();
       this.editedProd.title = this.clickedProduct.title;
       this.editedProd.price = this.clickedProduct.price;
       this.editedProd.category = this.clickedProduct.category;

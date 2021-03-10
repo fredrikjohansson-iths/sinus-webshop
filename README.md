@@ -18,6 +18,9 @@ Något som vi i efterhand har insett är att vi kunde lagt mer fokus på att vi 
 
 Stressen över att bli klar gjorde också att vi ibland glömde att kommunicera vilket kanske egentligen bara sinkade oss. Vi ser det här projektet som en lärdom för oss. Även om det inte blev precis såsom vi hade tänkt oss från början så lärde vi oss otroligt mycket på vägen.
 
+// Egna reflektioner Maddy:
+Jag tror att jag var en bidragande del till sinkadet i gruppen då jag inte alls kunde göra lika mkt som resten av gruppen rent tidsmässigt och hade mera kunskapsluckor. Utöver det så hade jag svårigheter med att be om hjälp då jag redan från början kände mig som en börda istället för en tillgång. Det jag tar med mig utav det är att det blir inte enklare för mig eller någon annan i gruppen om jag inte flaggar när jag inte hänger med i vissa saker. 
+Däremot är jag stolt över det faktumet att jag faktiskt VÅGADE koda trots att jag var osäker på mycket. Tidigare har jag hellre suttit och hjälpt till när andra kodat istället för att försöka själv och precis såsom jag hört så lär man sig mycket genom att göra fel och försöka om på nytt. 
 
 # SINUS Webshop
 

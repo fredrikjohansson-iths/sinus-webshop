@@ -8,11 +8,6 @@
         :src="require(`../assets/${product.imgFile}`)"
         alt="product image"
       />
-      <img
-        class="img-product"
-        :src="getImgUrl(product.imgFile)"
-        alt="product image"
-      />
     </section>
     <section class="centered product-btn-section">
       <div class="div-btn-view">

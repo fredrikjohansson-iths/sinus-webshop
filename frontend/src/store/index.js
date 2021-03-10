@@ -237,7 +237,6 @@ export default createStore({
     setAdminSession(state) {
       state.adminSession = true;
     },
-
     changeProductModalStatus(state) {
       state.productModalStatus = !state.productModalStatus;
     },

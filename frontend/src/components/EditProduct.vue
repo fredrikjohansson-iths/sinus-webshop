@@ -1,15 +1,15 @@
 <template>
   <section class="crud-form">
-    <div id="edit-modal">
-      <span> Do you want to edit {{ clickedProduct.title }} ?</span
-      ><button id="edit" @click="mirrorData">
-        Yes
+    <div id="edit-modal" v-show="editStatus">
+      <h3>
+        Do you want to edit <strong>{{ clickedProduct.title }}</strong> ?
+      </h3>
+      <button id="edit" @click="mirrorData">
+        Yes, I do
       </button>
-      <span>Click a product from in the list</span>
     </div>
     <section class="crud-header">
-      <span>I want to create, clear fields?</span>
-      <button @click="clearEditedProd">Clear</button>
+      <h3 v-if="!editStatus">I want to create a product</h3>
     </section>
     <section class="crud-image">
       <img src="" alt="" />
@@ -35,13 +35,14 @@
       />
     </section>
     <section class="crud-buttons">
-      <button @click="updateProduct">
+      <button @click="clearEditedProd">Clear Fields</button>
+      <button @click="updateProduct" v-show="editStatus">
         Update product
       </button>
-      <button @click="removeProduct">
+      <button @click="removeProduct" v-show="editStatus">
         Remove this product
       </button>
-      <button @click="createNewProduct">
+      <button @click="createNewProduct" v-show="!editStatus">
         Create new product
       </button>
     </section>
@@ -53,6 +54,9 @@ export default {
   computed: {
     clickedProduct() {
       return this.$store.state.activeProduct;
+    },
+    editStatus() {
+      return this.$store.state.editStatus;
     },
   },
   components: {},
@@ -67,12 +71,11 @@ export default {
         imgFile: "",
       },
       productID: "",
-      editMode: true,
     };
   },
   methods: {
     changeEditMode() {
-      this.editMode = !this.editMode;
+      this.$store.commit("changeEditStatus");
     },
 
     createNewProduct() {
@@ -83,12 +86,14 @@ export default {
     updateProduct() {
       confirm("Are you sure you want to update this product?");
       this.$store.dispatch("patchProducts", this.editedProd);
+      this.changeEditMode();
       this.resetRedirect();
     },
 
     removeProduct() {
       confirm("Are you sure you want to delete this item?");
       this.$store.dispatch("deleteProduct", this.productID);
+      this.changeEditMode();
       this.resetRedirect();
     },
     resetRedirect() {
@@ -98,7 +103,6 @@ export default {
     },
 
     mirrorData() {
-      this.changeEditMode();
       this.editedProd.title = this.clickedProduct.title;
       this.editedProd.price = this.clickedProduct.price;
       this.editedProd.category = this.clickedProduct.category;
@@ -118,6 +122,7 @@ export default {
         imgFile: "",
       };
       this.productID = "";
+      this.changeEditMode();
     },
   },
 };
@@ -136,7 +141,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 50px;
+  padding: 50px;
   height: 100%;
   text-align: center;
   margin-right: 60px;
@@ -187,5 +192,12 @@ input[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+button {
+  width: 160px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #2c3e50;
+  color: white;
 }
 </style>

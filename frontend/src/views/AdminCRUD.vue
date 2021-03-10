@@ -6,7 +6,10 @@
       <EditProduct />
 
       <div class="list-items">
-        <h3>All Products</h3>
+        <div><h3>All Products</h3>
+
+        <h4>Click a product to put it in the editor</h4></div>
+        
 
         <CRUDProductListItem
           v-for="product in products"
@@ -50,14 +53,6 @@ export default {
     CRUDProductListItem,
     OrderList,
   },
-
-  methods: {
-    changeVisibility(payload) {
-      if (payload === "create") {
-        this.productListVisibility = false;
-      } else this.productListVisibility = true;
-    },
-  },
 };
 </script>
 
@@ -65,6 +60,7 @@ export default {
 #admin-view {
   width: 80%;
   padding-top: 80px;
+  padding-bottom: 80px;
 }
 .product-crud {
   display: flex;

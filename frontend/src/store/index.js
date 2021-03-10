@@ -214,6 +214,8 @@ export default createStore({
     editableProduct: {},
 
     productList: [],
+
+    editStatus: false,
   },
 
   getters: {
@@ -237,7 +239,6 @@ export default createStore({
     setAdminSession(state) {
       state.adminSession = true;
     },
-
     changeProductModalStatus(state) {
       state.productModalStatus = !state.productModalStatus;
     },
@@ -271,6 +272,9 @@ export default createStore({
     },
     updateProducts(state, payload) {
       state.allProducts = payload;
+    },
+    changeEditStatus(state) {
+      state.editStatus = !state.editStatus;
     },
   },
 

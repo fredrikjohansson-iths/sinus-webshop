@@ -2,7 +2,11 @@
   <div class="product-description">
     <div class="product-innerbox">
       <div class="product-imagebox">
-        <img class="img-product description-img-product" :src="getImgUrl(clickedProduct.imgFile)" alt="product image" />
+        <img
+          class="img-product description-img-product"
+          :src="getImgUrl(clickedProduct.imgFile)"
+          alt="product image"
+        />
       </div>
       <div class="product-descriptionbox">
         <p class="product-title">{{ clickedProduct.title }}</p>
@@ -17,9 +21,9 @@
           </button>
         </p>
       </div>
-      <span class="product-closeimage" @click="handleClick"
-        ><i class="fas fa-times"></i
-      ></span>
+      <div class="product-closeimage" @click="handleClick">
+        <i class="fas fa-times"></i>
+      </div>
       <div></div>
     </div>
   </div>
@@ -40,21 +44,20 @@ export default {
   },
 
   methods: {
-    handleClick: function() {
+    handleClick() {
       this.$store.commit("changeProductModalStatus");
     },
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
     },
     getImgUrl(pic) {
-      return require('../assets/'+pic);
+      return require("../assets/" + pic);
     },
   },
 };
 </script>
 
 <style lang="scss">
-
 .description {
   &-img-product {
     margin-top: 25%;

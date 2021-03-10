@@ -156,6 +156,7 @@ const moduleApi = {
         .post("http://localhost:5000/api/register/", newUser)
         .then((response) => {
           this.response = response.data;
+          console.log(response);
         })
         .catch((error) => {
           console.log(error, newUser);

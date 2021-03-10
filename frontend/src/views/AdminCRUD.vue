@@ -7,6 +7,7 @@
 
       <div class="list-items">
         <h3>All Products</h3>
+
         <CRUDProductListItem
           v-for="product in products"
           :key="product._id"

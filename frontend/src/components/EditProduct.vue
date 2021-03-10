@@ -41,6 +41,9 @@
       <button @click="removeProduct">
         Remove this product
       </button>
+      <button @click="createNewProduct">
+        Create new product
+      </button>
     </section>
   </section>
 </template>
@@ -73,7 +76,7 @@ export default {
     },
 
     createNewProduct() {
-      this.$store.dispatch("postProduct", this.product);
+      this.$store.dispatch("postProduct", this.editedProd);
       this.$store.commit("setActiveProduct", {});
     },
 
@@ -85,7 +88,7 @@ export default {
 
     removeProduct() {
       confirm("Are you sure you want to delete this item?");
-      this.$store.dispatch("deleteProduct", this.editableProduct.id);
+      this.$store.dispatch("deleteProduct", this.productID);
       this.resetRedirect();
     },
     resetRedirect() {

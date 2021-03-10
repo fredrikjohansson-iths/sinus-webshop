@@ -175,7 +175,7 @@ const moduleApi = {
     },
     postProduct({ state }, payload) {
       axios
-        .post("http://localhost:5000/api/products/" + payload, {
+        .post("http://localhost:5000/api/products/", payload, {
           headers: { Authorization: state.token },
         })
         .then((response) => {

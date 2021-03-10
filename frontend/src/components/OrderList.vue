@@ -2,15 +2,9 @@
   <div>
     <section class="single-order">
       <ul>
-        <li
-          class="test"
-          v-for="order in orders"
-          :key="order._id"
-          @click="showDetails"
-        >
-          <span :id="order._id"
-            >{{ order._id }}
-            {{ order.orderValue }}
+        <li title="Click to expand" v-for="order in orders" :key="order._id" @click="showDetails">
+         <span class="point" :id="order._id"
+            >Order Id: {{ order._id }} Total: {{ order.orderValue }}SEK
             <OrderListItem
               v-show="show === order._id"
               v-for="(item, index) in order.items"
@@ -42,7 +36,11 @@ export default {
   },
   methods: {
     showDetails(event) {
-      this.show = event.target.id
+      if (this.show !== event.target.id) {
+        this.show = event.target.id;
+      } else {
+        this.show = "";
+      }
     }
   },
   components: {
@@ -52,6 +50,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.point {
+  cursor: pointer;
+}
+
 .single-order {
   display: flex;
   flex-direction: column;

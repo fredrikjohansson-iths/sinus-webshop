@@ -3,10 +3,13 @@
     <section class="centered">
       <h3>{{ product.title }}</h3>
       <p>${{ product.price }}</p>
-      <img
+      <!-- <img
         class="img-product"
         src="../assets/hoodie-fire.png"
         alt="product image"
+      /> -->
+      <img
+        class="img-product" :src="getImgUrl(product.imgFile)" alt="product image"
       />
     </section>
     <section class="centered product-btn-section">
@@ -39,7 +42,7 @@ export default {
 
   methods: {
     getImgUrl(pic) {
-      return require(pic);
+      return require('../assets/'+pic);
     },
 
     change() {

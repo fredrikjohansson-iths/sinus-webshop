@@ -24,10 +24,12 @@ Stressen över att bli klar gjorde också att vi ibland glömde att kommunicera 
 
 ### Personliga reflektioner
 
+###### Maddy
 Jag tror att jag var en bidragande del till sinkadet i gruppen då jag inte alls kunde göra lika mkt som resten av gruppen rent tidsmässigt och hade mera kunskapsluckor. Utöver det så hade jag svårigheter med att be om hjälp då jag redan från början kände mig som en börda istället för en tillgång. Det jag tar med mig utav det är att det blir inte enklare för mig eller någon annan i gruppen om jag inte flaggar när jag inte hänger med i vissa saker. 
 Däremot är jag stolt över det faktumet att jag faktiskt VÅGADE koda trots att jag var osäker på mycket. Tidigare har jag hellre suttit och hjälpt till när andra kodat istället för att försöka själv och precis såsom jag hört så lär man sig mycket genom att göra fel och försöka om på nytt. 
 //Maddy
 
+###### Stig
 > Trots att vi inte lyckades hålla den utsatta tidsplanen tycker jag att vi har åstadkommit mycket, hade förutsättningar sett annorlunda ut hade vi åstadkommit ännu  > mer.
 >
 > Ett av det allra svåraste med projektplanering är att uppskatta tidsåtgång, något som är och förblir en utmaning. 
@@ -51,6 +53,8 @@ Något jag vill förbättra till nästa gång är min kommunikation. Jag har kä
 Jag vill också förbättra mina kunskaper inom hantering av Git eftersom det varit något som satt lite käppar i hjulen hos oss.
 
 Slutsatsen är att jag är väldigt nöjd med det jag lärt mig under det här projektet. Tack för den här tiden Niklas!
+
+###### Monika
 
 ## Agilt Arbetssätt
 > 

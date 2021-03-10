@@ -49,6 +49,8 @@ export default {
 #profile-page {
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
+  margin-bottom: 80px;
 }
 .personal-information,
 .order-list {

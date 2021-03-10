@@ -7,9 +7,6 @@
 
 <script>
 export default {
-  computed: {
-    
-  },
   methods: {
     openEditor() {
       this.$store.dispatch("getSingleProduct", this.product._id);

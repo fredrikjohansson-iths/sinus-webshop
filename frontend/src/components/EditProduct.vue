@@ -36,13 +36,13 @@
     </section>
     <section class="crud-buttons">
       <button @click="clearEditedProd">Clear Fields</button>
-      <button @click="updateProduct">
+      <button @click="updateProduct" v-show="editStatus">
         Update product
       </button>
-      <button @click="removeProduct">
+      <button @click="removeProduct" v-show="editStatus">
         Remove this product
       </button>
-      <button @click="createNewProduct">
+      <button @click="createNewProduct" v-show="!editStatus">
         Create new product
       </button>
     </section>
@@ -122,6 +122,7 @@ export default {
         imgFile: "",
       };
       this.productID = "";
+      this.changeEditMode();
     },
   },
 };
@@ -191,5 +192,12 @@ input[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+button {
+  width: 160px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #2c3e50;
+  color: white;
 }
 </style>

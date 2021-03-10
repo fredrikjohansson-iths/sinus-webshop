@@ -89,6 +89,7 @@ export default {
       };
       // const payload = this.user.data
       this.$store.dispatch("postUser", payload);
+      this.$router.push("/");
     },
   },
 };

@@ -23,10 +23,15 @@ export default {
 
 <style lang="scss" scoped>
 .list-item {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
   font-size: 1.2rem;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .title {
+    grid-column: 1;
+  }
+  .category {
+    grid-column: 2;
+  }
 }
 </style>

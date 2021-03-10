@@ -1,18 +1,17 @@
 <template>
   <div>
-    <section class="single-order" @click="activeClass = !activeClass">
+    <section class="single-order">
       <ul>
         <li v-for="order in orders" :key="order._id" @click="showDetails">
-          {{ order._id }}
+          <span>{{ order._id }}</span>
           ,
-          {{ order.orderValue }}
-          <section
+          <span>{{ order.orderValue }}</span>
+          <OrderListItem
             v-show="activeClass"
             v-for="(item, index) in order.items"
             :key="index"
-          >
-            {{ item.title }}
-          </section>
+            :item="item"
+          />
         </li>
       </ul>
     </section>
@@ -20,6 +19,7 @@
 </template>
 
 <script>
+import OrderListItem from "@/components/OrderListItem.vue";
 export default {
   beforeMount() {
     this.$store.dispatch("getOrders");
@@ -35,22 +35,17 @@ export default {
     };
   },
   computed: {
-    // getAmountOfItems() {
-    //   let sum = 0;
-    //   this.order.items.forEach((element) => {
-    //     sum += element.amount;
-    //   });
-    //   return sum;
-    // },
-    // orderItems() {
-    //   return this.order.items;
-    // },
     orders() {
       return this.$store.state.a.order;
     },
   },
   methods: {
-    showDetails() {},
+    showDetails() {
+      this.activeClass = !this.activeClass;
+    },
+  },
+  components: {
+    OrderListItem,
   },
 };
 </script>
@@ -60,6 +55,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 60%;
+}
+li {
+  list-style: none;
 }
 </style>

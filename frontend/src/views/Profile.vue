@@ -1,10 +1,17 @@
 <template>
-  <div>
+  <div id="profile-page">
     <h1>Hello {{ firstName }}!</h1>
-    <h2>These are your details</h2>
-    <ProfileForm :user="userData" />
-    <section class="order-list">
-      <OrderList />
+
+    <section class="information">
+      <section class="personal-information">
+        <h2>These are your details</h2>
+        <ProfileForm :user="userData" />
+      </section>
+
+      <section class="order-list">
+        <h2>This is your order history</h2>
+        <OrderList />
+      </section>
     </section>
   </div>
 </template>
@@ -39,5 +46,20 @@ export default {
 </script>
 
 <style scoped>
-
+#profile-page {
+  display: flex;
+  flex-direction: column;
+}
+.personal-information,
+.order-list {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 50px;
+}
+.information {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
 </style>

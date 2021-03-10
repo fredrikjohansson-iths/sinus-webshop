@@ -1,28 +1,28 @@
 <template>
   <div class="cartForm">
-    <form>
-      <section class="personal-details">
-        <label for="name">Name</label>
-        <input id="name" type="text" v-model="billingInfo.name" />
-        <label for="email">Email</label>
-        <input id="email" type="text" v-model="billingInfo.email" />
+    <!-- <form> -->
+    <section class="personal-details">
+      <label for="name">Name</label>
+      <input id="name" type="text" v-model="billingInfo.name" />
+      <label for="email">Email</label>
+      <input id="email" type="text" v-model="billingInfo.email" />
 
-        <label for="street">Street</label>
-        <input id="street" type="text" v-model="billingInfo.address.street" />
+      <label for="street">Street</label>
+      <input id="street" type="text" v-model="billingInfo.address.street" />
 
-        <label for="zip">Zip</label>
-        <input id="zip" type="numbers" v-model="billingInfo.address.zip" />
-        <label for="city">City</label>
-        <input id="city" type="text" v-model="billingInfo.address.city" />
-      </section>
+      <label for="zip">Zip</label>
+      <input id="zip" type="numbers" v-model="billingInfo.address.zip" />
+      <label for="city">City</label>
+      <input id="city" type="text" v-model="billingInfo.address.city" />
+    </section>
 
-      <section class="payment-details">
-        <label for="cardnumber"> Card Number</label>
-        <input id="cardnumber" type="text" />
+    <section class="payment-details">
+      <label for="cardnumber"> Card Number</label>
+      <input id="cardnumber" type="text" />
 
-        <label for="cvv"> CVV</label>
-        <input id="cvv" type="numbers" />
-
+      <label for="cvv"> CVV</label>
+      <input id="cvv" type="numbers" />
+      <section class="date">
         <label for="month"> Month</label>
         <select id="month">
           <option value="01">January</option>
@@ -49,7 +49,8 @@
           <option value="21"> 2026</option>
         </select>
       </section>
-    </form>
+    </section>
+    <!-- </form> -->
   </div>
 </template>
 
@@ -86,64 +87,29 @@ export default {
 <style scoped>
 .cartForm {
   display: flex;
+}
+.personal-details,
+.payment-details {
+  display: flex;
   flex-direction: column;
 }
-/*
-.label {
-  margin-bottom: 5px;
-  display: block;
+.date {
+  display: flex;
 }
-input {
-  width: 50%;
-  clear: both;
-  margin-top: 25px;
- /* margin-left: 10%; */
-/* margin-right: 100%;  */
-/* } */
 
-/* select {
-  margin-left: 10px;
-  margin-right: 20px;
-  border-radius: 2px;
-  border-style: groove;
-  height: 25px;
-}  */
 form {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 50px;
-  height: 100%;
-  text-align: center;
 }
 
 input[type="text"],
 select,
-textarea {
+textarea,
+input[type="numbers"] {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 50%;
-}
-input[type="password"],
-select,
-textarea {
-  background-color: #eee;
-  border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 50%;
-}
-
-input[type="numbers"],
-select,
-textarea {
-  background-color: #eee;
-  border: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 50%;
+  width: 80%;
 }
 
 label {

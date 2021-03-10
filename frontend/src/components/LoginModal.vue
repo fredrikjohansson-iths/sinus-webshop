@@ -48,9 +48,8 @@
     </form>
     <section class="login-footer">
       <router-link to="/register" title="Click to register!">
-        <p @click="exitLogin">Not registered?</p>
+        <a @click="exitLogin">Not registered?</a>
       </router-link>
-      <!-- <button @click="exitLogin">Cancel</button> -->
     </section>
   </div>
 </template>
@@ -100,6 +99,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#login-modal {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 16px;
+  text-align: center;
+  width: 260px;
+  border-radius: 2%;
+  z-index: 2;
+}
 input {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -133,23 +142,7 @@ input {
   color: rgb(231, 66, 66);
 }
 
-#login-modal {
-  position: absolute;
-  height: auto;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  animation-name: animatetop;
-  animation-duration: 0.4s;
-  padding: 16px;
-  text-align: center;
-  max-width: 260px;
-  min-width: 260px;
-  border-radius: 2%;
-  height: 215px;
-  z-index: 2;
-}
-
-button {
+#loginB {
   width: 80px;
   height: 30px;
   border-radius: 20px;
@@ -160,17 +153,7 @@ button {
 .login-footer {
   text-align: center;
 }
-/* Add Animation */
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
+
 form {
   display: flex;
   flex-direction: column;

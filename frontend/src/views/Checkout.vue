@@ -83,14 +83,11 @@ export default {
 }
 
 .information {
-  width: 60%;
-  min-height: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
-
-.information {
-  display: flex;
-  justify-content: space-between;
+.btn-primary {
+  align-self: center;
+  margin-top: 60px;
 }
 </style>

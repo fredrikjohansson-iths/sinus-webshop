@@ -1,4 +1,5 @@
-<template><div>
+<template
+  ><div>
     <h1>404 Not Found</h1>
     <section class="error-container">
       <span class="four"><span class="screen-reader-text">4</span></span>
@@ -12,12 +13,12 @@
 export default {
   name: "404",
   mounted() {
-      setTimeout(() => this.$router.push("/"), 5000);
+    setTimeout(() => this.$router.push("/"), 5000);
   },
 };
 </script>
 
-<style>
+<style scoped>
 .error-container {
   text-align: center;
   font-size: 106px;

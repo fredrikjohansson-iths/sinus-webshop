@@ -19,23 +19,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/* The element to apply the animation to */
-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  animation-name: example;
-  animation-duration: 6s;
-}
-
-@keyframes example {
-  from {
-    background-color: red;
-  }
-  to {
-    background-color: yellow;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,23 +1,20 @@
 <template>
   <div class="imageHolder">
-   <img alt="Vue logo" src="../assets/tinfy.png" />
-
+    <img alt="Vue logo" src="../assets/tinfy.png" />
   </div>
 </template>
 
 <script>
-
-export default {
-
-}
+export default {};
 </script>
 
-<style>
+<style scoped>
 img {
-margin-top: 100px;
+  margin-top: 100px;
 
-position: inherit;
+  position: inherit;
 }
-
-
+.imageHolder {
+  height: 100vh;
+}
 </style>

@@ -41,6 +41,9 @@
       <button @click="removeProduct">
         Remove this product
       </button>
+      <button @click="createNewProduct">
+        Create new product
+      </button>
     </section>
   </section>
 </template>
@@ -73,7 +76,7 @@ export default {
     },
 
     createNewProduct() {
-      this.$store.dispatch("postProduct", this.product);
+      this.$store.dispatch("postProduct", this.editedProd);
       this.$store.commit("setActiveProduct", {});
     },
 

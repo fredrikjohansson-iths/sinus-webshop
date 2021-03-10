@@ -7,7 +7,7 @@
       <div class="product-descriptionbox">
         <p class="product-title">{{ clickedProduct.title }}</p>
         <p class="product-described">{{ clickedProduct.longDesc }}</p>
-        <p class="product-price">{{ clickedProduct.price }} sek</p>
+        <p class="product-price">${{ clickedProduct.price }}</p>
         <p class="centered">
           <button
             @click="addToCart"

@@ -21,12 +21,11 @@
 >
 
 ### Card Template
-
+```markdown
 #### Title
 
 ##### Description
 
->
  
 ##### Type
 Component
@@ -39,6 +38,7 @@ Component
 
 ##### Assigned to
  - @
+```
 
 ## Arbetssätt
 Samla era erfarenheter från Kanban, Scrum och diskussionerna av Modern Agile och kom överens i 
@@ -74,7 +74,7 @@ Det ska finnas en `Admin Area`-view med ett CRUD-gränssnitt för alla produkter
 
 ### Övriga Views och Features
 * En view för produktlista
-* En view utcheckning med formulär för kontaktinfo och betalinfo, fylls i automagiskt om man är inloggad
+* En view utcheckning med formulär för kontaktinfo och betalinfo, fylls i automagiskt om man är inloggad 
 * modal för enstaka produkt
 * Modal för kundkorg
 * Modal för inloggningsformulär

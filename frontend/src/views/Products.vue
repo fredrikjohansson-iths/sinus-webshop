@@ -1,5 +1,6 @@
 <template>
   <div id="product-view">
+    <h1>Gear up! Start here.</h1>
     <ProductsContainer />
     <ProductDescription v-if="modalStatus" />
   </div>
@@ -25,8 +26,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #product-view {
   width: 100vw;
+  background-color: rgb(243, 239, 239);
+  padding-top: 60px;
+}
+h1 {
+  margin-left: 120px;
 }
 </style>

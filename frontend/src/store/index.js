@@ -3,6 +3,8 @@ import createPersistedState from "vuex-persistedstate";
 import * as Cookies from "js-cookie";
 import axios from "axios";
 
+var inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
+
 const moduleSession = {
   state: {
     session: { active: false },
@@ -294,18 +296,15 @@ export default createStore({
       const array = state.shoppingCart.filter((item) => item._id !== id);
       commit("setShoppingCart", array);
     },
-
-    changeProductModalStatus({ commit }) {
-      commit("changeProductModalStatus");
-    },
   },
   modules: { a: moduleSession, b: moduleApi },
   // plugins: [createPersistedState],
   plugins: [
     createPersistedState({
+      paths: ["moduleSession"],
       getState: (key) => Cookies.getJSON(key),
       setState: (key, state) =>
-        Cookies.set(key, state, { expires: 3, secure: true }),
+        Cookies.set(key, state, { expires: inFiveMinutes }),
     }),
   ],
 });

@@ -1,8 +1,8 @@
 <template>
   <div>
+    <h1>:)</h1>
     <h2>Thank you for your purchase</h2>
     <p>Redirecting automatically</p>
-    <h1>:)</h1>
   </div>
 </template>
 

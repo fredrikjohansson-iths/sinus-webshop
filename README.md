@@ -10,6 +10,8 @@ Det första vi gjorde var att öppna en board i Projects under vårt projekt i G
 
 Vi hade lite svårt med att veta hur detaljerade vi skulle vara när vi skrev saker i vår backlog men insåg ganska snabbt att det var bättre att hålla det väldigt kort. Att man dessutom kunde fylla i backlogen utan att behöva tänka så mycket. Det viktiga var bara att skriva ner så mycket vi kom på. 
 
+Eftersom vi alla har olika kunskaper och hade olika möjlighet att bidra så jobbade vi utifrån att alla själva fick välja vad man ville arbeta med.
+
 ### Möten
 
 Vi beslutade oss för att ha sprintmöten varje måndag, onsdag och fredag eftersom det är de enda dagarna då vi inte har lektion. Halv tio på förmiddagen började vi mötet med att varje person fick berätta vad de jobbat med dagen innan, vad de skulle jobba med under dagen och om det var något som stod i vägen för att kunna åstadkomma det. Det skulle ge alla i gruppen en chans att berätta om vad de gjort samt be om hjälp om det var något man fastnat på. 

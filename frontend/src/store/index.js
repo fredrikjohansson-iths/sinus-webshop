@@ -3,6 +3,8 @@ import createPersistedState from "vuex-persistedstate";
 import * as Cookies from "js-cookie";
 import axios from "axios";
 
+var inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
+
 const moduleSession = {
   state: {
     session: { active: false },
@@ -303,9 +305,10 @@ export default createStore({
   // plugins: [createPersistedState],
   plugins: [
     createPersistedState({
+      paths: ['moduleSession'],
       getState: (key) => Cookies.getJSON(key),
       setState: (key, state) =>
-        Cookies.set(key, state, { expires: 3, secure: true }),
+        Cookies.set(key, state, { expires: inFiveMinutes }),
     }),
   ],
 });

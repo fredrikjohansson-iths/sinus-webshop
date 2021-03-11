@@ -39,7 +39,7 @@ export default {
 
   methods: {
     change() {
-      this.$store.dispatch("changeProductModalStatus", this.product._id);
+      this.$store.commit("changeProductModalStatus");
       this.$store.dispatch("getSingleProduct", this.product._id);
     },
 
@@ -53,7 +53,6 @@ export default {
 #product {
   padding: 10px;
   background: #ffffff;
-  /* small drop */
   box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.06);
   margin-bottom: 40px;
   display: flex;

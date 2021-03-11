@@ -11,8 +11,8 @@
       </section>
       <section>
         <CartForm class="cart-form-container" v-if="cartProducts.length > 0" />
-        <div v-else>
-          You have no items here baby, do some shopping and come back!
+        <div v-else class="empty-cart">
+          <p>You have no items here baby, do some shopping and come back!</p>
         </div>
       </section>
     </section>
@@ -71,23 +71,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#checkout {
+#checkout,
+.empty-cart {
   width: 80%;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  height: 100vh;
-  padding: 60px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
+  margin-bottom: 80px;
 }
-
+.empty-cart {
+  height: 100vh;
+}
 .information {
   display: flex;
   justify-content: space-around;
 }
 .btn-primary {
   align-self: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 </style>

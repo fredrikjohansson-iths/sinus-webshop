@@ -295,9 +295,9 @@ export default createStore({
       commit("setShoppingCart", array);
     },
 
-    changeProductModalStatus({ commit }) {
-      commit("changeProductModalStatus");
-    },
+    // changeProductModalStatus({ commit }) {
+    //   commit("changeProductModalStatus");
+    // },
   },
   modules: { a: moduleSession, b: moduleApi },
   // plugins: [createPersistedState],

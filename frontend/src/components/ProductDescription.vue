@@ -4,7 +4,7 @@
       <div class="product-imagebox">
         <img
           class="img-product description-img-product"
-          :src="getImgUrl(clickedProduct.imgFile)"
+          :src="require(`../assets/${clickedProduct.imgFile}`)"
           alt="product image"
         />
       </div>
@@ -49,9 +49,6 @@ export default {
     },
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
-    },
-    getImgUrl(pic) {
-      return require("../assets/" + pic);
     },
   },
 };

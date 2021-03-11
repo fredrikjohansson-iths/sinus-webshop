@@ -1,8 +1,8 @@
 <template>
   <div id="product-view">
     <h1>Gear up! Start here.</h1>
-    <ProductsContainer @showModal="toggleModal" />
-    <ProductDescription @hideModal="toggleModal" v-show="showModal" />
+    <ProductsContainer @showModal="toggleModal" /><transition name="fade">
+    <ProductDescription @hideModal="toggleModal" v-show="showModal" /></transition>
   </div>
 </template>
 
@@ -45,11 +45,12 @@ export default {
 
 <style scoped>
 
+.fade-enter,
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
 }
- .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 

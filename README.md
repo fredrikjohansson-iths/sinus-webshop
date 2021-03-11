@@ -55,6 +55,9 @@ Jag vill också förbättra mina kunskaper inom hantering av Git eftersom det va
 Slutsatsen är att jag är väldigt nöjd med det jag lärt mig under det här projektet. Tack för den här tiden Niklas!
 
 ###### Monika
+One of the main thing that I have learnt from this project is to work in a team. It was interesting to use the knowledge that I have learnt during my lectures to complete a whole project. I am sure the techniques like scrum and git will help me to work smoothly in my professional career. 
+
+I have learnt a lot about coding while working with team. Their help and brainstorming were useful to achieve the goal of the project.
 
 ## Agilt Arbetssätt
 > 

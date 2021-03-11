@@ -28,25 +28,25 @@
 export default {
   props: {
     product: {
-      type: Object,
+      type: Object
     },
 
     editMode: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
 
   methods: {
     change() {
-      this.$store.commit("changeProductModalStatus");
+      this.$emit("viewProduct");
       this.$store.dispatch("getSingleProduct", this.product._id);
     },
 
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

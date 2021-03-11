@@ -4,7 +4,7 @@
       <div class="product-imagebox">
         <img
           class="img-product description-img-product"
-          :src="require(`../assets/${clickedProduct.imgFile}`)"
+          :src="prodImage.src"
           alt="product image"
         />
       </div>
@@ -21,7 +21,7 @@
           </button>
         </p>
       </div>
-      <div class="product-closeimage" @click="handleClick">
+      <div class="product-closeimage" @click="hideModal">
         <i class="fas fa-times"></i>
       </div>
       <div></div>
@@ -33,24 +33,31 @@
 export default {
   data() {
     return {
-      product: this.clickedProduct,
+      product: this.clickedProduct
     };
   },
 
   computed: {
+  prodImage () {
+    return {
+      ...this.clickedProduct, 
+      src: this.clickedProduct.imgFile && require(`../assets/${this.clickedProduct.imgFile}`)
+    }
+},
     clickedProduct() {
       return this.$store.state.activeProduct;
-    },
+    }
   },
 
   methods: {
-    handleClick() {
+    hideModal() {
+      this.$emit("hideModal");
       this.$store.commit("changeProductModalStatus");
     },
     addToCart() {
       this.$store.dispatch("addProductToCart", this.product);
-    },
-  },
+    }
+  }
 };
 </script>
 

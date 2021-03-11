@@ -1,6 +1,7 @@
 <template>
   <div id="product-holder">
     <ProductsItemHolder
+      @viewProduct="showModal"
       v-for="product in products"
       :key="product._id"
       :product="product"
@@ -14,21 +15,25 @@
 import ProductsItemHolder from "@/components/ProductsItemHolder.vue";
 
 export default {
-  props: {
+  props: {  
     editMode: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-
+  methods: {
+    showModal() {
+      this.$emit("showModal");
+    }
+  },
   components: {
-    ProductsItemHolder,
+    ProductsItemHolder
   },
   computed: {
     products() {
       return this.$store.state.allProducts;
-    },
-  },
+    }
+  }
 };
 </script>
 

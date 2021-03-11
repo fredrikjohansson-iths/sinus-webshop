@@ -296,16 +296,12 @@ export default createStore({
       const array = state.shoppingCart.filter((item) => item._id !== id);
       commit("setShoppingCart", array);
     },
-
-    // changeProductModalStatus({ commit }) {
-    //   commit("changeProductModalStatus");
-    // },
   },
   modules: { a: moduleSession, b: moduleApi },
   // plugins: [createPersistedState],
   plugins: [
     createPersistedState({
-      paths: ['moduleSession'],
+      paths: ["moduleSession"],
       getState: (key) => Cookies.getJSON(key),
       setState: (key, state) =>
         Cookies.set(key, state, { expires: inFiveMinutes }),

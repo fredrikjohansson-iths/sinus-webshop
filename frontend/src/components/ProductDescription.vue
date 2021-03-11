@@ -55,7 +55,7 @@ export default {
       this.$store.commit("changeProductModalStatus");
     },
     addToCart() {
-      this.$store.dispatch("addProductToCart", this.product);
+      this.$store.dispatch("addProductToCart", this.clickedProduct);
     }
   }
 };

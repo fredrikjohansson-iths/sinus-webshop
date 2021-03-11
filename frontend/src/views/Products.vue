@@ -1,8 +1,8 @@
 <template>
   <div id="product-view">
     <h1>Gear up! Start here.</h1>
-    <ProductsContainer />
-    <ProductDescription v-if="modalStatus" />
+    <ProductsContainer @showModal="toggleModal" />
+    <ProductDescription @hideModal="toggleModal" v-show="showModal" />
   </div>
 </template>
 
@@ -10,23 +10,49 @@
 import ProductsContainer from "@/components/ProductsContainer.vue";
 import ProductDescription from "@/components/ProductDescription.vue";
 
+
 export default {
+
   computed: {
     modalStatus() {
       return this.$store.state.productModalStatus;
-    },
+    }
+  },
+  data() {
+    return {
+      showModal: false
+    };
   },
   mounted() {
     this.$store.dispatch("getProducts");
   },
+  methods: {
+    toggleModal() {
+      if (!this.showModal) {
+        this.showModal = true;
+      } else {
+        this.showModal = false;
+      }
+      console.log(this.showModal)
+    }
+  },
   components: {
     ProductsContainer,
-    ProductDescription,
-  },
+    ProductDescription
+  }
 };
 </script>
 
 <style scoped>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+ .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 #product-view {
   width: 100vw;
   background-color: rgb(243, 239, 239);
